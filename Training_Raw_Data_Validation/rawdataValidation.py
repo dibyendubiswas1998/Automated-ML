@@ -59,6 +59,7 @@ class Raw_Data_Validation:
         except Exception as e:
             file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
             self.logger_object.log(file, f"Error: {str(e)}")
+            file.close()
             raise e
 
 
@@ -89,6 +90,7 @@ class Raw_Data_Validation:
         except Exception as e:
             file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
             self.logger_object.log(file, f"Error: {e}")
+            file.close()
             raise e
 
 
@@ -121,6 +123,42 @@ class Raw_Data_Validation:
         except Exception as e:
             file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
             self.logger_object.log(file, f"Error: {e}")
+            file.close()
+            raise e
+
+
+
+    def IsMissingValuePresent(self, data):
+        """
+            Method Name: IsMissingValuePresent
+            Description: This method helps to check is their any missing value present or not.
+
+            Output: get the missing columns
+            On Failure: Raise Error
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            missing_dataCol = []
+            not_missing_dataCol = []
+            for col in data.columns:
+                if data[col].isnull().sum() > 0:
+                    missing_dataCol.append(col)
+                else:
+                    not_missing_dataCol.append(col)
+
+            self.logger_object.log(file, f"Missing value are present at {missing_dataCol}")
+            self.logger_object.log(file, f"Missing values are not present at {not_missing_dataCol}")
+            file.close()
+            return missing_dataCol, not_missing_dataCol
+
+        except Exception as e:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {e}")
+            file.close()
             raise e
 
 
@@ -128,11 +166,11 @@ class Raw_Data_Validation:
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris.csv", 'csv', separator=None)
+    data = Data_Collection().get_data("../Raw Data/iris.csv", 'csv', separator=',')
     print(data)
 
     validation = Raw_Data_Validation()
-    row, col = validation.GetLengthofData(data)
-    print(row, col)
+    mcol, nmcol = validation.IsMissingValuePresent(data)
+    print(mcol, nmcol)
 
 
