@@ -75,10 +75,11 @@ class Raw_Data_Validation:
             if len(self.categorical) > 0:
                 self.logger_object.log(file, f"Get all the Categorical data type: {self.categorical}")
                 file.close()
+                return self.categorical
             else:
                 self.logger_object.log(file, "Categorical data are not present in dataset")
                 file.close()
-            return self.categorical
+                return False
 
         except Exception as e:
             file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
