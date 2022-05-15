@@ -92,6 +92,38 @@ class Raw_Data_Validation:
             raise e
 
 
+    def GetLengthofData(self, data):
+        """
+            Method Name: GetLengthofData
+            Description: This method helps to get the length (length of row & column) of the data.
+
+            Output: length of data
+            On Failure: Raise Error
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+
+        """
+        try:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.row, self.col = data.shape[0], data.shape[1]
+            if self.row > 0 or self.col > 0:
+                self.logger_object.log(file, f"Get the length of data, rows:  {self.row}, columns: {self.col}")
+                file.close()
+                return self.row, self.col
+
+            else:
+                self.logger_object.log(file, "No data is present")
+                file.close()
+                return False
+
+        except Exception as e:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {e}")
+            raise e
+
+
 
 
 if __name__ == '__main__':
@@ -100,7 +132,7 @@ if __name__ == '__main__':
     print(data)
 
     validation = Raw_Data_Validation()
-    categorycal = validation.GetCatrgorycalFeatures(data)
-    print(categorycal)
+    row, col = validation.GetLengthofData(data)
+    print(row, col)
 
 
