@@ -11,8 +11,7 @@ class Data_Collection:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self, file_object):
-        self.file_object = file_object
+    def __init__(self):
         self.logger_object = App_Logger()
 
     def get_data(self, path, format, separator):
@@ -27,25 +26,28 @@ class Data_Collection:
             Revisions: None
          """
         try:
-            self.logger_object.log(self.file_object, "Start to load the data")
+            file = open("../Executions_Logs/Training_Logs/Genereal_Logs.txt", 'a+')
+            self.logger_object.log(file, "Start to load the data")
             if format.lower() in 'csv':
                 self.data = pd.read_csv(path, sep=separator)
-                # print(self.data)
+                print(self.data)
 
-                self.logger_object.log(self.file_object, 'Data is Successfully load')
+                self.logger_object.log(file, 'Data is Successfully load')
                 return self.data
             else:
                 self.logger_object.log(self.file_object, 'Data is not load Successfully')
+            file.close()
 
         except Exception as e:
-            self.logger_object.log(self.file_object, f'Data is not Successfully load: {e}')
+            file = open("../Executions_Logs/Training_Logs/Genereal_Logs.txt", 'a+')
+            self.logger_object.log(file, f'Data is not Successfully load: {e}')
+            file.close()
             print(e)
 
 
 if __name__ == '__main__':
-    file = open("../Executions_Logs/Training_Logs/Genereal_Logs.txt", 'a+')
     path = "../Raw Data/winequality-red.csv"
     format = 'CSV'
-    separator = '/t'
-    datacol = Data_Collection(file)
+    separator = ';'
+    datacol = Data_Collection()
     datacol.get_data(path, format, separator)
