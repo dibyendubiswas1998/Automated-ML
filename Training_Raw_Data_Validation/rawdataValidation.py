@@ -47,9 +47,14 @@ class Raw_Data_Validation:
         try:
             file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
             self.neumericdata = data._get_numeric_data().columns
-            self.logger_object.log(file, f"Get all Neumeric data type {self.neumericdata}")
-            file.close()
-            return self.neumericdata
+            if len(self.neumericdata) > 0:
+                self.logger_object.log(file, f"Get all Neumeric data type {self.neumericdata}")
+                file.close()
+                return self.neumericdata
+            else:
+                self.logger_object.log(file, "Neumerical features are not found in dataset")
+                file.close()
+                return False
 
         except Exception as e:
             file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
