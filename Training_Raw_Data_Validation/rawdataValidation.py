@@ -57,15 +57,44 @@ class Raw_Data_Validation:
             raise e
 
 
+    def GetCatrgorycalFeatures(self, data):
+        """
+            Method Name: GetCatrgorycalFeatures
+            Description: This method helps to get all the categorical features.
+
+            Output: categorical features
+            On Failure: Raise Error
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.categorical = data.dtypes[data.dtypes == 'object'].index
+            if len(self.categorical) > 0:
+                self.logger_object.log(file, f"Get all the Categorical data type: {self.categorical}")
+                file.close()
+            else:
+                self.logger_object.log(file, "Categorical data are not present in dataset")
+                file.close()
+            return self.categorical
+
+        except Exception as e:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {e}")
+            raise e
+
+
 
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/winequality-red.csv", 'csv', ';')
+    data = Data_Collection().get_data("../Raw Data/iris.csv", 'csv', separator=None)
     print(data)
 
     validation = Raw_Data_Validation()
-    neumericdata = validation.GetNeumericalFeatures(data)
-    print(neumericdata)
+    categorycal = validation.GetCatrgorycalFeatures(data)
+    print(categorycal)
 
 
