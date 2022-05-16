@@ -1,4 +1,5 @@
 from Application_Log.logger import App_Logger
+from scipy import stats
 import numpy as np
 import pandas as pd
 import os
@@ -195,16 +196,53 @@ class Raw_Data_Validation:
             file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
-            raise e
+            raise ex
+
+
+    def IsOutliersPresent(self, data, cols, threshold):
+        """
+            Method Name: IsOutliersPresent
+            Description: This method helps to check is outliers present in a particular column.
+                         Here I use Z-Score method.
+
+            Output: True (if present), False (if not present)
+            On Failure: Raise Error
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+
+        """
+        try:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            outliers_col = []
+            for col in cols:
+                z = np.abs(stats.zscore(data[col]))
+                outliers_index = np.where(pd.DataFrame(z) > threshold)
+                if len(outliers_index[0]) > 0:
+                    outliers_col.append(col)
+                    self.logger_object.log(file, f"Outliers are present at: {col} {outliers_index[0]}")
+                else:
+                    self.logger_object.log(file, f"Outliers are not present in dataset at: {col} {outliers_index[0]}")
+            file.close()
+            return outliers_col
+
+        except Exception as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
+
+
 
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris1.csv", 'csv', separator=',')
+    data = Data_Collection().get_data("../Raw Data/boston.csv", 'csv', separator=',')
     print(data)
 
     validation = Raw_Data_Validation()
-    result = validation.IsDataImbalanced(data, 'species')
+    result = validation.IsOutliersPresent(data, ['DIS', 'RM', 'B', 'NOX'], 3)
     print(result)
 
 
