@@ -41,4 +41,4 @@ used automated ML because:
 
 
 ## ER Diagram:
-![screen 6](https://user-images.githubusercontent.com/67157274/168526290-f8f54cfc-f18c-44d3-855a-cb09c8a67657.PNG)
+![screen 6](https://user-images.githubusercontent.com/67157274/168527055-f0c75364-f12f-4cab-ac4c-0b4b1329868c.PNG)
