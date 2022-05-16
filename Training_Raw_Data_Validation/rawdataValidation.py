@@ -6,6 +6,7 @@ import os
 import re
 import json
 import shutil
+from os import listdir
 
 class Raw_Data_Validation:
     """
@@ -341,6 +342,48 @@ class Raw_Data_Validation:
             raise ex
 
 
+    def ValidateMissingValuesInWholeColumn(self):
+        """
+            Method Name: ValidateMissingValuesInWholeColumn
+            Description: This function validates if any column in the csv file has all values missing.
+                         If all the values are missing, the file is not suitable for processing.
+                         SUch files are moved to bad raw data.
+
+            Output: Drop column
+            On Failure: Raise Error
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            for file in listdir("Training_Raw_Files_Validate/Good_Raw_Data/"):
+                data = pd.read_csv("Training_Raw_Files_Validate/Good_Raw_Data/" + file)
+                count = 0
+
+                for column in data.columns:
+                    if (len(data[column]) - data[column].count()) == len(data[column]):
+                        count += 1
+                        shutil.move("Training_Raw_Files_Validate/Good_Raw_Data/" + file,
+                                    "Training_Raw_Files_Validate/Good_Raw_Data/")
+                        self.logger.log(file, "Invalid Column Length for the file!! File moved to Bad Raw Folder :: %s" % file)
+                        break
+
+                if count == 0:
+                    data.to_csv("Training_Raw_Files_Validate/Good_Raw_Data/" + file, index=None, header=True)
+
+        except OSError as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
+
+        except Exception as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
 
 
 if __name__ == '__main__':
