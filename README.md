@@ -1,4 +1,4 @@
-# Project Name: Automated ML
+<h1 style="color:blue">Project Name: Automated ML</h1>
 
 
 ## Project Description:
