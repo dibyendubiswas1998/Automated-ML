@@ -17,6 +17,7 @@ class Raw_Data_Validation:
         Revisions: None
     """
     def __init__(self):
+        self.file_path = "../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"
         self.logger_object = App_Logger()
 
     def CreateManualRegex(self):
@@ -47,7 +48,7 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.neumericdata = data._get_numeric_data().columns
             if len(self.neumericdata) > 0:
                 self.logger_object.log(file, f"Get all Neumeric data type {self.neumericdata}")
@@ -59,7 +60,7 @@ class Raw_Data_Validation:
                 return False
 
         except Exception as e:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {str(e)}")
             file.close()
             raise e
@@ -78,7 +79,7 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.categorical = data.dtypes[data.dtypes == 'object'].index
             if len(self.categorical) > 0:
                 self.logger_object.log(file, f"Get all the Categorical data type: {self.categorical}")
@@ -90,7 +91,7 @@ class Raw_Data_Validation:
                 return False
 
         except Exception as e:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {e}")
             file.close()
             raise e
@@ -110,7 +111,7 @@ class Raw_Data_Validation:
 
         """
         try:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.row, self.col = data.shape[0], data.shape[1]
             if self.row > 0 or self.col > 0:
                 self.logger_object.log(file, f"Get the length of data, rows:  {self.row}, columns: {self.col}")
@@ -123,7 +124,7 @@ class Raw_Data_Validation:
                 return False
 
         except Exception as e:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {e}")
             file.close()
             raise e
@@ -143,7 +144,7 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             missing_dataCol = []
             not_missing_dataCol = []
             for col in data.columns:
@@ -152,13 +153,18 @@ class Raw_Data_Validation:
                 else:
                     not_missing_dataCol.append(col)
 
-            self.logger_object.log(file, f"Missing value are present at {missing_dataCol}")
-            self.logger_object.log(file, f"Missing values are not present at {not_missing_dataCol}")
-            file.close()
-            return missing_dataCol, not_missing_dataCol
+            if len(missing_dataCol) > 0:
+                self.logger_object.log(file, f"Missing value are present at {missing_dataCol}")
+                file.close()
+                return missing_dataCol
+            else:
+                self.logger_object.log(file, "Missing value are not present in dataset")
+                file.close()
+                return False
+
 
         except Exception as e:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {e}")
             file.close()
             raise e
@@ -177,7 +183,7 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Check dataset is balanced or not: {dict(data[y].value_counts())}")
             vals = []
             for key, value in dict(data[y].value_counts()).items():
@@ -194,7 +200,7 @@ class Raw_Data_Validation:
             file.close()
 
         except Exception as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
@@ -215,7 +221,7 @@ class Raw_Data_Validation:
 
         """
         try:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             outliers_col = []
             for col in cols:
                 z = np.abs(stats.zscore(data[col]))
@@ -229,7 +235,7 @@ class Raw_Data_Validation:
             return outliers_col
 
         except Exception as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
@@ -250,7 +256,7 @@ class Raw_Data_Validation:
             Revisions: None.
         """
         try:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             path = os.path.join("../Training_Raw_Files_Validate/", "Good_Raw_Data/")
             if not os.path.isdir(path):
                 os.makedirs(path)
@@ -263,13 +269,13 @@ class Raw_Data_Validation:
             file.close()
 
         except OSError as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
 
         except Exception as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
@@ -292,18 +298,18 @@ class Raw_Data_Validation:
             path = "../Training_Raw_Files_Validate/"
             if os.path.isdir(path + "Good_Raw_Data/"):
                 shutil.rmtree(path + "Good_Raw_Data/")
-                file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+                file = open(self.file_path, 'a+')
                 self.logger_object.log(file, "Good_Raw_Data directory delete successfully")
                 file.close()
 
         except OSError as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
 
         except Exception as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
@@ -325,18 +331,18 @@ class Raw_Data_Validation:
             path = "../Training_Raw_Files_Validate/"
             if os.path.isdir(path + "Bad_Raw_Data/"):
                 shutil.rmtree(path + "Bad_Raw_Data/")
-                file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+                file = open(self.file_path, 'a+')
                 self.logger_object.log(file, "Bad_Raw_Data directory delete successfully")
                 file.close()
 
         except OSError as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
 
         except Exception as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
@@ -357,7 +363,7 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             for file in listdir("Training_Raw_Files_Validate/Good_Raw_Data/"):
                 data = pd.read_csv("Training_Raw_Files_Validate/Good_Raw_Data/" + file)
                 count = 0
@@ -374,13 +380,13 @@ class Raw_Data_Validation:
                     data.to_csv("Training_Raw_Files_Validate/Good_Raw_Data/" + file, index=None, header=True)
 
         except OSError as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
 
         except Exception as ex:
-            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f"Error: {ex}")
             file.close()
             raise ex
@@ -392,9 +398,6 @@ if __name__ == '__main__':
     print(data)
 
     validation = Raw_Data_Validation()
-    validation.CreateDirectoryGoodBadData()
-    # validation.DeleteExistingGoodRawDataTrainingFolder()
-    # validation.DeleteExistingBadRawDataTrainingFolder()
-    # print(result)
+    
 
 
