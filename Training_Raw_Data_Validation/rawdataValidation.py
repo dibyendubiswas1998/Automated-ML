@@ -235,6 +235,46 @@ class Raw_Data_Validation:
 
 
 
+    def CreateDirectoryGoodBadData(self):
+        """
+            Method Name: CreateDirectoryGoodBadData
+            Description: This method helps to create Good_Raw_Data & Bad_Raw_Data Data directory to store good and bad data
+                         respectively .
+
+            Output: create Good_Raw_Data, Bad_Raw_Data directory.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None.
+        """
+        try:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            path = os.path.join("../Training_Raw_Files_Validate/", "Good_Raw_Data/")
+            if not os.path.isdir(path):
+                os.makedirs(path)
+                self.logger_object.log(file, "Good_Raw_Data directory is created")
+
+            path = os.path.join("../Training_Raw_Files_Validate/", "Bad_Raw_Data/")
+            if not os.path.isdir(path):
+                os.makedirs(path)
+                self.logger_object.log(file, "Bad_Raw_Data directory is created")
+            file.close()
+
+        except OSError as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
+
+        except Exception as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
+
+
+
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
@@ -242,7 +282,7 @@ if __name__ == '__main__':
     print(data)
 
     validation = Raw_Data_Validation()
-    result = validation.IsOutliersPresent(data, ['DIS', 'RM', 'B', 'NOX'], 3)
-    print(result)
+    result = validation.CreateDirectoryGoodBadData()
+    # print(result)
 
 
