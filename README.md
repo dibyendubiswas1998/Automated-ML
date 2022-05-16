@@ -26,3 +26,10 @@ used automated ML because:
 
     ● Provide agile problem-solving, etc.
 
+
+## Data Flow Diagram:
+### At Level 0:
+<img src="ScreenShorts/screen%201.PNG" height="250"  />
+
+
+
