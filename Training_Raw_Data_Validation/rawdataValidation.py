@@ -273,6 +273,73 @@ class Raw_Data_Validation:
             file.close()
             raise ex
 
+    def DeleteExistingGoodRawDataTrainingFolder(self):
+        """
+            Method Name: DeleteExistingGoodRawDataTrainingFolder
+            Description: This method deletes the directory made to store the Good Data
+                         after loading the data in the table. Once the good files are
+                         loaded in the DB,deleting the directory ensures space optimization.
+
+            Output: None
+            On Failure: OSError
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            path = "../Training_Raw_Files_Validate/"
+            if os.path.isdir(path + "Good_Raw_Data/"):
+                shutil.rmtree(path + "Good_Raw_Data/")
+                file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+                self.logger_object.log(file, "Good_Raw_Data directory delete successfully")
+                file.close()
+
+        except OSError as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
+
+        except Exception as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
+
+
+    def DeleteExistingBadRawDataTrainingFolder(self):
+        """
+            Method Name: DeleteExistingBadRawDataTrainingFolder
+            Description: This method deletes the directory made to store the bad Data.
+
+            Output: None
+            On Failure: OSError
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            path = "../Training_Raw_Files_Validate/"
+            if os.path.isdir(path + "Bad_Raw_Data/"):
+                shutil.rmtree(path + "Bad_Raw_Data/")
+                file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+                self.logger_object.log(file, "Bad_Raw_Data directory delete successfully")
+                file.close()
+
+        except OSError as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
+
+        except Exception as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise ex
+
 
 
 
@@ -282,7 +349,9 @@ if __name__ == '__main__':
     print(data)
 
     validation = Raw_Data_Validation()
-    result = validation.CreateDirectoryGoodBadData()
+    validation.CreateDirectoryGoodBadData()
+    # validation.DeleteExistingGoodRawDataTrainingFolder()
+    # validation.DeleteExistingBadRawDataTrainingFolder()
     # print(result)
 
 
