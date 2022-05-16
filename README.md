@@ -31,13 +31,9 @@ used automated ML because:
 ### At Level 0:
 ![screen 1](https://user-images.githubusercontent.com/67157274/168523151-a3ae2823-36c8-466e-8932-292505092a04.PNG)
 
+
 ### At Level 1:
 ![screen 2](https://user-images.githubusercontent.com/67157274/168525729-9556b249-a15f-4fe7-98f7-6aeaa88f92db.PNG)
-
-### At Level 2:
-![screen 3](https://user-images.githubusercontent.com/67157274/168525907-15b722e7-d7e1-428f-a4b2-c86b7c4c1bcd.PNG)
-![screen 4](https://user-images.githubusercontent.com/67157274/168525914-abcac6ee-a1df-486b-a4ff-e25965703d5c.PNG)
-![screen 5](https://user-images.githubusercontent.com/67157274/168525918-95648b9d-e5ea-4472-99e9-496b42b9586e.PNG)
 
 
 ## ER Diagram:
