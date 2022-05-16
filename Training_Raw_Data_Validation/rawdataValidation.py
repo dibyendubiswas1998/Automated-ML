@@ -162,15 +162,49 @@ class Raw_Data_Validation:
             raise e
 
 
+    def IsDataImbalanced(self, data, y):
+        """
+            Method Name: IsDataImbalanced
+            Description: This method helps to check is data imbalanced or not.
+
+            Output: True (if not balanced), False (if balanced)
+            On Failure: Raise Error
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Check dataset is balanced or not: {dict(data[y].value_counts())}")
+            vals = []
+            for key, value in dict(data[y].value_counts()).items():
+                vals.append(value)
+            for i in range(len(vals)):
+                if vals[i] == vals[i+1]:
+                    self.logger_object.log(file, 'Dataset is balanced')
+                    return True
+                    break
+                else:
+                    self.logger_object.log(file, 'Dataset is not balanced')
+                    return False
+                    break
+            file.close()
+
+        except Exception as ex:
+            file = open("../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt", 'a+')
+            self.logger_object.log(file, f"Error: {ex}")
+            file.close()
+            raise e
 
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris.csv", 'csv', separator=',')
+    data = Data_Collection().get_data("../Raw Data/iris1.csv", 'csv', separator=',')
     print(data)
 
     validation = Raw_Data_Validation()
-    mcol, nmcol = validation.IsMissingValuePresent(data)
-    print(mcol, nmcol)
+    result = validation.IsDataImbalanced(data, 'species')
+    print(result)
 
 
