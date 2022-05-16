@@ -12,6 +12,7 @@ class Data_Collection:
         Revisions: None
     """
     def __init__(self):
+        self.file_path = "../Executions_Logs/Training_Logs/Genereal_Logs.txt"
         self.logger_object = App_Logger()
 
     def get_data(self, path, format, separator):
@@ -26,12 +27,9 @@ class Data_Collection:
             Revisions: None
          """
         try:
-            file = open("../Executions_Logs/Training_Logs/Genereal_Logs.txt", 'a+')
-            self.logger_object.log(file, "Start to load the data")
+            file = open(self.file_path, 'a+')
             if format.lower() in 'csv':
                 self.data = pd.read_csv(path, sep=separator)
-                print(self.data)
-
                 self.logger_object.log(file, 'Data is Successfully load')
                 return self.data
             else:
@@ -39,7 +37,7 @@ class Data_Collection:
             file.close()
 
         except Exception as e:
-            file = open("../Executions_Logs/Training_Logs/Genereal_Logs.txt", 'a+')
+            file = open(self.file_path, 'a+')
             self.logger_object.log(file, f'Data is not Successfully load: {e}')
             file.close()
             print(e)
@@ -50,4 +48,4 @@ if __name__ == '__main__':
     format = 'CSV'
     separator = ';'
     datacol = Data_Collection()
-    datacol.get_data(path, format, separator)
+    print(datacol.get_data(path, format, separator))
