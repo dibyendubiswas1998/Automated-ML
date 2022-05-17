@@ -57,7 +57,36 @@ class KMeans_Clustering:
             self.logger_object.log(file, f"Error is: {ex}")
             file.close()
             raise ex
-        
+
+    def ToCreateCluster(self, data, no_cluster):
+        """
+            Method Name: ToCreateCluster
+            Description: This method helpa to create the clusters
+
+            Output: datafram with cluster
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            kmeans = KMeans(n_clusters=no_cluster, init='k-means++', random_state=101)
+            y_kmeans = kmeans.fit_predict(data)
+            data['cluster_label'] = y_kmeans
+            self.logger_object.log(file, "Successfully create the clusters & labeled the cluster")
+            file.close()
+            return data
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+
+
+
 
 
 
@@ -71,3 +100,8 @@ if __name__ == '__main__':
     kn = clus.Elbow_Method(data)
     print(kn)
 
+    data = clus.ToCreateCluster(data, kn)
+    print(data.head(30))
+    print(data[data['cluster_label'] == 1])
+    print(data[data['cluster_label'] == 2])
+    
