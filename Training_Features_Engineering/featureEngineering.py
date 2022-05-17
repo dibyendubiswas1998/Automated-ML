@@ -150,6 +150,6 @@ if __name__ == '__main__':
     print("Before drop the duplicate values:  ", data.shape)
 
     featureEng = Feature_Engineerings()
-    ln = featureEng.ToMappingOutputCol(data, 'species')
-    print(ln.head(20))
+
+
 
