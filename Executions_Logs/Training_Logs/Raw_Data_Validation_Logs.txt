@@ -1,0 +1,238 @@
+2022-05-15/20:45:46		Get all Neumeric data type Index(['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar',
+       'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density',
+       'pH', 'sulphates', 'alcohol', 'quality'],
+      dtype='object')
+2022-05-15/21:08:08		Get all Neumeric data type Index(['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar',
+       'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density',
+       'pH', 'sulphates', 'alcohol', 'quality'],
+      dtype='object')
+2022-05-15/21:17:53		Error: 'Raw_Data_Validation' object has no attribute 'neumericdata'
+2022-05-15/21:19:32		Error: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2022-05-15/21:20:15		Error: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2022-05-15/21:21:33		Error: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2022-05-15/21:22:04		Categorical data are not present in dataset
+2022-05-15/21:22:44		Get all Categorical data type sepal_length,sepal_width,petal_length,petal_width,species    object
+dtype: object
+2022-05-15/21:25:37		Get all Categorical data type     sepal_length,sepal_width,petal_length,petal_width,species
+0                               5.1,3.5,1.4,0.2,setosa       
+1                               4.9,3.0,1.4,0.2,setosa       
+2                               4.7,3.2,1.3,0.2,setosa       
+3                               4.6,3.1,1.5,0.2,setosa       
+4                               5.0,3.6,1.4,0.2,setosa       
+..                                                 ...       
+145                          6.7,3.0,5.2,2.3,virginica       
+146                          6.3,2.5,5.0,1.9,virginica       
+147                          6.5,3.0,5.2,2.0,virginica       
+148                          6.2,3.4,5.4,2.3,virginica       
+149                          5.9,3.0,5.1,1.8,virginica       
+
+[150 rows x 1 columns]
+2022-05-15/21:26:07		Get all Categorical data type     sepal_length,sepal_width,petal_length,petal_width,species
+0                               5.1,3.5,1.4,0.2,setosa       
+1                               4.9,3.0,1.4,0.2,setosa       
+2                               4.7,3.2,1.3,0.2,setosa       
+3                               4.6,3.1,1.5,0.2,setosa       
+4                               5.0,3.6,1.4,0.2,setosa       
+..                                                 ...       
+145                          6.7,3.0,5.2,2.3,virginica       
+146                          6.3,2.5,5.0,1.9,virginica       
+147                          6.5,3.0,5.2,2.0,virginica       
+148                          6.2,3.4,5.4,2.3,virginica       
+149                          5.9,3.0,5.1,1.8,virginica       
+
+[150 rows x 1 columns]
+2022-05-15/21:26:42		Get all Categorical data type        species
+0       setosa
+1       setosa
+2       setosa
+3       setosa
+4       setosa
+..         ...
+145  virginica
+146  virginica
+147  virginica
+148  virginica
+149  virginica
+
+[150 rows x 1 columns]
+2022-05-15/21:27:15		Get all Categorical data type      sepal_length  sepal_width  petal_length  petal_width
+0             5.1          3.5           1.4          0.2
+1             4.9          3.0           1.4          0.2
+2             4.7          3.2           1.3          0.2
+3             4.6          3.1           1.5          0.2
+4             5.0          3.6           1.4          0.2
+..            ...          ...           ...          ...
+145           6.7          3.0           5.2          2.3
+146           6.3          2.5           5.0          1.9
+147           6.5          3.0           5.2          2.0
+148           6.2          3.4           5.4          2.3
+149           5.9          3.0           5.1          1.8
+
+[150 rows x 4 columns]
+2022-05-15/21:27:40		Get all Categorical data type species    object
+dtype: object
+2022-05-15/21:31:24		Get all Categorical data type: Index(['species'], dtype='object')
+2022-05-15/21:56:06		Error: object of type 'int' has no len()
+2022-05-15/21:59:19		Get the length of data, rows:  150, columns: 5
+2022-05-15/22:27:08		Missing values are not present at sepal_length
+2022-05-15/22:28:41		Missing values are not present at sepal_length
+2022-05-15/22:29:27		Missing values are not present at sepal_length
+2022-05-15/22:31:29		Missing values are not present at sepal_length
+2022-05-15/22:31:59		Missing values are not present at sepal_length
+2022-05-15/22:34:28		Missing values are present at sepal_length
+2022-05-15/22:36:02		Missing values are present at sepal_length
+2022-05-15/22:45:20		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:46:07		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:46:40		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:47:09		Missing values are not present at ['petal_length', 'petal_width', 'species']
+2022-05-15/22:47:24		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:48:14		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:49:05		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:50:02		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:50:10		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:50:48		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:54:53		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:56:35		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-15/22:56:35		Missing values are not present at ['petal_length', 'petal_width', 'species']
+2022-05-16/08:11:29		Check dataset is balanced or not: {'setosa': 65, 'versicolor': 45, 'virginica': 40}
+2022-05-16/08:11:29		Dataset is not balanced
+2022-05-16/08:34:18		Outliers are present at: [351 352 353 354 355]
+2022-05-16/08:38:48		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-16/08:38:52		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-16/08:39:34		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-16/08:40:38		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-16/08:40:51		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:45:36		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:45:36		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+
+2022-05-16/08:46:14		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:46:14		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-16/08:46:14		Outliers are not present in dataset at: NOX []
+2022-05-16/08:47:27		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:48:47		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:48:47		Error: I/O operation on closed file.
+2022-05-16/08:49:24		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:49:24		Error: I/O operation on closed file.
+2022-05-16/08:49:56		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:49:56		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-16/08:49:56		Outliers are not present in dataset at: NOX []
+2022-05-16/08:50:43		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-16/08:50:43		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:50:43		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-16/08:50:43		Outliers are not present in dataset at: NOX []
+2022-05-16/08:51:02		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-16/08:51:02		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/08:51:02		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-16/08:51:02		Outliers are not present in dataset at: NOX []
+2022-05-16/09:09:52		Good_Raw_Data directory is created
+2022-05-16/09:09:52		Bad_Raw_Data directory is created
+2022-05-16/09:20:19		Good_Raw_Data directory delete successfully
+2022-05-16/09:24:39		Good_Raw_Data directory is created
+2022-05-16/09:24:52		Good_Raw_Data directory delete successfully
+2022-05-16/09:24:52		Bad_Raw_Data directory delete successfully
+2022-05-16/09:25:20		Good_Raw_Data directory is created
+2022-05-16/09:25:20		Bad_Raw_Data directory is created
+---------------------------------------------------------------------------------------
+2022-05-16/09:57:24		Get all Neumeric data type Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-16/09:57:24		Categorical data are not present in dataset
+2022-05-16/09:57:24		Get the length of data, rows:  506, columns: 13
+2022-05-16/10:02:14		Missing value are present at []
+2022-05-16/10:02:14		Missing values are not present at ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
+2022-05-16/10:02:14		Error: string indices must be integers
+2022-05-16/10:03:45		Missing value are present at []
+2022-05-16/10:03:45		Missing values are not present at ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
+2022-05-16/10:03:45		Outliers are present at: ZN [ 55  56  57 199 200 201 202 203 204 256 283 284 347 353]
+2022-05-16/10:03:45		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-16/10:03:45		Outliers are not present in dataset at: NOX []
+2022-05-16/10:03:45		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/10:03:45		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-16/10:03:45		Outliers are not present in dataset at: TAX []
+2022-05-16/10:06:18		Error: I/O operation on closed file.
+================================================================
+
+
+
+
+2022-05-16/10:07:24		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-16/10:08:52		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-16/10:09:09		Missing value are not present in dataset
+2022-05-16/10:09:49		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-16/10:09:49		Check dataset is balanced or not: {'setosa': 65, 'versicolor': 45, 'virginica': 40}
+2022-05-16/10:09:49		Dataset is not balanced
+2022-05-16/10:10:08		Missing value are present at ['sepal_length', 'sepal_width']
+2022-05-16/10:10:08		Check dataset is balanced or not: {'setosa': 65, 'versicolor': 45, 'virginica': 40}
+2022-05-16/10:10:08		Dataset is not balanced
+2022-05-16/10:10:38		Missing value are not present in dataset
+2022-05-16/10:10:38		Outliers are present at: ZN [ 55  56  57 199 200 201 202 203 204 256 283 284 347 353]
+2022-05-16/10:10:38		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-16/10:10:38		Outliers are not present in dataset at: NOX []
+2022-05-16/10:10:38		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-16/10:10:39		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-16/10:10:39		Outliers are not present in dataset at: TAX []
+2022-05-17/08:50:05		Outliers are present at: CRIM [380 398 404 405 410 414 418 427]
+2022-05-17/08:50:05		Outliers are present at: ZN [ 55  56  57 199 200 201 202 203 204 256 283 284 347 353]
+2022-05-17/08:50:05		Outliers are not present in dataset at: INDUS []
+2022-05-17/08:50:05		Outliers are present at: CHAS [142 152 154 155 160 162 163 208 209 210 211 212 216 218 219 220 221 222
+ 234 236 269 273 274 276 277 282 283 356 357 358 363 364 369 370 372]
+2022-05-17/08:50:05		Outliers are not present in dataset at: NOX []
+2022-05-17/08:50:05		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-17/08:50:05		Outliers are not present in dataset at: AGE []
+2022-05-17/08:50:05		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-17/08:50:05		Outliers are not present in dataset at: RAD []
+2022-05-17/08:50:05		Outliers are not present in dataset at: TAX []
+2022-05-17/08:50:05		Outliers are not present in dataset at: PTRATIO []
+2022-05-17/08:50:05		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-17/08:50:05		Outliers are present at: LSTAT [141 373 374 412 414]
+2022-05-17/08:53:36		Outliers are present at: CRIM [380 398 404 405 410 414 418 427]
+2022-05-17/08:53:36		Outliers are present at: ZN [ 55  56  57 199 200 201 202 203 204 256 283 284 347 353]
+2022-05-17/08:53:36		Outliers are not present in dataset at: INDUS []
+2022-05-17/08:53:36		Outliers are present at: CHAS [142 152 154 155 160 162 163 208 209 210 211 212 216 218 219 220 221 222
+ 234 236 269 273 274 276 277 282 283 356 357 358 363 364 369 370 372]
+2022-05-17/08:53:36		Outliers are not present in dataset at: NOX []
+2022-05-17/08:53:36		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-17/08:53:36		Outliers are not present in dataset at: AGE []
+2022-05-17/08:53:36		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-17/08:53:36		Outliers are not present in dataset at: RAD []
+2022-05-17/08:53:36		Outliers are not present in dataset at: TAX []
+2022-05-17/08:53:36		Outliers are not present in dataset at: PTRATIO []
+2022-05-17/08:53:36		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-17/08:53:36		Outliers are present at: LSTAT [141 373 374 412 414]
+2022-05-17/08:54:03		Outliers are present at: CRIM [380 398 404 405 410 414 418 427]
+2022-05-17/08:54:03		Outliers are present at: ZN [ 55  56  57 199 200 201 202 203 204 256 283 284 347 353]
+2022-05-17/08:54:03		Outliers are not present in dataset at: INDUS []
+2022-05-17/08:54:03		Outliers are present at: CHAS [142 152 154 155 160 162 163 208 209 210 211 212 216 218 219 220 221 222
+ 234 236 269 273 274 276 277 282 283 356 357 358 363 364 369 370 372]
+2022-05-17/08:54:03		Outliers are not present in dataset at: NOX []
+2022-05-17/08:54:03		Outliers are present at: RM [225 257 262 364 365 367 374 406]
+2022-05-17/08:54:03		Outliers are not present in dataset at: AGE []
+2022-05-17/08:54:03		Outliers are present at: DIS [351 352 353 354 355]
+2022-05-17/08:54:03		Outliers are not present in dataset at: RAD []
+2022-05-17/08:54:03		Outliers are not present in dataset at: TAX []
+2022-05-17/08:54:03		Outliers are not present in dataset at: PTRATIO []
+2022-05-17/08:54:03		Outliers are present at: B [102 410 411 412 415 416 418 419 423 424 425 426 427 429 431 436 437 438
+ 445 450 454 455 456 457 466]
+2022-05-17/08:54:03		Outliers are present at: LSTAT [141 373 374 412 414]
+2022-05-17/08:54:03		Outliers are not present in dataset at: CRIM []
+2022-05-17/08:54:03		Outliers are not present in dataset at: ZN []
+2022-05-17/08:54:03		Outliers are not present in dataset at: INDUS []
+2022-05-17/08:54:03		Outliers are not present in dataset at: CHAS []
+2022-05-17/08:54:03		Outliers are not present in dataset at: NOX []
+2022-05-17/08:54:03		Outliers are not present in dataset at: RM []
+2022-05-17/08:54:03		Outliers are not present in dataset at: AGE []
+2022-05-17/08:54:03		Outliers are not present in dataset at: DIS []
+2022-05-17/08:54:03		Outliers are not present in dataset at: RAD []
+2022-05-17/08:54:03		Outliers are not present in dataset at: TAX []
+2022-05-17/08:54:03		Outliers are not present in dataset at: PTRATIO []
+2022-05-17/08:54:03		Outliers are not present in dataset at: B []
+2022-05-17/08:54:03		Outliers are not present in dataset at: LSTAT []

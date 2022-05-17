@@ -1,0 +1,33 @@
+2022-05-17/07:45:12		Handle the imbalanced data using Borderline-SMOTE
+2022-05-17/07:46:04		Handle the imbalanced data using Borderline-SMOTE
+2022-05-17/07:46:21		Handle the imbalanced data using Borderline-SMOTE
+2022-05-17/08:53:36		Error is: name 'z' is not defined
+2022-05-17/08:54:03		Successfully remove the outliers from data CRIM
+2022-05-17/08:54:03		Successfully remove the outliers from data ZN
+2022-05-17/08:54:03		Successfully remove the outliers from data CHAS
+2022-05-17/08:54:03		Successfully remove the outliers from data RM
+2022-05-17/08:54:03		Successfully remove the outliers from data DIS
+2022-05-17/08:54:03		Successfully remove the outliers from data B
+2022-05-17/08:54:03		Successfully remove the outliers from data LSTAT
+2022-05-17/09:13:14		Successfully drop the duplicates values
+2022-05-17/09:14:23		Before drop the duplicates values, the shape of data is (1626, 13)
+2022-05-17/09:14:23		After drop the duplicates values, the shape of data is (506, 13)
+2022-05-17/09:14:23		Successfully drop the duplicates values
+2022-05-17/10:25:10		In output column has ['setosa', 'versicolor', 'virginica'] categories.
+2022-05-17/10:25:10		Mapping operations is done successfully like this: {'setosa': 0, 'versicolor': 1, 'virginica': 2}
+2022-05-17/10:25:44		In output column has ['setosa', 'versicolor', 'virginica'] categories.
+2022-05-17/10:25:44		Mapping operations is done successfully like this: {'setosa': 0, 'versicolor': 1, 'virginica': 2}
+2022-05-17/10:26:54		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-17/10:26:54		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-17/10:27:11		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-17/10:27:11		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-17/10:27:29		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-17/10:27:29		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-17/10:29:58		In output column has ['versicolor', 'arko', 'dibyendu', 'ram', 'setosa', 'virginica', 'shyam', 'loly', 'poly'] categories.
+2022-05-17/10:29:58		Mapping operations is done successfully like this: {'versicolor': 0, 'arko': 1, 'dibyendu': 2, 'ram': 3, 'setosa': 4, 'virginica': 5, 'shyam': 6, 'loly': 7, 'poly': 8}
+2022-05-17/10:43:03		Error is: 'str' object has no attribute 'trim'
+2022-05-17/19:34:14		Error is: object of type 'NoneType' has no len()
+2022-05-17/19:36:10		Error is: object of type 'NoneType' has no len()
+2022-05-17/19:36:23		Error is: object of type 'NoneType' has no len()
+2022-05-17/19:39:02		Replace the missing value with mean value of None columns
+2022-05-17/19:41:31		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
