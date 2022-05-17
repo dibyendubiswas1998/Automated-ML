@@ -49,14 +49,114 @@ class Data_Transformation:
             raise ex
 
 
+    def ToLogTransformation(self, data, Xcols=None):
+        """
+            Method Name: ToLogTransformation
+            Description: This method helps to transform (using log) the data
+
+            Output: data (after logarithmic transformation)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            if len(Xcols) > 0:
+                for col in Xcols:
+                    data[col] = np.log(data[col])
+                self.logger_object.log(file, f"Log Tranformation perform in columns {Xcols}")
+                file.close()
+            else:
+                for col in data:
+                    data[col] = np.log(data[col])
+                self.logger_object.log(file, f"Log Tranformation perform in columns {Xcols}")
+                file.close()
+            return data
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+
+
+    def ToSquareRootTransformation(self, data, Xcols):
+        """
+            Method Name: ToSquareRootTransformation
+            Description: This method helps to transform (using square root) the data
+
+            Output: data (after square root transformation)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            if len(Xcols) > 0:
+                for col in Xcols:
+                    data[col] = np.sqrt(data[col])
+                self.logger_object.log(file, f"Square Root Tranformation perform in columns {Xcols}")
+                file.close()
+            else:
+                for col in data:
+                    data[col] = np.sqrt(data[col])
+                self.logger_object.log(file, f"Square Root Tranformation perform in columns {Xcols}")
+                file.close()
+            return data
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+
+    def ToBoxCoXTransformation(self, data, Xcols):
+        """
+            Method Name: ToBoxCoXTransformation
+            Description: This method helps to transform (using Box-Cox) the data
+
+            Output: data (after Box-Cox transformation)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            if len(Xcols) > 0:
+                for col in Xcols:
+                    data[col], parameter = stats.boxcox(data[col])
+                self.logger_object.log(file, f"Box-Cox Tranformation perform in columns {Xcols}")
+                file.close()
+            else:
+                for col in data:
+                    data[col], parameter = stats.boxcox(data[col])
+                self.logger_object.log(file, f"Box-Cox Tranformation perform in columns {Xcols}")
+                file.close()
+            return data
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+
+
+
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris1.csv", 'csv', separator=',')
+    data = Data_Collection().get_data("../Raw Data/iris2.csv", 'csv', separator=',')
     print(data.head(22))
 
     dataTrans = Data_Transformation()
-    data = dataTrans.ToReplaceMissingWithNull(data)
-    print("after replacing with NULL \n\n\n", data.head(30))
-    print(data.isnull().sum())
+    data = dataTrans.ToBoxCoXTransformation(data, ['sepal_length','sepal_width','petal_length','petal_width'])
+    print("after Log Transformation: \n\n\n", data.head(30))
+
 
