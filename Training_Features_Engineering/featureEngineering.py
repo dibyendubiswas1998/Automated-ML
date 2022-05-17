@@ -110,14 +110,46 @@ class Feature_Engineerings:
             file.close()
             raise ex
 
-    
+
+    def ToMappingOutputCol(self, data, ycol):
+        """
+            Method Name: ToMappingOutputCol
+            Description: This method helps to replace the categorical value to integer value.
+
+            Output: data (after remplace integer value)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            category = []
+            if data[ycol].dtypes not in ['int', 'int64', 'int32', 'float', 'float32', 'float64']:
+                for cate in data[ycol].unique().tolist():
+                    category.append(cate)
+            self.logger_object.log(file, f"In output column has {category} categories.")
+            value = list(range(len(data[ycol].unique())))
+            dictionary = dict(zip(category, value))
+            data[ycol] = data[ycol].map(dictionary)
+            self.logger_object.log(file, f"Mapping operations is done successfully like this: {dictionary}")
+            file.close()
+            return data
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/boston.csv", 'csv', separator=',')
+    data = Data_Collection().get_data("../Raw Data/iris2.csv", 'csv', separator=',')
     print("Before drop the duplicate values:  ", data.shape)
 
     featureEng = Feature_Engineerings()
-    data = featureEng.ToRemoveDuplicateValues(data)
-    print("After drop the duplicate values:  ", data.shape)
+    ln = featureEng.ToMappingOutputCol(data, 'species')
+    print(ln.head(20))
 
