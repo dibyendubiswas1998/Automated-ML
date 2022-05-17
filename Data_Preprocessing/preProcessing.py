@@ -80,14 +80,45 @@ class Data_Preprocessing:
             raise ex
 
 
+    def ToImputeMissingValues(self, data):
+        """
+            Method Name: ToImputeMissingValues
+            Description: This method replaces all the missing values in the Dataframe using
+                         KNN Imputer.
+
+            Output: data (after impute missing values)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            imputer = KNNImputer(n_neighbors=3, weights='uniform', missing_values=np.nan)
+            new_data = imputer.fit_transform(data)
+            new_data = pd.DataFrame(new_data, columns=data.columns)
+            self.logger_object.log(file, "Impute the missing values with KNNImputer")
+            file.close()
+            return new_data
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+
+
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris2.csv", 'csv', separator=',')
-    print(data.head(22), '\n\n')
+    data = Data_Collection().get_data("../Raw Data/iris1.csv", 'csv', separator=',')
+    print(data.head(15), '\n\n')
 
     preprocess = Data_Preprocessing()
     X, Y = preprocess.ToSeparateTheLabelFeature(data, 'species')
-    print(X.head())
-    print(Y)
+
+    data = preprocess.ToImputeMissingValues(X)
+    print(data.head(15))
+
 
