@@ -83,7 +83,7 @@ class Data_Transformation:
             raise ex
 
 
-    def ToSquareRootTransformation(self, data, Xcols):
+    def ToSquareRootTransformation(self, data, Xcols=None):
         """
             Method Name: ToSquareRootTransformation
             Description: This method helps to transform (using square root) the data
@@ -115,7 +115,7 @@ class Data_Transformation:
             file.close()
             raise ex
 
-    def ToBoxCoXTransformation(self, data, Xcols):
+    def ToBoxCoXTransformation(self, data, Xcols=None):
         """
             Method Name: ToBoxCoXTransformation
             Description: This method helps to transform (using Box-Cox) the data
