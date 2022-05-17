@@ -54,12 +54,47 @@ class Feature_Engineerings:
             raise ex
 
 
+    def ToHandleOutliers(self, data, col, threshold=3):
+        """
+            Method Name: ToHandleOutliers
+            Description: This method helps to handle the outliers using Z-Score.
+
+            Output: data (after removing the outliers)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            z_score = np.abs(stats.zscore(data[col]))
+            not_outliers_index = np.where(pd.DataFrame(z_score) < threshold)[0]
+            data[col] = pd.DataFrame(data[col]).iloc[not_outliers_index]
+            self.logger_object.log(file, f"Successfully remove the outliers from data {col}")
+            file.close()
+            return data
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+
+
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris2.csv", 'csv', separator=',')
-    print(data['species'].value_counts())
+    data = Data_Collection().get_data("../Raw Data/boston.csv", 'csv', separator=',')
+
+    from Training_Raw_Data_Validation.rawdataValidation import Raw_Data_Validation
+    outliers_cols = Raw_Data_Validation().IsOutliersPresent(data, data.columns, 3)
+    print(outliers_cols)
 
     featureEng = Feature_Engineerings()
-    data = featureEng.ToHandleImbalancedData(data, 'species')
-    print(data['species'].value_counts())
-    print(data.columns)
+    for col in outliers_cols:
+        data = featureEng.ToHandleOutliers(data, col, 3)
+
+    print(data, '\n\n\n\n')
+    outliers_cols = Raw_Data_Validation().IsOutliersPresent(data, data.columns, 3)
+    print(outliers_cols)
