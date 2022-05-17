@@ -1,1 +1,32 @@
 
+2022-05-17/22:01:30		No columns are droped
+2022-05-17/22:02:14		Successfully drop the columns: ['sepal_length', 'sepal_width', 'petal_length']
+2022-05-17/22:12:27		Successfully drop the column species
+2022-05-17/22:29:40		Successfully drop the column species
+2022-05-17/22:29:40		Impute the missing values with KNNImputer
+2022-05-17/22:30:39		Error is: "['species'] not found in axis"
+2022-05-17/22:32:21		Successfully drop the column species
+2022-05-17/22:32:21		Impute the missing values with KNNImputer
+2022-05-17/22:43:28		Successfully drop the column species
+2022-05-17/22:43:28		Successfully get the Zero-Standard deviation columns []
+2022-05-17/22:44:19		Successfully drop the column species
+2022-05-17/22:44:19		Not get the Zero-Standard deviation columns []
+2022-05-17/22:45:03		Successfully drop the column CRIM
+2022-05-17/22:45:03		Not get the Zero-Standard deviation columns []
+2022-05-17/22:45:19		Not get the Zero-Standard deviation columns []
+2022-05-17/23:18:36		Error is: unsupported operand type(s) for /: 'str' and 'str'
+2022-05-17/23:19:14		Error is: unsupported operand type(s) for /: 'str' and 'str'
+2022-05-17/23:20:44		Error is: unsupported operand type(s) for /: 'str' and 'str'
+2022-05-17/23:21:39		Save the KMeans_Elbow graph in ../Preprocessing_Data directory
+2022-05-17/23:21:39		Get the Number of clusters using KMeans Clustering, i.e. <kneed.knee_locator.KneeLocator object at 0x000001A5759494B0>
+2022-05-17/23:22:25		Save the KMeans_Elbow graph in ../Preprocessing_Data directory
+2022-05-17/23:22:25		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-17/23:33:20		Save the KMeans_Elbow graph in ../Preprocessing_Data directory
+2022-05-17/23:33:20		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-17/23:33:20		Successfully create the clusters & labeled the cluster
+2022-05-17/23:34:31		Save the KMeans_Elbow graph in ../Preprocessing_Data directory
+2022-05-17/23:34:31		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-17/23:34:31		Successfully create the clusters & labeled the cluster
+2022-05-17/23:34:57		Save the KMeans_Elbow graph in ../Preprocessing_Data directory
+2022-05-17/23:34:57		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-17/23:34:57		Successfully create the clusters & labeled the cluster
