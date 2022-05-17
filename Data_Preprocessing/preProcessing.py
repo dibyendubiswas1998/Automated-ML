@@ -52,14 +52,42 @@ class Data_Preprocessing:
             self.logger_object.log(file, f"Error is: {ex}")
             file.close()
             raise ex
-        
+
+    def ToSeparateTheLabelFeature(self, data, Ycol):
+        """
+            Method Name: ToSeparateTheLabelFeature
+            Description: This method helps to separate the label column (X, Y)
+
+            Output: feature_data(X), label_data(Y)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            self.X = data.drop(axis=1, columns=Ycol)
+            self.Y = data[Ycol]
+            self.logger_object.log(file, f"Successfully drop the column {Ycol}")
+            file.close()
+            return self.X, self.Y
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+
 
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
     data = Data_Collection().get_data("../Raw Data/iris2.csv", 'csv', separator=',')
-    print(data.head(22))
+    print(data.head(22), '\n\n')
 
     preprocess = Data_Preprocessing()
-    data = preprocess.ToDroColumns(data, ['sepal_length',  'sepal_width',  'petal_length'])
-    print(data.head())
+    X, Y = preprocess.ToSeparateTheLabelFeature(data, 'species')
+    print(X.head())
+    print(Y)
+
