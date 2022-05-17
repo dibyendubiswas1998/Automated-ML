@@ -144,12 +144,53 @@ class Feature_Engineerings:
             file.close()
             raise ex
 
+    def ToHandleMissingValues(self, data, Xcols=None):
+        """
+            Method Name: ToHandleMissingValues
+            Description: This method helps to handle the missing values. Using this method we replace missing values
+                         with mean (of that particular feature).
+
+            Output: data (after handle missing values)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open(self.file_path, 'a+')
+
+            if Xcols is None:
+                for col in data:
+                    data[col].dropna(how='all', inplace=True)
+                    data[col].fillna(data[col].mean(), inplace=True)
+                self.logger_object.log(file, f"Replace the missing value with mean value of {Xcols} columns")
+                file.close()
+            else:
+                for col in Xcols:
+                    data[col].dropna(how='all', inplace=True)
+                    data[col].fillna(data[col].mean(), inplace=True)
+                self.logger_object.log(file, f"Replace the missing value with mean value of {Xcols} columns")
+                file.close()
+
+            return data
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+        
+
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris2.csv", 'csv', separator=',')
-    print("Before drop the duplicate values:  ", data.shape)
+    data = Data_Collection().get_data("../Raw Data/irisNull.csv", 'csv', separator=',')
+    print(data.head(20))
+    print(data.isnull().sum())
 
     featureEng = Feature_Engineerings()
-
+    data = featureEng.ToHandleMissingValues(data)
+    print(data.head(20))
+    print(data.isnull().sum())
 
 
