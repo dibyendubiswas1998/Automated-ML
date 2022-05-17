@@ -109,16 +109,51 @@ class Data_Preprocessing:
             raise ex
 
 
+    def ToGetColumnsWithZeroStandardDeviation(self, data):
+        """
+            Method Name: ToGetColumnsWithZeroStandardDeviation
+            Description: This method finds out the columns which have a standard deviation of
+                         zero.
+
+            Output: columns (get the columns with zero standard deviation)
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            file = open(self.file_path, 'a+')
+            data_describe = data.describe()
+            droping_cols = []
+            for col in data:
+                if data_describe[col]['std'] == 0:
+                    droping_cols.append(col)
+            if len(droping_cols) > 0:
+                self.logger_object.log(file, f"Successfully get the Zero-Standard deviation columns {droping_cols}")
+                file.close()
+            else:
+                self.logger_object.log(file, f"Not get the Zero-Standard deviation columns {droping_cols}")
+                file.close()
+            return droping_cols
+
+        except Exception as ex:
+            file = open(self.file_path, 'a+')
+            self.logger_object.log(file, f"Error is: {ex}")
+            file.close()
+            raise ex
+
+
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris1.csv", 'csv', separator=',')
+    data = Data_Collection().get_data("../Raw Data/boston.csv", 'csv', separator=',')
     print(data.head(15), '\n\n')
 
     preprocess = Data_Preprocessing()
-    X, Y = preprocess.ToSeparateTheLabelFeature(data, 'species')
+    # X, Y = preprocess.ToSeparateTheLabelFeature(data, 'CRIM')
 
-    data = preprocess.ToImputeMissingValues(X)
-    print(data.head(15))
+    cols = preprocess.ToGetColumnsWithZeroStandardDeviation(data)
+    print(cols)
 
 
