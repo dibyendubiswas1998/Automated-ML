@@ -64,13 +64,13 @@ class Data_Transformation:
         """
         try:
             file = open(self.file_path, 'a+')
-            if len(Xcols) > 0:
-                for col in Xcols:
+            if Xcols is None:
+                for col in data:
                     data[col] = np.log(data[col])
-                self.logger_object.log(file, f"Log Tranformation perform in columns {Xcols}")
+                self.logger_object.log(file, f"Log Tranformation perform in columns {data.columns}")
                 file.close()
             else:
-                for col in data:
+                for col in Xcols:
                     data[col] = np.log(data[col])
                 self.logger_object.log(file, f"Log Tranformation perform in columns {Xcols}")
                 file.close()
@@ -97,16 +97,17 @@ class Data_Transformation:
         """
         try:
             file = open(self.file_path, 'a+')
-            if len(Xcols) > 0:
+            if Xcols is None:
+                for col in data:
+                    data[col] = np.sqrt(data[col])
+                self.logger_object.log(file, f"Square Root Tranformation perform in columns {data.columns}")
+                file.close()
+            else:
                 for col in Xcols:
                     data[col] = np.sqrt(data[col])
                 self.logger_object.log(file, f"Square Root Tranformation perform in columns {Xcols}")
                 file.close()
-            else:
-                for col in data:
-                    data[col] = np.sqrt(data[col])
-                self.logger_object.log(file, f"Square Root Tranformation perform in columns {Xcols}")
-                file.close()
+
             return data
 
         except Exception as ex:
@@ -129,13 +130,13 @@ class Data_Transformation:
         """
         try:
             file = open(self.file_path, 'a+')
-            if len(Xcols) > 0:
-                for col in Xcols:
+            if Xcols is None:
+                for col in data:
                     data[col], parameter = stats.boxcox(data[col])
-                self.logger_object.log(file, f"Box-Cox Tranformation perform in columns {Xcols}")
+                self.logger_object.log(file, f"Box-Cox Tranformation perform in columns {data.columns}")
                 file.close()
             else:
-                for col in data:
+                for col in Xcols:
                     data[col], parameter = stats.boxcox(data[col])
                 self.logger_object.log(file, f"Box-Cox Tranformation perform in columns {Xcols}")
                 file.close()
@@ -152,11 +153,11 @@ class Data_Transformation:
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/iris2.csv", 'csv', separator=',')
+    data = Data_Collection().get_data("../Raw Data/irisNull.csv", 'csv', separator=',')
     print(data.head(22))
 
     dataTrans = Data_Transformation()
-    data = dataTrans.ToBoxCoXTransformation(data, ['sepal_length','sepal_width','petal_length','petal_width'])
+    data = dataTrans.ToSquareRootTransformation(data)
     print("after Log Transformation: \n\n\n", data.head(30))
 
 
