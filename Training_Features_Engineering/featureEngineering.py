@@ -164,7 +164,7 @@ class Feature_Engineerings:
                 for col in data:
                     data[col].dropna(how='all', inplace=True)
                     data[col].fillna(data[col].mean(), inplace=True)
-                self.logger_object.log(file, f"Replace the missing value with mean value of {Xcols} columns")
+                self.logger_object.log(file, f"Replace the missing value with mean value of {data.columns} columns")
                 file.close()
             else:
                 for col in Xcols:
@@ -180,7 +180,7 @@ class Feature_Engineerings:
             self.logger_object.log(file, f"Error is: {ex}")
             file.close()
             raise ex
-        
+
 
 if __name__ == '__main__':
     from Data_Ingection.data_loader import Data_Collection
