@@ -70,9 +70,9 @@ class Data_Scaling:
             self.data = data
             self.Xcols = Xcols
             self.stadarize = StandardScaler()
-            self.scaled_data = sself.tadarize.fit_transform(self.data[self.Xcols])
+            self.scaled_data = self.stadarize.fit_transform(self.data[self.Xcols])
             self.scaled_data = pd.DataFrame(self.scaled_data, columns=self.Xcols)
-            self.logger_object.log(self.file, f"Normalize the data using StandardScaler() technique, columns: {Xcols}")
+            self.logger_object.log(self.file, f"Standarized the data using StandardScaler() technique, columns: {self.Xcols}")
             self.file.close()
             return self.scaled_data, self.stadarize
 
@@ -102,7 +102,7 @@ class Data_Scaling:
             self.quantile = QuantileTransformer()
             self.scaled_data = self.quantile.fit_transform(self.data[self.Xcols])
             self.scaled_data = pd.DataFrame(self.scaled_data, columns=self.Xcols)
-            self.logger_object.log(self.file, f"Normalize the data using QuantileTransformer() technique, columns: {self.Xcols}")
+            self.logger_object.log(self.file, f"Scaling the data using QuantileTransformer() technique, columns: {self.Xcols}")
             self.file.close()
             return self.scaled_data, self.quantile
 
