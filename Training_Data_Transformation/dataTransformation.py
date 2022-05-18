@@ -17,9 +17,9 @@ class Data_Transformation:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self):
-        self.file_path = "../Executions_Logs/Training_Logs/Data_Tansformation_Logs.txt"
-        self.logger_object = App_Logger()
+    def __init__(self, file_path):
+        self.file_path = file_path  # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Data_Tansformation_Logs.txt"
+        self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def ToReplaceMissingWithNull(self, data):
         """
@@ -35,17 +35,18 @@ class Data_Transformation:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            for column in data:
-                data[column].fillna('NULL', inplace=True)
-            self.logger_object.log(file, "Successfully replace with NULL value")
-            file.close()
-            return data
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            for self.column in self.data:
+                self.data[self.column].fillna('NULL', inplace=True)  # replace the missing value with NULL, for store to database.
+            self.logger_object.log(self.file, "Successfully replace with NULL value")
+            self.file.close()
+            return self.data  # return the data with NULL value (if missing values are present)
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -63,23 +64,25 @@ class Data_Transformation:
 
         """
         try:
-            file = open(self.file_path, 'a+')
-            if Xcols is None:
-                for col in data:
-                    data[col] = np.log(data[col])
-                self.logger_object.log(file, f"Log Tranformation perform in columns {data.columns}")
-                file.close()
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Xcols = Xcols
+            if self.Xcols is None:  # check if column or columns are mention or not.
+                for self.col in self.data:  # columns wise perform the operation
+                    self.data[self.col] = np.log(self.data[self.col])  # to apply Log Transformation
+                self.logger_object.log(self.file, f"Log Tranformation perform in columns {self.data.columns}")  # log the operation details
+                self.file.close()
             else:
-                for col in Xcols:
-                    data[col] = np.log(data[col])
-                self.logger_object.log(file, f"Log Tranformation perform in columns {Xcols}")
-                file.close()
-            return data
+                for self.col in self.Xcols:  # columns wise perform the operation
+                    self.data[self.col] = np.log(self.data[self.col])  # to apply Log Transformation
+                self.logger_object.log(self.file, f"Log Tranformation perform in columns {self.Xcols}")  # log the operation details
+                self.file.close()
+            return self.data  # return data after compute Log Transformation.
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -96,24 +99,26 @@ class Data_Transformation:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            if Xcols is None:
-                for col in data:
-                    data[col] = np.sqrt(data[col])
-                self.logger_object.log(file, f"Square Root Tranformation perform in columns {data.columns}")
-                file.close()
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Xcols = Xcols
+            if self.Xcols is None:  # check if column or columns are mention or not.
+                for self.col in self.data:  # columns wise perform the operation
+                    self.data[self.col] = np.sqrt(self.data[self.col])  # to apply the Square-Root Transformation.
+                self.logger_object.log(self.file, f"Square Root Tranformation perform in columns {self.data.columns}")  # log the operations
+                self.file.close()
             else:
-                for col in Xcols:
-                    data[col] = np.sqrt(data[col])
-                self.logger_object.log(file, f"Square Root Tranformation perform in columns {Xcols}")
-                file.close()
+                for self.col in self.Xcols:   # columns wise perform the operation
+                    self.data[self.col] = np.sqrt(self.data[self.col])   # to apply the Square-Root Transformation.
+                self.logger_object.log(self.file, f"Square Root Tranformation perform in columns {self.Xcols}")  # log the operations
+                self.file.close()
 
-            return data
+            return self.data  # return data after compute Square-Root Transformation.
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
     def ToBoxCoXTransformation(self, data, Xcols=None):
@@ -129,35 +134,33 @@ class Data_Transformation:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            if Xcols is None:
-                for col in data:
-                    data[col], parameter = stats.boxcox(data[col])
-                self.logger_object.log(file, f"Box-Cox Tranformation perform in columns {data.columns}")
-                file.close()
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Xcols = Xcols
+            if self.Xcols is None:   # check if column or columns are mention or not.
+                for self.col in self.data:  # columns wise perform the operation
+                    self.data[self.col], self.parameter = stats.boxcox(self.data[self.col])  # to apply the Box-Cox Transformation.
+                self.logger_object.log(self.file, f"Box-Cox Tranformation perform in columns {self.data.columns}")  # log the details.
+                self.file.close()
+
             else:
-                for col in Xcols:
-                    data[col], parameter = stats.boxcox(data[col])
-                self.logger_object.log(file, f"Box-Cox Tranformation perform in columns {Xcols}")
-                file.close()
-            return data
+                for self.col in Xcols:  # columns wise perform the operation
+                    self.data[self.col], parameter = stats.boxcox(self.data[self.col])   # to apply the Box-Cox Transformation.
+                self.logger_object.log(self.file, f"Box-Cox Tranformation perform in columns {self.Xcols}")  # log the details.
+                self.file.close()
+            return self.data  # return data after compute Box-Cox Transformation.
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
 
 
 if __name__ == '__main__':
-    from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/irisNull.csv", 'csv', separator=',')
-    print(data.head(22))
+    pass
 
-    dataTrans = Data_Transformation()
-    data = dataTrans.ToSquareRootTransformation(data)
-    print("after Log Transformation: \n\n\n", data.head(30))
 
 
