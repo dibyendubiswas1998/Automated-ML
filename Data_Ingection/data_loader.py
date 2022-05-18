@@ -12,7 +12,7 @@ class Data_Collection:
         Revisions: None
     """
     def __init__(self, file_path):
-        self.file_path = File_Operations   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Genereal_Logs.txt
+        self.file_path = file_path   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Genereal_Logs.txt
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def get_data(self, path, format, separator):
