@@ -1,3 +1,48 @@
 2022-05-17/20:43:05		Normalize the data using MinMaxScaler() technique, columns: Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
 2022-05-17/20:53:02		Normalize the data using StandardScaler() technique, columns: Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
 2022-05-17/20:53:51		Normalize the data using QuantileTransformer() technique, columns: Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:22:14		Normalize the data using MinMaxScaler() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:22:36		Normalize the data using MinMaxScaler() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:22:36		Error is: name 'sself' is not defined
+2022-05-18/20:22:54		Normalize the data using QuantileTransformer() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:25:25		Normalize the data using MinMaxScaler() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:25:25		Error is: name 'sself' is not defined
+2022-05-18/20:25:39		Normalize the data using MinMaxScaler() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:25:39		Error is: name 'sself' is not defined
+2022-05-18/20:26:22		Normalize the data using MinMaxScaler() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:26:22		Standarized the data using StandardScaler() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+
+
+
+
+
+
+
+
+
+
+
+
+2022-05-18/20:26:47		Normalize the data using MinMaxScaler() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:26:47		Standarized the data using StandardScaler() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:26:47		Scaling the data using QuantileTransformer() technique, columns: Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')

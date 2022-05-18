@@ -82,3 +82,41 @@
 2022-05-17/19:45:38		Box-Cox Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
 2022-05-17/19:45:58		Log Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
 2022-05-17/19:46:15		Square Root Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/10:00:37		Error is: Data must be positive.
+2022-05-18/10:01:06		Error is: '<=' not supported between instances of 'str' and 'int'
+2022-05-18/10:02:32		Box-Cox Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+
+
+
+
+
+
+2022-05-18/20:10:30		Successfully replace with NULL value
+2022-05-18/20:10:30		Error is: loop of ufunc does not support argument 0 of type float which has no callable log method
+2022-05-18/20:12:59		Successfully replace with NULL value
+2022-05-18/20:12:59		Log Tranformation perform in columns Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:12:59		Square Root Tranformation perform in columns Index(['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX',
+       'PTRATIO', 'B', 'LSTAT'],
+      dtype='object')
+2022-05-18/20:13:00		Error is: Data must be positive.
+2022-05-18/20:13:45		Successfully replace with NULL value
+2022-05-18/20:13:45		Error is: loop of ufunc does not support argument 0 of type float which has no callable log method
+2022-05-18/20:14:59		Log Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:14:59		Square Root Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:14:59		Error is: Data must be positive.
+
+
+
+
+2022-05-18/20:15:22		Log Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:15:22		Square Root Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:15:22		Error is: Data must be positive.
+2022-05-18/20:16:46		Log Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:16:46		Square Root Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:16:46		Error is: 'p'
+2022-05-18/20:17:11		Log Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:17:11		Square Root Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-18/20:17:11		Error is: Data must be positive.
+2022-05-18/20:19:05		Box-Cox Tranformation perform in columns Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')

@@ -30,3 +30,17 @@
 2022-05-17/23:34:57		Save the KMeans_Elbow graph in ../Preprocessing_Data directory
 2022-05-17/23:34:57		Get the Number of clusters using KMeans Clustering, i.e. 3
 2022-05-17/23:34:57		Successfully create the clusters & labeled the cluster
+
+-----------------------------------------------------------------------------
+
+
+
+2022-05-18/20:31:20		Successfully drop the columns: petal_width
+2022-05-18/20:31:20		Successfully drop the column species
+2022-05-18/20:32:43		Impute the missing values with KNNImputer
+2022-05-18/20:32:43		Not get the Zero-Standard deviation columns []
+2022-05-18/20:36:27		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-18/20:36:27		Error is: name 'wcss' is not defined
+2022-05-18/20:37:37		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-18/20:37:37		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-18/20:37:37		Successfully create the clusters & labeled the cluster
