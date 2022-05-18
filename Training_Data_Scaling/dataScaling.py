@@ -18,9 +18,9 @@ class Data_Scaling:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self):
-        self.file_path = "../Executions_Logs/Training_Logs/Data_Scaling_Logs.txt"
-        self.logger_object = App_Logger()
+    def __init__(self, file_path):
+        self.file_path = file_path   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Data_Scaling_Logs.txt
+        self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
 
     def ToNormalized(self, data, Xcols):
@@ -36,18 +36,20 @@ class Data_Scaling:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            minmax = MinMaxScaler()
-            scaled_data = minmax.fit_transform(data[Xcols])
-            scaled_data = pd.DataFrame(scaled_data, columns=Xcols)
-            self.logger_object.log(file, f"Normalize the data using MinMaxScaler() technique, columns: {Xcols}")
-            file.close()
-            return scaled_data, minmax
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Xcols = Xcols
+            self.minmax = MinMaxScaler()
+            self.scaled_data = self.minmax.fit_transform(self.data[self.Xcols])
+            self.scaled_data = pd.DataFrame(self.scaled_data, columns=self.Xcols)
+            self.logger_object.log(self.file, f"Normalize the data using MinMaxScaler() technique, columns: {self.Xcols}")
+            self.file.close()
+            return self.scaled_data, self.minmax
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -64,18 +66,20 @@ class Data_Scaling:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            stadarize = StandardScaler()
-            scaled_data = stadarize.fit_transform(data[Xcols])
-            scaled_data = pd.DataFrame(scaled_data, columns=Xcols)
-            self.logger_object.log(file, f"Normalize the data using StandardScaler() technique, columns: {Xcols}")
-            file.close()
-            return scaled_data, stadarize
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Xcols = Xcols
+            self.stadarize = StandardScaler()
+            self.scaled_data = sself.tadarize.fit_transform(self.data[self.Xcols])
+            self.scaled_data = pd.DataFrame(self.scaled_data, columns=self.Xcols)
+            self.logger_object.log(self.file, f"Normalize the data using StandardScaler() technique, columns: {Xcols}")
+            self.file.close()
+            return self.scaled_data, self.stadarize
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -92,28 +96,25 @@ class Data_Scaling:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            quantile = QuantileTransformer()
-            scaled_data = quantile.fit_transform(data[Xcols])
-            scaled_data = pd.DataFrame(scaled_data, columns=Xcols)
-            self.logger_object.log(file, f"Normalize the data using QuantileTransformer() technique, columns: {Xcols}")
-            file.close()
-            return scaled_data, quantile
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Xcols = Xcols
+            self.quantile = QuantileTransformer()
+            self.scaled_data = self.quantile.fit_transform(self.data[self.Xcols])
+            self.scaled_data = pd.DataFrame(self.scaled_data, columns=self.Xcols)
+            self.logger_object.log(self.file, f"Normalize the data using QuantileTransformer() technique, columns: {self.Xcols}")
+            self.file.close()
+            return self.scaled_data, self.quantile
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
 if __name__ == '__main__':
-    from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/irisNull.csv", 'csv', separator=',')
-    print(data.head(22))
+    pass
 
-    scaling = Data_Scaling()
-    data, scale = scaling.ToQuantilTransformerScaler(data, data.columns)
-    print(data.head(20))
 
 
