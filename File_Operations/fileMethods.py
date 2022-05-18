@@ -15,7 +15,7 @@ class File_Operations:
     """
 
     def __init__(self):
-        self.file_path = "../Executions_Logs/Training_Logs/Genereal_Logs.txt"
+        self.file_path = "../Executions_Logs/Training_Logs/File_Operations.txt"
         self.logger_object = App_Logger()
         self.model_directory = "../Models/"
 
