@@ -39,10 +39,10 @@ class Feature_Engineerings:
             self.file = open(self.file_path, 'a+')
             self.data = data
             self.ycol = ycol
-            self.bsmote = BorderlineSMOTE(random_state=101, kind='borderline-1')  # use BorderLine SMOTE to oversample the data
-            self.X = self.data.drop(axis=1, columns=ycol)   # drop the output columns
-            self.Y = data[ycol]
-            self.x, self.y = bsmote.fit_resample(self.X, self.Y)
+            self.bsmote = BorderlineSMOTE(random_state=42, kind='borderline-1')  # use BorderLine SMOTE to oversample the data
+            self.X = self.data.drop(axis=1, columns=[self.ycol])   # drop the output columns
+            self.Y = data[self.ycol]
+            self.x, self.y = self.bsmote.fit_resample(self.X, self.Y)
             self.data = self.x
             self.data[self.ycol] = pd.DataFrame(self.y, columns=[self.ycol])
             self.logger_object.log(self.file, "Handle the imbalanced data using Borderline-SMOTE")
@@ -138,7 +138,7 @@ class Feature_Engineerings:
             if data[self.ycol].dtypes not in ['int', 'int64', 'int32', 'float', 'float32', 'float64']:   # if the label column is categorical data then simply to do map
                 for self.cate in self.data[self.ycol].unique().tolist():
                     self.category.append(self.cate)
-            self.logger_object.log(self.file, f"In output column has {category} categories.")
+            self.logger_object.log(self.file, f"In output column has {self.category} categories.")
             self.value = list(range(len(self.data[self.ycol].unique())))
             self.dictionary = dict(zip(self.category, self.value))   # perform mapping like {'aa':0, 'bc':1, 'cd':3}.
             self.data[self.ycol] = self.data[self.ycol].map(self.dictionary)
