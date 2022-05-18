@@ -18,9 +18,9 @@ class Feature_Engineerings:
          Version: 1.0
          Revisions: None
     """
-    def __init__(self):
-        self.file_path = "../Executions_Logs/Training_Logs/Features_Engineering_Logs.txt"
-        self.logger_object = App_Logger()
+    def __init__(self, file_path):
+        self.file_path = file_path   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Features_Engineering_Logs.txt
+        self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def ToHandleImbalancedData(self, data, ycol):
         """
@@ -36,21 +36,23 @@ class Feature_Engineerings:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            bsmote = BorderlineSMOTE(random_state=101, kind='borderline-1')
-            X = data.drop(axis=1, columns=ycol)
-            Y = data[ycol]
-            x, y = bsmote.fit_resample(X, Y)
-            data = x
-            data[ycol] = pd.DataFrame(y, columns=[ycol])
-            self.logger_object.log(file, "Handle the imbalanced data using Borderline-SMOTE")
-            file.close()
-            return data
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.ycol = ycol
+            self.bsmote = BorderlineSMOTE(random_state=101, kind='borderline-1')  # use BorderLine SMOTE to oversample the data
+            self.X = self.data.drop(axis=1, columns=ycol)   # drop the output columns
+            self.Y = data[ycol]
+            self.x, self.y = bsmote.fit_resample(self.X, self.Y)
+            self.data = self.x
+            self.data[self.ycol] = pd.DataFrame(self.y, columns=[self.ycol])
+            self.logger_object.log(self.file, "Handle the imbalanced data using Borderline-SMOTE")
+            self.file.close()
+            return self.data   # return data (with features & label/output) after oversampling
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -68,18 +70,21 @@ class Feature_Engineerings:
 
         """
         try:
-            file = open(self.file_path, 'a+')
-            z_score = np.abs(stats.zscore(data[col]))
-            not_outliers_index = np.where(pd.DataFrame(z_score) < threshold)[0]
-            data[col] = pd.DataFrame(data[col]).iloc[not_outliers_index]
-            self.logger_object.log(file, f"Successfully remove the outliers from data {col}")
-            file.close()
-            return data
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.col = col
+            self.threshold = threshold  # bydefault we set the threshold value, i.e. 3
+            self.z_score = np.abs(stats.zscore(self.data[self.col]))  # to apply the Z-Score to handle the outliers
+            self.not_outliers_index = np.where(pd.DataFrame(self.z_score) < self.threshold)[0]  # get the indexes where outliers are not present or ignore outliers indexes
+            self.data[self.col] = pd.DataFrame(self.data[self.col]).iloc[self.not_outliers_index]  # get the data without outliers
+            self.logger_object.log(self.file, f"Successfully remove the outliers from data {self.col}")
+            self.file.close()
+            return self.data  # return the data without outliers.
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -96,18 +101,19 @@ class Feature_Engineerings:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Before drop the duplicates values, the shape of data is {data.shape}")
-            data = data.drop_duplicates()
-            self.logger_object.log(file, f"After drop the duplicates values, the shape of data is {data.shape}")
-            self.logger_object.log(file, "Successfully drop the duplicates values")
-            file.close()
-            return data
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.logger_object.log(self.file, f"Before drop the duplicates values, the shape of data is {self.data.shape}")
+            self.data = self.data.drop_duplicates()  # simple drop the duplicates values from the given dataset
+            self.logger_object.log(self.file, f"After drop the duplicates values, the shape of data is {self.data.shape}")
+            self.logger_object.log(self.file, "Successfully drop the duplicates values")
+            self.file.close()
+            return self.data
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -125,23 +131,25 @@ class Feature_Engineerings:
 
         """
         try:
-            file = open(self.file_path, 'a+')
-            category = []
-            if data[ycol].dtypes not in ['int', 'int64', 'int32', 'float', 'float32', 'float64']:
-                for cate in data[ycol].unique().tolist():
-                    category.append(cate)
-            self.logger_object.log(file, f"In output column has {category} categories.")
-            value = list(range(len(data[ycol].unique())))
-            dictionary = dict(zip(category, value))
-            data[ycol] = data[ycol].map(dictionary)
-            self.logger_object.log(file, f"Mapping operations is done successfully like this: {dictionary}")
-            file.close()
-            return data
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.ycol = ycol
+            self.category = []
+            if data[self.ycol].dtypes not in ['int', 'int64', 'int32', 'float', 'float32', 'float64']:   # if the label column is categorical data then simply to do map
+                for self.cate in self.data[self.ycol].unique().tolist():
+                    self.category.append(self.cate)
+            self.logger_object.log(self.file, f"In output column has {category} categories.")
+            self.value = list(range(len(self.data[self.ycol].unique())))
+            self.dictionary = dict(zip(self.category, self.value))   # perform mapping like {'aa':0, 'bc':1, 'cd':3}.
+            self.data[self.ycol] = self.data[self.ycol].map(self.dictionary)
+            self.logger_object.log(self.file, f"Mapping operations is done successfully like this: {self.dictionary}")
+            self.file.close()
+            return self.data  # return data after mapping
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
     def ToHandleMissingValues(self, data, Xcols=None):
@@ -158,39 +166,32 @@ class Feature_Engineerings:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-
-            if Xcols is None:
-                for col in data:
-                    data[col].dropna(how='all', inplace=True)
-                    data[col].fillna(data[col].mean(), inplace=True)
-                self.logger_object.log(file, f"Replace the missing value with mean value of {data.columns} columns")
-                file.close()
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Xcols = Xcols
+            if self.Xcols is None:
+                for self.col in self.data:  # check if column or columns are mention or not.
+                    self.data[self.col].dropna(how='all', inplace=True)  # drop the row if all columns have missing value
+                    self.data[self.col].fillna(self.data[self.col].mean(), inplace=True)   # replace the missing value with mean
+                self.logger_object.log(self.file, f"Replace the missing value with mean value of {self.data.columns} columns")
+                self.file.close()
             else:
-                for col in Xcols:
-                    data[col].dropna(how='all', inplace=True)
-                    data[col].fillna(data[col].mean(), inplace=True)
-                self.logger_object.log(file, f"Replace the missing value with mean value of {Xcols} columns")
-                file.close()
-
-            return data
+                for self.col in self.Xcols:
+                    self.data[self.col].dropna(how='all', inplace=True)  # drop the row if all columns have missing value
+                    self.data[self.col].fillna(self.data[self.col].mean(), inplace=True)  # replace the missing value with mean
+                self.logger_object.log(self.file, f"Replace the missing value with mean value of {self.Xcols} columns")
+                self.file.close()
+            return self.data
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
 if __name__ == '__main__':
-    from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/irisNull.csv", 'csv', separator=',')
-    print(data.head(20))
-    print(data.isnull().sum())
+    pass
 
-    featureEng = Feature_Engineerings()
-    data = featureEng.ToHandleMissingValues(data)
-    print(data.head(20))
-    print(data.isnull().sum())
 
 
