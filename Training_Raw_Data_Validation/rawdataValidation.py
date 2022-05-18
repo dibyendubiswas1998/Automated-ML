@@ -195,7 +195,7 @@ class Raw_Data_Validation:
             for self.key, self.value in dict(self.data[self.y].value_counts()).items():
                 self.vals.append(self.value)
             for self.i in range(len(self.vals)):
-                if vals[self.i] == vals[self.i+1]:  # check the data is balance or not.
+                if self.vals[self.i] == self.vals[self.i+1]:  # check the data is balance or not.
                     self.logger_object.log(self.file, 'Dataset is balanced')
                     return True  # if balance then return True
                     break
@@ -268,7 +268,7 @@ class Raw_Data_Validation:
             self.file = open(self.file_path, 'a+')
             self.directory = directory
             self.path = os.path.join(self.directory + '/', "Good_Raw_Data/")  # mention the path to create the directory for Good_Raw_Data.
-            if not os.self.path.isdir(self.path):
+            if not os.path.isdir(self.path):
                 os.makedirs(self.path)  # if Good_Raw_Data directory is not present then created
                 self.logger_object.log(self.file, "Good_Raw_Data directory is created")
 
