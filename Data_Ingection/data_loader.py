@@ -11,9 +11,9 @@ class Data_Collection:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self):
-        self.file_path = "../Executions_Logs/Training_Logs/Genereal_Logs.txt"
-        self.logger_object = App_Logger()
+    def __init__(self, file_path):
+        self.file_path = File_Operations   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Genereal_Logs.txt
+        self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def get_data(self, path, format, separator):
         """
@@ -27,19 +27,23 @@ class Data_Collection:
             Revisions: None
          """
         try:
-            file = open(self.file_path, 'a+')
-            if format.lower() in 'csv':
-                self.data = pd.read_csv(path, sep=separator)
-                self.logger_object.log(file, 'Data is Successfully load')
-                return self.data
+            self.file = open(self.file_path, 'a+')
+            self.path = path
+            self.format = format
+            self.separator = separator
+            if format.lower() in 'csv':  # check the data format is csv or not.
+                self.data = pd.read_csv(self.path, sep=self.separator)  # read the csv data
+                self.logger_object.log(self.file, 'Data is Successfully load')
+                self.file.close()
+                return self.data  # return the data
             else:
                 self.logger_object.log(self.file_object, 'Data is not load Successfully')
-            file.close()
+                self.file.close()
 
         except Exception as e:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f'Data is not Successfully load: {e}')
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f'Data is not Successfully load: {e}')
+            self.file.close()
             print(e)
 
 
