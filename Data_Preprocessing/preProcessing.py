@@ -18,9 +18,9 @@ class Data_Preprocessing:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self):
-        self.file_path = "../Executions_Logs/Training_Logs/Data_Preprocessing_Logs.txt"
-        self.logger_object = App_Logger()
+    def __init__(self, file_path):
+        self.file_path = file_path   # this file path help to log the details in particular file = Execution_Logs/Training_Logs/Data_Preprocessing.txt
+        self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
 
     def ToDroColumns(self, data, Xcols=None):
@@ -36,21 +36,23 @@ class Data_Preprocessing:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            if Xcols is None:
-                self.logger_object.log(file, "No columns are droped")
-                file.close()
-                return data
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Xcols = Xcols
+            if self.Xcols is None:  # if you can't mention the column(s), then nothing happen
+                self.logger_object.log(self.file, "No columns are droped")
+                self.file.close()
+                return self.data  # simply return the dta
             else:
-                data = data.drop(axis=1, columns=Xcols)
-                self.logger_object.log(file, f"Successfully drop the columns: {Xcols}")
-                file.close()
-                return data
+                self.data = self.data.drop(axis=1, columns=self.Xcols)  # drop the column/ columns
+                self.logger_object.log(self.file, f"Successfully drop the columns: {self.Xcols}")
+                self.file.close()
+                return self.data  # return data after drop column/ columns
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
     def ToSeparateTheLabelFeature(self, data, Ycol):
@@ -66,17 +68,19 @@ class Data_Preprocessing:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            self.X = data.drop(axis=1, columns=Ycol)
-            self.Y = data[Ycol]
-            self.logger_object.log(file, f"Successfully drop the column {Ycol}")
-            file.close()
-            return self.X, self.Y
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.Ycol = Ycol
+            self.X = self.data.drop(axis=1, columns=self.Ycol)  # separate the features columns
+            self.Y = self.data[self.Ycol]  # separate the output or label column
+            self.logger_object.log(self.file, f"Successfully drop the column {self.Ycol}")
+            self.file.close()
+            return self.X, self.Y   # return the features & output or label column(s)
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -94,18 +98,19 @@ class Data_Preprocessing:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            imputer = KNNImputer(n_neighbors=3, weights='uniform', missing_values=np.nan)
-            new_data = imputer.fit_transform(data)
-            new_data = pd.DataFrame(new_data, columns=data.columns)
-            self.logger_object.log(file, "Impute the missing values with KNNImputer")
-            file.close()
-            return new_data
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.imputer = KNNImputer(n_neighbors=3, weights='uniform', missing_values=np.nan)  # impute the missing value with KNNImputer
+            self.new_data = self.imputer.fit_transform(self.data)
+            self.new_data = pd.DataFrame(self.new_data, columns=self.data.columns)
+            self.logger_object.log(self.file, "Impute the missing values with KNNImputer")
+            self.file.close()
+            return self.new_data  # return data where no missing values are present
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -123,37 +128,32 @@ class Data_Preprocessing:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            data_describe = data.describe()
-            droping_cols = []
-            for col in data:
-                if data_describe[col]['std'] == 0:
-                    droping_cols.append(col)
-            if len(droping_cols) > 0:
-                self.logger_object.log(file, f"Successfully get the Zero-Standard deviation columns {droping_cols}")
-                file.close()
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.data_describe = data.describe()
+            self.droping_cols = []
+            for self.col in self.data:
+                if self.data_describe[self.col]['std'] == 0:  # to check the which column have standard deviation zero
+                    self.droping_cols.append(self.col)   # append those columns where std is zero.
+            if len(self.droping_cols) > 0:
+                self.logger_object.log(self.file, f"Successfully get the Zero-Standard deviation columns {self.droping_cols}")
+                self.file.close()
             else:
-                self.logger_object.log(file, f"Not get the Zero-Standard deviation columns {droping_cols}")
-                file.close()
-            return droping_cols
+                self.logger_object.log(self.file, f"Not get the Zero-Standard deviation columns {self.droping_cols}")
+                self.file.close()
+            return self.droping_cols  # return the columns, if you want you can drop those columns.
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
 
 if __name__ == '__main__':
-    from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/boston.csv", 'csv', separator=',')
-    print(data.head(15), '\n\n')
+    pass
 
-    preprocess = Data_Preprocessing()
-    # X, Y = preprocess.ToSeparateTheLabelFeature(data, 'CRIM')
 
-    cols = preprocess.ToGetColumnsWithZeroStandardDeviation(data)
-    print(cols)
 
 
