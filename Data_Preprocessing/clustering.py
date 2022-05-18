@@ -50,7 +50,7 @@ class KMeans_Clustering:
             plt.savefig(self.processing_data_path + '/' + "KMeans_Elbow.PNG")  # to save the graph (wcs vs no. of cluster)
             self.logger_object.log(self.file, f"Save the KMeans_Elbow graph in {self.processing_data_path} directory")
 
-            self.kn = KneeLocator(range(1, 11), wcss, curve='convex', direction='decreasing')  # KneeLocator helps to get the number of cluster
+            self.kn = KneeLocator(range(1, 11), self.wcss, curve='convex', direction='decreasing')  # KneeLocator helps to get the number of cluster
             self.logger_object.log(self.file, f"Get the Number of clusters using KMeans Clustering, i.e. {self.kn.knee}")
             self.file.close()
             return self.kn.knee  # get or return the number of cluster
