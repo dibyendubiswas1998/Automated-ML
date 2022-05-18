@@ -14,10 +14,10 @@ class File_Operations:
         Revisions: None
     """
 
-    def __init__(self):
-        self.file_path = "../Executions_Logs/Training_Logs/File_Operations.txt"
-        self.logger_object = App_Logger()
-        self.model_directory = "../Models/"
+    def __init__(self, file_path, model_directory):
+        self.file_path = file_path   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/File_Operations.txt
+        self.logger_object = App_Logger()   # call the App_Logger() to log the details
+        self.model_directory = model_directory   # this directoty helps to store model in folder where path = Models/
 
     def ToSaveModel(self, model, filename):
         """
@@ -32,23 +32,25 @@ class File_Operations:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            path = os.path.join(self.model_directory, filename)
-            if os.path.isdir(path):  # remove previously existing models for each clusters
-                shutil.rmtree(self.model_directory)
-                os.makedirs(path)
+            self.file = open(self.file_path, 'a+')
+            self.model = model
+            self.filename = filename
+            self.path = os.path.join(self.model_directory, self.filename)
+            if os.path.isdir(self.path):  # remove previously existing models for each clusters
+                shutil.rmtree(self.model_directory)  # remove existing directory
+                os.makedirs(self.path)   # create directory
             else:
-                os.makedirs(path)
-            with open(path + '/' + filename + '.sav', 'wb') as f:
-                pickle.dump(model, f)
-            self.logger_object.log(file, f"{filename} Successfully drop the model to {self.model_directory}")
-            file.close()
+                os.makedirs(self.path)
+            with open(self.path + '/' + self.filename + '.sav', 'wb') as f:
+                pickle.dump(self.model, f)  # to dump or save the model in a directory
+            self.logger_object.log(self.file, f"{self.filename} Successfully drop the model to {self.model_directory}")
+            self.file.close()
             return "success"
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
     def ToLoadModel(self, filename):
@@ -64,16 +66,18 @@ class File_Operations:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            with open(self.model_directory + filename + '/' + filename + '.sav', 'rb') as f:
-                self.logger_object.log(file, "Model is successfully loaded")
-                return pickle.load(f)
+            self.file = open(self.file_path, 'a+')
+            self.filename = filename
+            with open(self.model_directory + self.filename + '/' + self.filename + '.sav', 'rb') as f:   # to load the particular model
+                self.logger_object.log(self.file, "Model is successfully loaded")
+                self.file.close()
+                return pickle.load(f)  # return the particular model
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            self.logger_object.log(file, "Model is not load")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.logger_object.log(self.file, "Model is not load")
+            self.file.close()
             raise ex
 
     def ToFindCorrectModel(self, cluster_number):
@@ -89,26 +93,26 @@ class File_Operations:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
+            self.file = open(self.file_path, 'a+')
             self.cluster_number = cluster_number
             self.folder_name = self.model_directory
             self.list_of_model_files = []
             self.list_of_files = os.listdir(self.folder_name)
 
-            for self.file in self.list_of_files:
+            for self.fl in self.list_of_files:
                 try:
-                    if self.file.index(str(self.cluster_number)) != -1:
-                        self.model_name = self.file
+                    if self.fl.index(str(self.cluster_number)) != -1:  # find the current model
+                        self.model_name = self.fl
                 except:
                     continue
 
             self.model_name = self.model_name.split('.')[0]
-            self.logger_object.log(file, "Successfully find the correct Model")
-            file.close()
-            return self.model_name
+            self.logger_object.log(self.file, "Successfully find the correct Model")
+            self.file.close()
+            return self.model_name  # return model name for loading
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
