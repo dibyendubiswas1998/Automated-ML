@@ -16,9 +16,9 @@ class Raw_Data_Validation:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self):
-        self.file_path = "../Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"
-        self.logger_object = App_Logger()
+    def __init__(self, file_path):
+        self.file_path = file_path   # this file path help to log the details in particular file =Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"
+        self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def CreateManualRegex(self):
         """
@@ -48,21 +48,22 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            self.neumericdata = data._get_numeric_data().columns
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.neumericdata = self.data._get_numeric_data().columns   # get the neumeric columns from given dataset.
             if len(self.neumericdata) > 0:
-                self.logger_object.log(file, f"Get all Neumeric data type {self.neumericdata}")
-                file.close()
-                return self.neumericdata
+                self.logger_object.log(self.file, f"Get all Neumeric data type {self.neumericdata}")
+                self.file.close()
+                return self.neumericdata  # if present, then return those neumeric columns
             else:
-                self.logger_object.log(file, "Neumerical features are not found in dataset")
-                file.close()
-                return False
+                self.logger_object.log(self.file, "Neumerical features are not found in dataset")
+                self.file.close()
+                return False   # if nor present then return False
 
         except Exception as e:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {str(e)}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {str(e)}")
+            self.file.close()
             raise e
 
 
@@ -79,21 +80,22 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            self.categorical = data.dtypes[data.dtypes == 'object'].index
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.categorical = self.data.dtypes[self.data.dtypes == 'object'].index  # return categorical columns from give dataset.
             if len(self.categorical) > 0:
-                self.logger_object.log(file, f"Get all the Categorical data type: {self.categorical}")
-                file.close()
-                return self.categorical
+                self.logger_object.log(self.file, f"Get all the Categorical data type: {self.categorical}")
+                self.file.close()
+                return self.categorical   # if present, then return those categorical columns
             else:
-                self.logger_object.log(file, "Categorical data are not present in dataset")
-                file.close()
-                return False
+                self.logger_object.log(self.file, "Categorical data are not present in dataset")
+                self.file.close()
+                return False  # if not, then return False
 
         except Exception as e:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {e}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {e}")
+            self.file.close()
             raise e
 
 
@@ -111,22 +113,23 @@ class Raw_Data_Validation:
 
         """
         try:
-            file = open(self.file_path, 'a+')
-            self.row, self.col = data.shape[0], data.shape[1]
-            if self.row > 0 or self.col > 0:
-                self.logger_object.log(file, f"Get the length of data, rows:  {self.row}, columns: {self.col}")
-                file.close()
-                return self.row, self.col
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.row_length, self.col_length = self.data.shape[0], self.data.shape[1]  # get the row length & column length
+            if self.row_length > 0 or self.col_length > 0:
+                self.logger_object.log(self.file, f"Get the length of data, rows:  {self.row_length}, columns: {self.col_length}")
+                self.file.close()
+                return self.row_length, self.col_length  # return lenghth of row & col
 
             else:
-                self.logger_object.log(file, "No data is present")
-                file.close()
+                self.logger_object.log(self.file, "No data is present")
+                self.file.close()
                 return False
 
         except Exception as e:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {e}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {e}")
+            self.file.close()
             raise e
 
 
@@ -144,29 +147,30 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            missing_dataCol = []
-            not_missing_dataCol = []
-            for col in data.columns:
-                if data[col].isnull().sum() > 0:
-                    missing_dataCol.append(col)
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.missing_dataCol = []  # here add only those columns where missing values are present
+            self.not_missing_dataCol = []  # here add only those columns where missing values are not present
+            for self.col in self.data.columns:
+                if self.data[self.col].isnull().sum() > 0:  # check (columns wise, one-by-one) if missing value present
+                    self.missing_dataCol.append(self.col)  # append those columns where missing values present.
                 else:
-                    not_missing_dataCol.append(col)
+                    self.not_missing_dataCol.append(self.col)  # append those columns where missing values are not present
 
-            if len(missing_dataCol) > 0:
-                self.logger_object.log(file, f"Missing value are present at {missing_dataCol}")
-                file.close()
-                return missing_dataCol
+            if len(self.missing_dataCol) > 0:
+                self.logger_object.log(self.file, f"Missing value are present at {self.missing_dataCol}")
+                self.file.close()
+                return self.missing_dataCol  # return only missing columns.
             else:
-                self.logger_object.log(file, "Missing value are not present in dataset")
-                file.close()
-                return False
+                self.logger_object.log(self.file, "Missing value are not present in dataset")
+                self.file.close()
+                return False  # return False if missing values are not present
 
 
         except Exception as e:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {e}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {e}")
+            self.file.close()
             raise e
 
 
@@ -183,30 +187,32 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Check dataset is balanced or not: {dict(data[y].value_counts())}")
-            vals = []
-            for key, value in dict(data[y].value_counts()).items():
-                vals.append(value)
-            for i in range(len(vals)):
-                if vals[i] == vals[i+1]:
-                    self.logger_object.log(file, 'Dataset is balanced')
-                    return True
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.y = y
+            self.logger_object.log(self.file, f"Check dataset is balanced or not: {dict(self.data[self.y].value_counts())}")
+            self.vals = []
+            for self.key, self.value in dict(self.data[self.y].value_counts()).items():
+                self.vals.append(self.value)
+            for self.i in range(len(self.vals)):
+                if vals[self.i] == vals[self.i+1]:  # check the data is balance or not.
+                    self.logger_object.log(self.file, 'Dataset is balanced')
+                    return True  # if balance then return True
                     break
                 else:
-                    self.logger_object.log(file, 'Dataset is not balanced')
-                    return False
+                    self.logger_object.log(self.file, 'Dataset is not balanced')
+                    return False  # if not balance then return False
                     break
-            file.close()
+            self.file.close()
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
 
-    def IsOutliersPresent(self, data, cols, threshold):
+    def IsOutliersPresent(self, data, cols, threshold=3):
         """
             Method Name: IsOutliersPresent
             Description: This method helps to check is outliers present in a particular column.
@@ -221,28 +227,31 @@ class Raw_Data_Validation:
 
         """
         try:
-            file = open(self.file_path, 'a+')
-            outliers_col = []
-            for col in cols:
-                z = np.abs(stats.zscore(data[col]))
-                outliers_index = np.where(pd.DataFrame(z) > threshold)
-                if len(outliers_index[0]) > 0:
-                    outliers_col.append(col)
-                    self.logger_object.log(file, f"Outliers are present at: {col} {outliers_index[0]}")
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.cols = cols
+            self.threshold = threshold
+            self.outliers_col = []  # this is used to append the outliers columns.
+            for self.col in self.cols:
+                self.z = np.abs(stats.zscore(self.data[self.col]))  # to apply the Z-Score for getting the outliers one-by-one columns.
+                self.outliers_index = np.where(pd.DataFrame(self.z) > self.threshold)  # get the outliers indexs.
+                if len(self.outliers_index[0]) > 0:
+                    self.outliers_col.append(self.col)  # appen the columns where outliers are present.
+                    self.logger_object.log(self.file, f"Outliers are present at: {self.col} {self.outliers_index[0]}")
                 else:
-                    self.logger_object.log(file, f"Outliers are not present in dataset at: {col} {outliers_index[0]}")
-            file.close()
-            return outliers_col
+                    self.logger_object.log(self.file, f"Outliers are not present in dataset at: {self.col} {self.outliers_index[0]}")
+            self.file.close()
+            return self.outliers_col  # return only those columns where outliers are present.
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
 
 
-    def CreateDirectoryGoodBadData(self):
+    def CreateDirectoryGoodBadData(self, directory):
         """
             Method Name: CreateDirectoryGoodBadData
             Description: This method helps to create Good_Raw_Data & Bad_Raw_Data Data directory to store good and bad data
@@ -256,31 +265,32 @@ class Raw_Data_Validation:
             Revisions: None.
         """
         try:
-            file = open(self.file_path, 'a+')
-            path = os.path.join("../Training_Raw_Files_Validate/", "Good_Raw_Data/")
-            if not os.path.isdir(path):
-                os.makedirs(path)
-                self.logger_object.log(file, "Good_Raw_Data directory is created")
+            self.file = open(self.file_path, 'a+')
+            self.directory = directory
+            self.path = os.path.join(self.directory + '/', "Good_Raw_Data/")  # mention the path to create the directory for Good_Raw_Data.
+            if not os.self.path.isdir(self.path):
+                os.makedirs(self.path)  # if Good_Raw_Data directory is not present then created
+                self.logger_object.log(self.file, "Good_Raw_Data directory is created")
 
-            path = os.path.join("../Training_Raw_Files_Validate/", "Bad_Raw_Data/")
-            if not os.path.isdir(path):
-                os.makedirs(path)
-                self.logger_object.log(file, "Bad_Raw_Data directory is created")
-            file.close()
+            self.path = os.path.join(self.directory + '/', "Bad_Raw_Data/")  # mention the path to create the directory for Bad_Raw_Data.
+            if not os.path.isdir(self.path):
+                os.makedirs(self.path)   # if Bad_Raw_Data directory is not present then created
+                self.logger_object.log(self.file, "Bad_Raw_Data directory is created")
+            self.file.close()
 
         except OSError as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
-    def DeleteExistingGoodRawDataTrainingFolder(self):
+    def DeleteExistingGoodRawDataTrainingFolder(self, directory):
         """
             Method Name: DeleteExistingGoodRawDataTrainingFolder
             Description: This method deletes the directory made to store the Good Data
@@ -295,27 +305,28 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            path = "../Training_Raw_Files_Validate/"
-            if os.path.isdir(path + "Good_Raw_Data/"):
-                shutil.rmtree(path + "Good_Raw_Data/")
-                file = open(self.file_path, 'a+')
-                self.logger_object.log(file, "Good_Raw_Data directory delete successfully")
-                file.close()
+            self.directory = directory
+            self.path = self.directory + "/"
+            if os.path.isdir(self.path + "Good_Raw_Data/"):
+                shutil.rmtree(self.path + "Good_Raw_Data/")  # delete the Good_Raw_Data directory, if this directory is present.
+                self.file = open(self.file_path, 'a+')
+                self.logger_object.log(self.file, "Good_Raw_Data directory delete successfully")
+                self.file.close()
 
         except OSError as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
 
-    def DeleteExistingBadRawDataTrainingFolder(self):
+    def DeleteExistingBadRawDataTrainingFolder(self, directory):
         """
             Method Name: DeleteExistingBadRawDataTrainingFolder
             Description: This method deletes the directory made to store the bad Data.
@@ -328,23 +339,24 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            path = "../Training_Raw_Files_Validate/"
-            if os.path.isdir(path + "Bad_Raw_Data/"):
-                shutil.rmtree(path + "Bad_Raw_Data/")
-                file = open(self.file_path, 'a+')
-                self.logger_object.log(file, "Bad_Raw_Data directory delete successfully")
-                file.close()
+            self.directory = directory
+            self.path = self.directory + "/"
+            if os.path.isdir(self.path + "Bad_Raw_Data/"):
+                shutil.rmtree(self.path + "Bad_Raw_Data/")  # delete the Bad_Raw_Data directory, if this directory is present.
+                self.file = open(self.file_path, 'a+')
+                self.logger_object.log(self.file, "Bad_Raw_Data directory delete successfully")
+                self.file.close()
 
         except OSError as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
 
@@ -363,41 +375,37 @@ class Raw_Data_Validation:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            for file in listdir("Training_Raw_Files_Validate/Good_Raw_Data/"):
-                data = pd.read_csv("Training_Raw_Files_Validate/Good_Raw_Data/" + file)
-                count = 0
+            self.file = open(self.file_path, 'a+')
+            for self.fl in listdir("Training_Raw_Files_Validate/Good_Raw_Data/"):
+                self.data = pd.read_csv("Training_Raw_Files_Validate/Good_Raw_Data/" + self.fl)
+                self.count = 0
 
-                for column in data.columns:
-                    if (len(data[column]) - data[column].count()) == len(data[column]):
-                        count += 1
-                        shutil.move("Training_Raw_Files_Validate/Good_Raw_Data/" + file,
+                for self.column in self.data.columns:
+                    if (len(self.data[self.column]) - self.data[self.column].count()) == len(self.data[self.column]):
+                        self.count += 1
+                        shutil.move("Training_Raw_Files_Validate/Good_Raw_Data/" + self.fl,
                                     "Training_Raw_Files_Validate/Good_Raw_Data/")
-                        self.logger.log(file, "Invalid Column Length for the file!! File moved to Bad Raw Folder :: %s" % file)
+                        self.logger.log(self.file, "Invalid Column Length for the file!! File moved to Bad Raw Folder :: %s" % self.file)
                         break
 
-                if count == 0:
-                    data.to_csv("Training_Raw_Files_Validate/Good_Raw_Data/" + file, index=None, header=True)
+                if self.count == 0:
+                    self.data.to_csv("Training_Raw_Files_Validate/Good_Raw_Data/" + self.fl, index=None, header=True)
 
         except OSError as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error: {ex}")
+            self.file.close()
             raise ex
 
 
 if __name__ == '__main__':
-    from Data_Ingection.data_loader import Data_Collection
-    data = Data_Collection().get_data("../Raw Data/boston.csv", 'csv', separator=',')
-    print(data)
+    pass
 
-    validation = Raw_Data_Validation()
-    
 
 
