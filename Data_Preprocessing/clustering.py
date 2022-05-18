@@ -18,7 +18,7 @@ class KMeans_Clustering:
     def __init__(self, file_path, processing_data_path):
         self.file_path = file_path  # this file path help to log the details in particular file
         self.processing_data_path = processing_data_path  # you can store to preprocess data before training
-        self.logger_object = App_Logger()
+        self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def Elbow_Method(self, data):
         """
