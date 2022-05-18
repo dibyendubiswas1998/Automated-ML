@@ -16,8 +16,8 @@ class KMeans_Clustering:
     """
 
     def __init__(self, file_path, processing_data_path):
-        self.file_path = file_path  # this file path help to log the details in particular file
-        self.processing_data_path = processing_data_path  # you can store to preprocess data before training
+        self.file_path = file_path  # this file path help to log the details in particular file = Execution_Logs/Training_Logs/Data_Preprocessing.txt
+        self.processing_data_path = processing_data_path  # you can store to preprocess data before training path = Preprocessing_Data/
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def Elbow_Method(self, data):
@@ -34,30 +34,31 @@ class KMeans_Clustering:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            wcss = []
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.wcss = []
             for i in range(1, 11):
-                kmeans = KMeans(n_clusters=i, init='k-means++', random_state=42)
-                kmeans.fit(data)
-                wcss.append(kmeans.inertia_)
+                self.kmeans = KMeans(n_clusters=i, init='k-means++', random_state=42)
+                self.kmeans.fit(self.data)
+                self.wcss.append(self.kmeans.inertia_)
 
-            plt.plot(range(1, 11), wcss)  # creating the graph between WCSS and the number of clusters
+            plt.plot(range(1, 11), self.wcss)  # creating the graph between WCSS and the number of clusters
             plt.title('The Elbow Method')
             plt.xlabel('Number of clusters')
             plt.ylabel('WCSS')
             # plt.show()
             plt.savefig(self.processing_data_path + '/' + "KMeans_Elbow.PNG")  # to save the graph (wcs vs no. of cluster)
-            self.logger_object.log(file, f"Save the KMeans_Elbow graph in {self.processing_data_path} directory")
+            self.logger_object.log(self.file, f"Save the KMeans_Elbow graph in {self.processing_data_path} directory")
 
             self.kn = KneeLocator(range(1, 11), wcss, curve='convex', direction='decreasing')  # KneeLocator helps to get the number of cluster
-            self.logger_object.log(file, f"Get the Number of clusters using KMeans Clustering, i.e. {self.kn.knee}")
-            file.close()
+            self.logger_object.log(self.file, f"Get the Number of clusters using KMeans Clustering, i.e. {self.kn.knee}")
+            self.file.close()
             return self.kn.knee  # get or return the number of cluster
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
     def ToCreateCluster(self, data, no_cluster):
@@ -73,32 +74,23 @@ class KMeans_Clustering:
             Revisions: None
         """
         try:
-            file = open(self.file_path, 'a+')
-            kmeans = KMeans(n_clusters=no_cluster, init='k-means++', random_state=101)  # create a cluster using KMeans Clustering
-            y_kmeans = kmeans.fit_predict(data)  # predict the cluster labels
-            data['cluster_label'] = y_kmeans  # attach the cluster labels with the given data
-            self.logger_object.log(file, "Successfully create the clusters & labeled the cluster")
-            file.close()
-            return data  # return the cluster labeled data
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.no_cluster = no_cluster
+            self.kmeans = KMeans(n_clusters=self.no_cluster, init='k-means++', random_state=101)  # create a cluster using KMeans Clustering
+            self.y_kmeans = self.kmeans.fit_predict(self.data)  # predict the cluster labels
+            self.data['cluster_label'] = self.y_kmeans  # attach the cluster labels with the given data
+            self.logger_object.log(self.file, "Successfully create the clusters & labeled the cluster")
+            self.file.close()
+            return self.data  # return the cluster labeled data
 
         except Exception as ex:
-            file = open(self.file_path, 'a+')
-            self.logger_object.log(file, f"Error is: {ex}")
-            file.close()
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
             raise ex
 
 
 if __name__ == '__main__':
-    from Data_Ingection.data_loader import Data_Collection
+    pass
 
-    data = Data_Collection().get_data("../Raw Data/boston.csv", 'csv', separator=',')
-    print(data.head(15), '\n\n')
-
-    # clus = KMeans_Clustering()
-    # kn = clus.Elbow_Method(data)
-    # print(kn)
-
-    # data = clus.ToCreateCluster(data, kn)
-    # print(data.head(30))
-    # print(data[data['cluster_label'] == 1])
-    # print(data[data['cluster_label'] == 2])
