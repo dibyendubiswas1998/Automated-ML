@@ -147,3 +147,40 @@ class Regression_Model_Finder:
             self.file.close()
             raise ex
 
+
+    def CreateSVR(self, x_train, y_train):
+        """
+            Method Name: CreateSVR
+            Description: This method helps to create model using SVR.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "Use SVR to create the model")
+            self.x_train = x_train
+            self.y_train = y_train
+            self.reg = SVR(kernel='rbf')  # use SVR to create model
+            self.reg.fit(self.x_train, self.y_train)
+            self.logger_object.log(self.file, "Successfully trained the model using SVR")
+            self.file.close()
+            return self.reg  # return the regression model
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
+
+
+
+
+if __name__ == '__main__':
+    pass
+
