@@ -68,7 +68,7 @@ class File_Operations:
         try:
             self.file = open(self.file_path, 'a+')
             self.filename = filename
-            with open(self.model_directory + self.filename + '/' + self.filename + '.sav', 'rb') as f:   # to load the particular model
+            with open(self.model_directory + '/' + self.filename + '.sav', 'rb') as f:   # to load the particular model
                 self.logger_object.log(self.file, "Model is successfully loaded")
                 self.file.close()
                 return pickle.load(f)  # return the particular model
