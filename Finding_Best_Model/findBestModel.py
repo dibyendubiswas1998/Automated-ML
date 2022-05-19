@@ -1,6 +1,6 @@
 from Application_Log.logger import App_Logger
 from Model_Creation.modelCreationRegression import Regression_Model_Finder as Reg
-from Model_Creation.modelCreationClassification import Classification_Model_Finder as Cls
+from Model_Creation.modelCreationClassification import To_Create_Classification_Model as Cls
 from sklearn.metrics import accuracy_score, roc_auc_score, r2_score, confusion_matrix
 import numpy as np
 import pandas as pd
