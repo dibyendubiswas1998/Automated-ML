@@ -13,8 +13,8 @@ class Regression_Model_Finder:
          Revisions: None
     """
 
-    def __init__(self, file_path):
-        self.file_path = "Executions_Logs/Training_Logs/Model_Creation_Logs.txt"  # this file path help to log the details in this file
+    def __init__(self, file_path="Executions_Logs/Training_Logs/Model_Creation_Logs.txt"):
+        self.file_path = file_path  # this file path help to log the details in this file
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
         self.file_operation = File_Operations()
 
