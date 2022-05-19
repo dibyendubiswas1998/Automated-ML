@@ -16,7 +16,7 @@ class Raw_Data_Validation:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self, file_path):
+    def __init__(self, file_path="Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"):
         self.file_path = file_path   # this file path help to log the details in particular file =Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
