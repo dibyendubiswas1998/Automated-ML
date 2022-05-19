@@ -14,10 +14,10 @@ class File_Operations:
         Revisions: None
     """
 
-    def __init__(self, file_path, model_directory):
-        self.file_path = file_path   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/File_Operations.txt
+    def __init__(self):
+        self.file_path = "Executions_Logs/Training_Logs/File_Operations.txt"   # this file path help to log the details in particular file
         self.logger_object = App_Logger()   # call the App_Logger() to log the details
-        self.model_directory = model_directory   # this directoty helps to store model in folder where path = Models/
+        self.model_directory = "Models/"   # this directoty helps to store model in folder where path = Models/
 
     def ToSaveModel(self, model, filename):
         """
