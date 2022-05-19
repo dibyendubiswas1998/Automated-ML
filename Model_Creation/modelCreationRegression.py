@@ -2,7 +2,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LinearRegression, Ridge, Lasso, RidgeCV, LassoCV, ElasticNet, ElasticNetCV
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
-
+from File_Operations.fileMethods import File_Operations
 
 class Regression_Model_Finder:
     """
@@ -14,8 +14,9 @@ class Regression_Model_Finder:
     """
 
     def __init__(self, file_path):
-        self.file_path = file_path  # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Model_Creation_Logs.txt"
+        self.file_path = "Executions_Logs/Training_Logs/Model_Creation_Logs.txt"  # this file path help to log the details in this file
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
+        self.file_operation = File_Operations()
 
     def CreateLinearRegression(self, x_train, y_train):
         """
@@ -37,6 +38,7 @@ class Regression_Model_Finder:
             self.reg = LinearRegression()  # use LinearRegression algirithm
             self.reg.fit(self.x_train, self.y_train)
             self.logger_object.log(self.file, "Trained the model using LinearRegression algorithm")
+            self.file_operation.ToSaveModel(self.reg, "Linear Regression")  # Save the model in a directory
             self.file.close()
             return self.reg  # return the model
 
@@ -70,6 +72,7 @@ class Regression_Model_Finder:
             self.reg = Ridge(alpha=self.alpha_)  # using alpha value try to train the model
             self.reg.fit(self.x_train, self.y_train)
             self.logger_object.log(self.file, "Successfully trained the model")
+            self.file_operation.ToSaveModel(self.reg, "Ridge Regression")  # Save the model in a directory
             self.file.close()
             return self.reg  # return regression model
 
@@ -104,6 +107,7 @@ class Regression_Model_Finder:
             self.reg = Lasso(alpha=self.alpha_)
             self.reg.fit(self.x_train, self.y_train)  # train the model with Lasso Regression
             self.logger_object.log(self.file, "Successfully trained the model using Lasso Regression")
+            self.file_operation.ToSaveModel(self.reg, "Lasso Regression")  # Save the model in a directory
             self.file.close()
             return self.reg  # return the regession model.
 
@@ -138,6 +142,7 @@ class Regression_Model_Finder:
             self.reg = ElasticNet(alpha=self.alpha, l1_ratio=self.l1_ratio)  # train the model with best hyperparameter
             self.reg.fit(self.x_train, self.y_train)
             self.logger_object.log(self.file, "Successfully trained the model using ElasticNet")
+            self.file_operation.ToSaveModel(self.reg, "ElasticNet Regression")  # Save the model in a directory
             self.file.close()
             return self.reg
 
@@ -168,6 +173,7 @@ class Regression_Model_Finder:
             self.reg = SVR(kernel='rbf')  # use SVR to create model
             self.reg.fit(self.x_train, self.y_train)
             self.logger_object.log(self.file, "Successfully trained the model using SVR")
+            self.file_operation.ToSaveModel(self.reg, "SVR Regression")  # Save the model in a directory
             self.file.close()
             return self.reg  # return the regression model
 
