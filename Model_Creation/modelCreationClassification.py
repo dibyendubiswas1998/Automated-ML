@@ -33,6 +33,7 @@ class Classification_Model_Finder:
         """
         try:
             self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "We use DecisionTree Classifier")
             self.x_train = x_train
             self.y_train = y_train
             self.clf = DecisionTreeClassifier()  # declare base decision tree model.
@@ -81,6 +82,7 @@ class Classification_Model_Finder:
         """
         try:
             self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "We use RandomForest Classifier")
             self.x_train = x_train
             self.y_train = y_train
             self.set_params = {"n_estimators": [10, 50, 100, 130, 150], "criterion": ['gini', 'entropy'],
@@ -127,6 +129,7 @@ class Classification_Model_Finder:
         """
         try:
             self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "We use XGBoost Classifier")
             self.x_train = x_train
             self.y_train = y_train
             self.clf = XGBClassifier(objective='binary:logistic')
@@ -213,3 +216,5 @@ class Classification_Model_Finder:
             raise ex
 
 
+if __name__ == '__main__':
+    pass
