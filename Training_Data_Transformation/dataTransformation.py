@@ -17,8 +17,8 @@ class Data_Transformation:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self, file_path):
-        self.file_path = file_path  # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Data_Tansformation_Logs.txt"
+    def __init__(self, file_path="Executions_Logs/Training_Logs/Data_Tansformation_Logs.txt"):
+        self.file_path = file_path  # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Data_Tansformation_Logs.txt
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def ToReplaceMissingWithNull(self, data):
