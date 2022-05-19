@@ -19,9 +19,9 @@ class Classification_Model_Finder:
         self.file_path = file_path  # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Model_Creation_Logs.txt"
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
-    def DecisionTreeClassifier(self, x_train, y_train):
+    def CreateDecisionTreeClassifier(self, x_train, y_train):
         """
-            Method Name: DecisionTreeClassifier
+            Method Name: CreateDecisionTreeClassifier
             Description: This method helps to create decision tree model after hyperparameter tuning.
 
             Output: model with the best parameter.
@@ -71,9 +71,9 @@ class Classification_Model_Finder:
             self.file.close()
             raise ex
 
-    def RandomForestClassifie(self, x_train, y_train):
+    def CreateRandomForestClassifie(self, x_train, y_train):
         """
-            Method Name: RandomForestClassifie
+            Method Name: CreateRandomForestClassifie
             Description: This method helps to create model after hyperparameter tuning.
 
             Output: model with the best parameter.
@@ -117,9 +117,9 @@ class Classification_Model_Finder:
             self.file.close()
             raise ex
 
-    def XGBoostClassifier(self, x_train, y_train):
+    def CreateXGBoostClassifier(self, x_train, y_train):
         """
-            Method Name: XGBoostClassifier
+            Method Name: CreateXGBoostClassifier
             Description: This method helps to create XGboost model after hyperparameter tuning.
 
             Output: model with the best parameter.
@@ -162,9 +162,9 @@ class Classification_Model_Finder:
             self.file.close()
             raise ex
 
-    def EnsembleTechniquesDecisionTee(self, x_train, y_train):
+    def CreateEnsembleTechniquesDecisionTee(self, x_train, y_train):
         """
-            Method Name: EnsembleTechniquesDecisionTee
+            Method Name: CreateEnsembleTechniquesDecisionTee
             Description: This method helps to create model using ensemble techniques
                          where base model is Decision Tree.
 
@@ -218,9 +218,9 @@ class Classification_Model_Finder:
             self.file.close()
             raise ex
 
-    def EnsembleTechniquesKNN(self, x_train, y_train):
+    def CreateEnsembleTechniquesKNN(self, x_train, y_train):
         """
-            Method Name: EnsembleTechniquesKNN
+            Method Name: CreateEnsembleTechniquesKNN
             Description: This method helps to create model using ensemble techniques
                          where base model is KNN.
 
@@ -244,7 +244,7 @@ class Classification_Model_Finder:
             self.logger_object.log(self.file, f"Trained the model using Ensembel approach")
             self.file.close()
             return self.clf
-            
+
         except Exception as ex:
             self.file = open(self.file_path, 'a+')
             self.logger_object.log(self.file, f"Error is: {ex}")
