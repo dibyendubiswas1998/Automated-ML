@@ -2,6 +2,7 @@ from sklearn.ensemble import RandomForestClassifier, BaggingClassifier
 from sklearn.model_selection import GridSearchCV
 from xgboost import XGBClassifier
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 from Application_Log.logger import App_Logger
 
 
@@ -17,7 +18,6 @@ class Classification_Model_Finder:
     def __init__(self, file_path):
         self.file_path = file_path  # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Model_Creation_Logs.txt"
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
-
 
     def DecisionTreeClassifier(self, x_train, y_train):
         """
@@ -38,13 +38,14 @@ class Classification_Model_Finder:
             self.y_train = y_train
             self.clf = DecisionTreeClassifier()  # declare base decision tree model.
             self.set_params = {
-                                'criterion': ['gini', 'entropy'],
-                                'max_depth': range(2, 42, 1),
-                                'min_samples_leaf': range(1, 10, 1),
-                                'min_samples_split': range(2, 10, 1),
-                                'splitter': ['best', 'random']
-                            }
-            self.grid_search = GridSearchCV(estimator=self.clf, param_grid=self.set_params, cv=7, n_jobs=-1)  # apply GridSearch to find the best parameter
+                'criterion': ['gini', 'entropy'],
+                'max_depth': range(2, 42, 1),
+                'min_samples_leaf': range(1, 10, 1),
+                'min_samples_split': range(2, 10, 1),
+                'splitter': ['best', 'random']
+            }
+            self.grid_search = GridSearchCV(estimator=self.clf, param_grid=self.set_params, cv=7,
+                                            n_jobs=-1)  # apply GridSearch to find the best parameter
             self.grid_search.fit(self.x_train, self.y_train)
             # get the parameters after applying GridSearch algorithm:
             self.criterion = self.grid_search.best_params_['criterion']
@@ -52,11 +53,14 @@ class Classification_Model_Finder:
             self.min_samples_leaf = self.grid_search.best_params_['min_samples_leaf']
             self.min_samples_split = self.grid_search.best_params_['min_samples_split']
             self.splitter = self.grid_search.best_params_['splitter']
-            self.logger_object.log(self.file, f"Get the best parameters after hyperparameter tuning {self.grid_search.best_params_}")
+            self.logger_object.log(self.file,
+                                   f"Get the best parameters after hyperparameter tuning {self.grid_search.best_params_}")
 
             # train the model with the best parameters.
-            self.clf = DecisionTreeClassifier(criterion=self.criterion, splitter=self.splitter, max_depth=self.max_depth,
-                                              min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf)
+            self.clf = DecisionTreeClassifier(criterion=self.criterion, splitter=self.splitter,
+                                              max_depth=self.max_depth,
+                                              min_samples_split=self.min_samples_split,
+                                              min_samples_leaf=self.min_samples_leaf)
             self.logger_object.log(self.file, f"train the model with best parameters {self.grid_search.best_params_}")
             self.file.close()
             return self.clf  # return the model
@@ -66,7 +70,6 @@ class Classification_Model_Finder:
             self.logger_object.log(self.file, f"Error is: {ex}")
             self.file.close()
             raise ex
-
 
     def RandomForestClassifie(self, x_train, y_train):
         """
@@ -114,7 +117,6 @@ class Classification_Model_Finder:
             self.file.close()
             raise ex
 
-
     def XGBoostClassifier(self, x_train, y_train):
         """
             Method Name: XGBoostClassifier
@@ -134,17 +136,19 @@ class Classification_Model_Finder:
             self.y_train = y_train
             self.clf = XGBClassifier(objective='binary:logistic')
             self.set_params = {
-                                'learning_rate': [0.5, 0.1, 0.01, 0.001],    # set the parameter
-                                'max_depth': [3, 5, 10, 20],
-                                'n_estimators': [10, 50, 100, 150, 200]
-                               }
-            self.grid_search = GridSearchCV(estimator=self.clf, param_grid=self.set_params, cv=5, verbose=3)  # apply GridSearch to find the best parameter
+                'learning_rate': [0.5, 0.1, 0.01, 0.001],  # set the parameter
+                'max_depth': [3, 5, 10, 20],
+                'n_estimators': [10, 50, 100, 150, 200]
+            }
+            self.grid_search = GridSearchCV(estimator=self.clf, param_grid=self.set_params, cv=5,
+                                            verbose=3)  # apply GridSearch to find the best parameter
             self.grid_search.fit(x_train, y_train)
             # get the parameters after applying GridSearch algorithm:
             self.learning_rate = self.grid_search.best_params_['learning_rate']
             self.max_depth = self.grid_search.best_params_['max_depth']
             self.n_estimators = self.grid_search.best_params_['n_estimators']
-            self.logger_object.log(self.file, f"Get the best parameters after hyperparameter tuning {self.grid_search.best_params_}")
+            self.logger_object.log(self.file,
+                                   f"Get the best parameters after hyperparameter tuning {self.grid_search.best_params_}")
 
             # train the model with the best parameters:
             self.clf = XGBClassifier(self.learning_rate, self.max_depth, self.n_estimators)
@@ -158,10 +162,9 @@ class Classification_Model_Finder:
             self.file.close()
             raise ex
 
-
-    def EnsembleTechniques(self, x_train, y_train):
+    def EnsembleTechniquesDecisionTee(self, x_train, y_train):
         """
-            Method Name: EnsembleTechniques
+            Method Name: EnsembleTechniquesDecisionTee
             Description: This method helps to create model using ensemble techniques
                          where base model is Decision Tree.
 
@@ -174,7 +177,7 @@ class Classification_Model_Finder:
         """
         try:
             self.file = open(self.file_path, 'a+')
-            self.logger_object.log(self.file, "We use Ensemble approach")
+            self.logger_object.log(self.file, "We use Ensemble approach, where base model is Decision Trees")
             self.x_train = x_train
             self.y_train = y_train
             self.clf = DecisionTreeClassifier()  # declare base decision tree model.
@@ -209,6 +212,39 @@ class Classification_Model_Finder:
             self.file.close()
             return self.clf  # return the model
 
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
+    def EnsembleTechniquesKNN(self, x_train, y_train):
+        """
+            Method Name: EnsembleTechniquesKNN
+            Description: This method helps to create model using ensemble techniques
+                         where base model is KNN.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "We use Ensemble approach, where base model is KNN")
+            self.x_train = x_train
+            self.y_train = y_train
+            self.clf = KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+                                            metric_params=None, n_jobs=None, n_neighbors=5, p=2,
+                                            weights='uniform')
+            self.clf = BaggingClassifier(base_estimator=self.clf, n_estimators=17, max_samples=0.5,
+                                         bootstrap=True, random_state=101, oob_score=True)
+            self.logger_object.log(self.file, f"Trained the model using Ensembel approach")
+            self.file.close()
+            return self.clf
+            
         except Exception as ex:
             self.file = open(self.file_path, 'a+')
             self.logger_object.log(self.file, f"Error is: {ex}")
