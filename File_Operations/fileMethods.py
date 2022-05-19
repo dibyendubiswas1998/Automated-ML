@@ -116,3 +116,11 @@ class File_Operations:
             self.logger_object.log(self.file, f"Error is: {ex}")
             self.file.close()
             raise ex
+
+
+    def ToDownloadData(self):
+        """
+
+        :return:
+        """
+        pass
