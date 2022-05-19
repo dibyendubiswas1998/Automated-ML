@@ -113,3 +113,37 @@ class Regression_Model_Finder:
             self.file.close()
             raise ex
 
+
+    def CreateElasticNet(self, x_train, y_train):
+        """
+            Method Name: CreateElasticNet
+            Description: This method helps to create model using ElsticNet.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "Use ElasticNet to create the model")
+            self.x_train = x_train
+            self.y_train = y_train
+            # finding the best parameters using ElasticNetCV
+            self.elasticCV = ElasticNetCV(alphas=None, cv=20)
+            self.alpha, self.l1_ratio = self.elasticCV.alpha_, self.elasticCV.l1_ratio  # get the alpha & l1_ratio
+            self.logger_object.log(self.file, f"Get the alpha {self.alpha} and l1_ration {self.l1_ratio}")
+            self.reg = ElasticNet(alpha=self.alpha, l1_ratio=self.l1_ratio)  # train the model with best hyperparameter
+            self.reg.fit(self.x_train, self.y_train)
+            self.logger_object.log(self.file, "Successfully trained the model using ElasticNet")
+            self.file.close()
+            return self.reg
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
