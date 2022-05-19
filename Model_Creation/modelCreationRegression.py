@@ -46,3 +46,37 @@ class Regression_Model_Finder:
             self.file.close()
             raise ex
 
+
+    def CreateRidgeRegression(self, x_train, y_train):
+        """
+            Method Name: CreateRidgeRegression
+            Description: This method helps to create model using Ridge Regression.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "Use Ridge Regression to create the model")
+            # finding the best parameters using RidgeCV
+            self.alpha = np.random.uniform(low=0, high=10, size=(50,))
+            self.ridgecv = RidgeCV(alphas=self.alpha, cv=10, normalize=True)
+            self.ridgecv.fit(self.x_train, self.y_train)
+            self.alpha_ = self.ridgecv.alpha_  # get the alpha value using RidgeCV
+            self.logger_object.log(self.file, f"Get the alpha value using RidgeCV {self.alpha_}")
+            self.reg = Ridge(alpha=self.alpha_)  # using alpha value try to train the model
+            self.reg.fit(self.x_train, self.y_train)
+            self.logger_object.log(self.file, "Successfully trained the model")
+            self.file.close()
+            return self.reg  # return regression model
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
