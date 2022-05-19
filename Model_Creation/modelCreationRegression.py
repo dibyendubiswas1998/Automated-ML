@@ -4,7 +4,7 @@ from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
 from File_Operations.fileMethods import File_Operations
 
-class Regression_Model_Finder:
+class To_Create_Regression_Model:
     """
          This class shall be used for create the Models for regression.
 

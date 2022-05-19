@@ -7,7 +7,7 @@ from Application_Log.logger import App_Logger
 from File_Operations.fileMethods import File_Operations
 
 
-class Classification_Model_Finder:
+class To_Create_Classification_Model:
     """
         This class shall be used for create the Models for classification
 
