@@ -12,10 +12,10 @@ class Regression_Model_Finder:
          Version: 1.0
          Revisions: None
     """
+
     def __init__(self, file_path):
         self.file_path = file_path  # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Model_Creation_Logs.txt"
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
-
 
     def CreateLinearRegression(self, x_train, y_train):
         """
@@ -34,7 +34,7 @@ class Regression_Model_Finder:
             self.logger_object.log(self.file, "Use Linear Regression to create the model")
             self.x_train = x_train
             self.y_train = y_train
-            self.reg = LinearRegression()   # use LinearRegression algirithm
+            self.reg = LinearRegression()  # use LinearRegression algirithm
             self.reg.fit(self.x_train, self.y_train)
             self.logger_object.log(self.file, "Trained the model using LinearRegression algorithm")
             self.file.close()
@@ -45,7 +45,6 @@ class Regression_Model_Finder:
             self.logger_object.log(self.file, f"Error is: {ex}")
             self.file.close()
             raise ex
-
 
     def CreateRidgeRegression(self, x_train, y_train):
         """
@@ -73,6 +72,40 @@ class Regression_Model_Finder:
             self.logger_object.log(self.file, "Successfully trained the model")
             self.file.close()
             return self.reg  # return regression model
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
+
+    def CreateLassoRegression(self, x_train, y_train):
+        """
+            Method Name: CreateLassoRegression
+            Description: This method helps to create model using Lasso Regression.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "Use Lasso Regression to create the model")
+            self.x_train = x_train
+            self.y_train = y_train
+            # finding the best parameters using LassoCV
+            self.lassocv = LassoCV(alphas=None, cv=10, max_iter=100000, normalize=True)  # tune the hyperparameter.
+            self.alpha_ = self.lassocv.alpha_  # get the alpha value
+            self.logger_object.log(self.file, f"get the alpha value using LassoCv {self.alpha_}")
+            self.reg = Lasso(alpha=self.alpha_)
+            self.reg.fit(self.x_train, self.y_train)  # train the model with Lasso Regression
+            self.logger_object.log(self.file, "Successfully trained the model using Lasso Regression")
+            self.file.close()
+            return self.reg  # return the regession model.
 
         except Exception as ex:
             self.file = open(self.file_path, 'a+')
