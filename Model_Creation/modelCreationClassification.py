@@ -65,7 +65,7 @@ class Classification_Model_Finder:
             self.logger_object.log(self.file, f"Error is: {ex}")
             self.file.close()
             raise ex
-        
+
 
     def RandomForestClassifie(self, x_train, y_train):
         """
@@ -111,3 +111,48 @@ class Classification_Model_Finder:
             self.logger_object.log(self.file, f"Error is: {ex}")
             self.file.close()
             raise ex
+
+
+    def XGBoostClassifier(self, x_train, y_train):
+        """
+            Method Name: XGBoostClassifier
+            Description: This method helps to create XGboost model after hyperparameter tuning.
+
+            Output: model with the best parameter.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.x_train = x_train
+            self.y_train = y_train
+            self.clf = XGBClassifier(objective='binary:logistic')
+            self.set_params = {
+                                'learning_rate': [0.5, 0.1, 0.01, 0.001],    # set the parameter
+                                'max_depth': [3, 5, 10, 20],
+                                'n_estimators': [10, 50, 100, 150, 200]
+                               }
+            self.grid_search = GridSearchCV(estimator=self.clf, param_grid=self.set_params, cv=5, verbose=3)  # apply GridSearch to find the best parameter
+            self.grid_search.fit(x_train, y_train)
+            # get the parameters after applying GridSearch algorithm:
+            self.learning_rate = self.grid_search.best_params_['learning_rate']
+            self.max_depth = self.grid_search.best_params_['max_depth']
+            self.n_estimators = self.grid_search.best_params_['n_estimators']
+            self.logger_object.log(self.file, f"Get the best parameters after hyperparameter tuning {self.grid_search.best_params_}")
+
+            # train the model with the best parameters:
+            self.clf = XGBClassifier(self.learning_rate, self.max_depth, self.n_estimators)
+            self.logger_object.log(self.file, f"Trained the model with best parameters {self.grid_search.best_params_}")
+            self.file.close()
+            return self.clf
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
+
