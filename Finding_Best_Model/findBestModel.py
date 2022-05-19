@@ -53,7 +53,7 @@ class Find_Best_Model:
             self.random_forest_ypred_test = self.random_forest.predict(self.x_test)
             self.XGBoost_ypred_test = self.XGBoost.predict(self.x_test)
             self.Ensemble_decision_tree_ypred_test = self.Ensemble_decision_tree.predict(self.x_test)
-            self.Ensemble_knn_ypred_test = self.Ensemble_knn.predict(self.y_test)
+            self.Ensemble_knn_ypred_test = self.Ensemble_knn.predict(self.x_test)
 
             # getting the Auc_Roc and Accuracy scores:
             if len(self.y_test.unique()) == 1 or len(self.y_train.unique()):  # if there is only one label in y, then roc_auc_score returns error. We will use accuracy in that case
