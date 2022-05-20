@@ -108,3 +108,94 @@
 2022-05-19/23:29:13		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
 2022-05-19/23:35:16		In output column has ['versicolor', 'setosa', 'virginica'] categories.
 2022-05-19/23:35:16		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-20/17:27:25		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:27:25		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:27:25		After drop the duplicates values, the shape of data is (150, 5)
+2022-05-20/17:27:25		Successfully drop the duplicates values
+2022-05-20/17:27:50		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:27:50		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:27:50		After drop the duplicates values, the shape of data is (150, 5)
+2022-05-20/17:27:50		Successfully drop the duplicates values
+2022-05-20/17:27:50		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-20/17:27:50		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-20/17:27:50		Successfully remove the outliers from data ['sepal_width']
+2022-05-20/17:30:26		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:30:26		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:30:26		After drop the duplicates values, the shape of data is (150, 5)
+2022-05-20/17:30:26		Successfully drop the duplicates values
+2022-05-20/17:30:26		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-20/17:30:27		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-20/17:30:27		Successfully remove the outliers from data ['sepal_width']
+2022-05-20/17:30:50		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:30:50		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:30:50		After drop the duplicates values, the shape of data is (189, 5)
+2022-05-20/17:30:50		Successfully drop the duplicates values
+2022-05-20/17:30:50		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-20/17:30:50		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-20/17:34:59		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:34:59		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:34:59		After drop the duplicates values, the shape of data is (189, 5)
+2022-05-20/17:34:59		Successfully drop the duplicates values
+2022-05-20/17:34:59		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-20/17:35:00		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-20/17:37:43		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:37:43		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:37:43		After drop the duplicates values, the shape of data is (189, 5)
+2022-05-20/17:37:43		Successfully drop the duplicates values
+2022-05-20/17:37:43		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-20/17:37:44		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-20/17:41:30		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:41:30		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:41:30		After drop the duplicates values, the shape of data is (321, 5)
+2022-05-20/17:41:30		Successfully drop the duplicates values
+2022-05-20/17:41:30		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/17:41:31		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/17:42:33		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:42:33		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:42:33		After drop the duplicates values, the shape of data is (321, 5)
+2022-05-20/17:42:33		Successfully drop the duplicates values
+2022-05-20/17:42:33		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/17:42:33		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/17:46:36		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-20/17:46:36		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/17:46:36		After drop the duplicates values, the shape of data is (321, 5)
+2022-05-20/17:46:36		Successfully drop the duplicates values
+2022-05-20/17:46:36		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/17:46:36		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/17:46:36		Handle the imbalanced data using Borderline-SMOTE
+2022-05-20/18:10:15		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/18:10:15		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/18:10:15		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/18:10:15		After drop the duplicates values, the shape of data is (312, 5)
+2022-05-20/18:10:15		Successfully drop the duplicates values
+2022-05-20/18:10:15		Handle the imbalanced data using Borderline-SMOTE
+2022-05-20/18:14:09		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/18:14:09		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/18:14:09		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/18:14:09		After drop the duplicates values, the shape of data is (312, 5)
+2022-05-20/18:14:09		Successfully drop the duplicates values
+2022-05-20/18:14:09		Handle the imbalanced data using Borderline-SMOTE
+2022-05-20/18:31:50		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/18:31:50		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/18:31:50		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/18:31:50		After drop the duplicates values, the shape of data is (312, 5)
+2022-05-20/18:31:50		Successfully drop the duplicates values
+2022-05-20/18:31:50		Handle the imbalanced data using Borderline-SMOTE
+2022-05-20/18:32:54		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/18:32:54		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/18:32:54		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/18:32:54		After drop the duplicates values, the shape of data is (312, 5)
+2022-05-20/18:32:54		Successfully drop the duplicates values
+2022-05-20/18:32:54		Handle the imbalanced data using Borderline-SMOTE
+2022-05-20/18:38:05		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/18:38:05		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/18:38:05		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/18:38:05		After drop the duplicates values, the shape of data is (312, 5)
+2022-05-20/18:38:05		Successfully drop the duplicates values
+2022-05-20/18:38:05		Handle the imbalanced data using Borderline-SMOTE
+2022-05-20/18:55:54		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-20/18:55:54		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-20/18:55:54		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-20/18:55:54		After drop the duplicates values, the shape of data is (312, 5)
+2022-05-20/18:55:54		Successfully drop the duplicates values
+2022-05-20/18:55:54		Handle the imbalanced data using Borderline-SMOTE
