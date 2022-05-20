@@ -71,21 +71,17 @@ class Training_Validation_Insertion:
             else:
                 self.logger_object.log(self.file, "No need to mapped the output columns")
             #  Handle the missing values based on condition:
-            if self.imputeMissing.lower() == 'knnimputer':    # impute missing values with KNNImputer
-                if len(self.missing_data_col) > 0:
-                    self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
+            if len(self.missing_data_col) > 0:
+                self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
+                if self.imputeMissing.lower() == 'knnimputer':  # impute missing values with KNNImputer
                     self.data = self.pre_processing.ToImputeMissingValues(data=self.data)
                     self.logger_object.log(self.file, "Successfully handle the missing values by KNNImputer")
-                else:
-                    self.logger_object.log(self.file, "Missing values are not present")
-            else:   # impute missing values with mean value.
-                if self.imputeMissing.lower() == 'mean':
-                    if len(self.missing_data_col) > 0:
-                        self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
-                        self.data = self.fea_eng.ToHandleMissingValues(data=self.data, Xcols=self.xcol)
-                        self.logger_object.log(self.file, "Successfully handle the missing values by mean value of that column respectively")
-                    else:
-                        self.logger_object.log(self.file, "Missing values are not present")
+                else:  # impute missing values with mean value
+                    self.data = self.fea_eng.ToHandleMissingValues(data=self.data, Xcols=self.xcol)
+                    self.logger_object.log(self.file,
+                                           "Successfully handle the missing values by mean value of that column respectively")
+            else:
+                self.logger_object.log(self.file, "Missing values are not present")
             #  Remove the duplicated values:
             self.data = self.fea_eng.ToRemoveDuplicateValues(data=self.data)
             self.logger_object.log(self.file, "Successfully remove the duplicate values")
@@ -94,7 +90,9 @@ class Training_Validation_Insertion:
             self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, before remove the outliers")
             if len(self.isoutlier_cols) > 0:
                 self.logger_object.log(self.file, f"Get the outliers columns:  {self.isoutlier_cols}")
-                self.data = self.fea_eng.ToHandleOutliers(data=self.data, col=self.isoutlier_cols, threshold=self.outlier_threshold)
+                for self.col in self.isoutlier_cols:  # one by one column remove the outliers
+                    self.data = self.fea_eng.ToHandleOutliers(data=self.data, col=self.col,
+                                                              threshold=self.outlier_threshold)
                 self.logger_object.log(self.file, "Successfully remove the outliers")
             else:
                 self.logger_object.log(self.file, "Their is no outliers in the data set")
@@ -115,6 +113,7 @@ class Training_Validation_Insertion:
             self.logger_object.log(self.file, f"Error is: {ex}")
             self.file.close()
             raise ex
+
 
     def ValidateTrainingData_Regression(self, data, yCol, outlier_threshold=3, imputeMissing='KNNImputer'):
         """
@@ -152,29 +151,18 @@ class Training_Validation_Insertion:
             self.isoutlier_cols = self.raw_data.IsOutliersPresent(self.data, self.xcol, threshold=self.outlier_threshold)
 
             # Start the validation:
-            #  Mapping the output column:
-            if self.data[self.ycol].dtypes not in ['int', 'int64', 'int32', 'float', 'float32', 'float64']:
-                self.data = self.fea_eng.ToMappingOutputCol(data=self.data,
-                                                            ycol=self.ycol)  # use KNN imputer to impute missing values
-                self.logger_object.log(self.file, "Successfully mapping the output columns using KNN imputer")
-            else:
-                self.logger_object.log(self.file, "No need to mapped the output columns")
             #  Handle the missing values based on condition:
-            if self.imputeMissing.lower() == 'knnimputer':    # impute missing values with KNNImputer
-                if len(self.missing_data_col) > 0:
-                    self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
+            if len(self.missing_data_col) > 0:
+                self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
+                if self.imputeMissing.lower() == 'knnimputer':   # impute missing values with KNNImputer
                     self.data = self.pre_processing.ToImputeMissingValues(data=self.data)
                     self.logger_object.log(self.file, "Successfully handle the missing values by KNNImputer")
-                else:
-                    self.logger_object.log(self.file, "Missing values are not present")
-            else:   # impute missing values with mean value.
-                if self.imputeMissing.lower() == 'mean':
-                    if len(self.missing_data_col) > 0:
-                        self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
-                        self.data = self.fea_eng.ToHandleMissingValues(data=self.data, Xcols=self.xcol)
-                        self.logger_object.log(self.file, "Successfully handle the missing values by mean value of that column respectively")
-                    else:
-                        self.logger_object.log(self.file, "Missing values are not present")
+                else:  # impute missing values with mean value
+                    self.data = self.fea_eng.ToHandleMissingValues(data=self.data, Xcols=self.xcol)
+                    self.logger_object.log(self.file,
+                                           "Successfully handle the missing values by mean value of that column respectively")
+            else:
+                self.logger_object.log(self.file, "Missing values are not present")
             #  Remove the duplicated values:
             self.data = self.fea_eng.ToRemoveDuplicateValues(data=self.data)
             self.logger_object.log(self.file, "Successfully remove the duplicate values")
@@ -184,15 +172,14 @@ class Training_Validation_Insertion:
             self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, before remove the outliers")
             if len(self.isoutlier_cols) > 0:
                 self.logger_object.log(self.file, f"Get the outliers columns:  {self.isoutlier_cols}")
-                self.data = self.fea_eng.ToHandleOutliers(data=self.data, col=self.isoutlier_cols,
-                                                          threshold=self.outlier_threshold)
+                for self.col in self.isoutlier_cols:  # one by one column remove the outliers
+                    self.data = self.fea_eng.ToHandleOutliers(data=self.data, col=self.col, threshold=self.outlier_threshold)
                 self.logger_object.log(self.file, "Successfully remove the outliers")
             else:
                 self.logger_object.log(self.file, "Their is no outliers in the data set")
             self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, after remove the outliers")
             # return the good and clean data for classification problem
             return self.data
-
 
         except Exception as ex:
             self.file = open(self.file_path, 'a+')
@@ -204,9 +191,3 @@ class Training_Validation_Insertion:
 
 if __name__ == '__main__':
     pass
-
-
-
-
-
-
