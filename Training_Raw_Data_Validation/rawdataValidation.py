@@ -58,7 +58,7 @@ class Raw_Data_Validation:
             else:
                 self.logger_object.log(self.file, "Neumerical features are not found in dataset")
                 self.file.close()
-                return False   # if nor present then return False
+                return self.neumericdata
 
         except Exception as e:
             self.file = open(self.file_path, 'a+')
@@ -90,7 +90,7 @@ class Raw_Data_Validation:
             else:
                 self.logger_object.log(self.file, "Categorical data are not present in dataset")
                 self.file.close()
-                return False  # if not, then return False
+                return self.categorical
 
         except Exception as e:
             self.file = open(self.file_path, 'a+')
