@@ -18,8 +18,8 @@ class Feature_Engineerings:
          Version: 1.0
          Revisions: None
     """
-    def __init__(self, file_path="Executions_Logs/Training_Logs/Features_Engineering_Logs.txt"):
-        self.file_path = file_path   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Features_Engineering_Logs.txt
+    def __init__(self):
+        self.file_path = "Executions_Logs/Training_Logs/Features_Engineering_Logs.txt"   # this file path help to log the details in particular file = Executions_Logs/Training_Logs/Features_Engineering_Logs.txt
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def ToHandleImbalancedData(self, data, ycol):
@@ -135,7 +135,7 @@ class Feature_Engineerings:
             self.data = data
             self.ycol = ycol
             self.category = []
-            if data[self.ycol].dtypes not in ['int', 'int64', 'int32', 'float', 'float32', 'float64']:   # if the label column is categorical data then simply to do map
+            if self.data[self.ycol].dtypes not in ['int', 'int64', 'int32', 'float', 'float32', 'float64']:   # if the label column is categorical data then simply to do map
                 for self.cate in self.data[self.ycol].unique().tolist():
                     self.category.append(self.cate)
             self.logger_object.log(self.file, f"In output column has {self.category} categories.")
