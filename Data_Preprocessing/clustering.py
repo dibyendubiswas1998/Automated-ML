@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from Application_Log.logger import App_Logger
 from kneed import KneeLocator
-
+from File_Operations.fileMethods import File_Operations
 
 class KMeans_Clustering:
     """
@@ -19,6 +19,7 @@ class KMeans_Clustering:
         self.file_path = "Executions_Logs/Training_Logs/Data_Preprocessing_Logs.txt"  # this file path help to log the details in particular file
         self.processing_data_path = "Preprocessing_Data"  # you can store to preprocess data before training path = Preprocessing_Data
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
+        self.fileOperation = File_Operations()
 
     def Elbow_Method(self, data):
         """
@@ -49,7 +50,6 @@ class KMeans_Clustering:
             # plt.show()
             plt.savefig(self.processing_data_path + '/' + "KMeans_Elbow.PNG")  # to save the graph (wcs vs no. of cluster)
             self.logger_object.log(self.file, f"Save the KMeans_Elbow graph in {self.processing_data_path} directory")
-
             self.kn = KneeLocator(range(1, 11), self.wcss, curve='convex', direction='decreasing')  # KneeLocator helps to get the number of cluster
             self.logger_object.log(self.file, f"Get the Number of clusters using KMeans Clustering, i.e. {self.kn.knee}")
             self.file.close()
@@ -78,6 +78,7 @@ class KMeans_Clustering:
             self.data = data
             self.no_cluster = no_cluster
             self.kmeans = KMeans(n_clusters=self.no_cluster, init='k-means++', random_state=101)  # create a cluster using KMeans Clustering
+            self.fileOperation.ToSaveModel(model=self.kmeans, filename="KMeans Clustering")
             self.y_kmeans = self.kmeans.fit_predict(self.data)  # predict the cluster labels
             self.data['cluster_label'] = self.y_kmeans  # attach the cluster labels with the given data
             self.logger_object.log(self.file, "Successfully create the clusters & labeled the cluster")
