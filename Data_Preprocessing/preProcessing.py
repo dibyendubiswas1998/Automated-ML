@@ -18,8 +18,8 @@ class Data_Preprocessing:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self, file_path="Execution_Logs/Training_Logs/Data_Preprocessing.txt"):
-        self.file_path = file_path   # this file path help to log the details in particular file = Execution_Logs/Training_Logs/Data_Preprocessing.txt
+    def __init__(self):
+        self.file_path = "Executions_Logs/Training_Logs/Data_Preprocessing_Logs.txt"  # this file path help to log the details in particular file = Execution_Logs/Training_Logs/Data_Preprocessing.txt
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
 

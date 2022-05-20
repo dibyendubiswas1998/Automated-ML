@@ -15,9 +15,9 @@ class KMeans_Clustering:
         Revisions: None
     """
 
-    def __init__(self, file_path="Execution_Logs/Training_Logs/Data_Preprocessing.txt", processing_data_path="Preprocessing_Data"):
-        self.file_path = file_path  # this file path help to log the details in particular file = Execution_Logs/Training_Logs/Data_Preprocessing.txt
-        self.processing_data_path = processing_data_path  # you can store to preprocess data before training path = Preprocessing_Data
+    def __init__(self):
+        self.file_path = "Executions_Logs/Training_Logs/Data_Preprocessing_Logs.txt"  # this file path help to log the details in particular file
+        self.processing_data_path = "Preprocessing_Data"  # you can store to preprocess data before training path = Preprocessing_Data
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def Elbow_Method(self, data):
