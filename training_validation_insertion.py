@@ -178,7 +178,7 @@ class Training_Validation_Insertion:
             else:
                 self.logger_object.log(self.file, "Their is no outliers in the data set")
             self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, after remove the outliers")
-            # return the good and clean data for classification problem
+            # return the good and clean data for regression problem
             return self.data
 
         except Exception as ex:
