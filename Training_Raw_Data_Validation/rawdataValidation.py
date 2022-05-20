@@ -16,8 +16,8 @@ class Raw_Data_Validation:
         Version: 1.0
         Revisions: None
     """
-    def __init__(self, file_path="Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"):
-        self.file_path = file_path   # this file path help to log the details in particular file =Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"
+    def __init__(self):
+        self.file_path = "Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"   # this file path help to log the details in particular file =Executions_Logs/Training_Logs/Raw_Data_Validation_Logs.txt"
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
     def CreateManualRegex(self):
@@ -124,7 +124,7 @@ class Raw_Data_Validation:
             else:
                 self.logger_object.log(self.file, "No data is present")
                 self.file.close()
-                return False
+                return False, False
 
         except Exception as e:
             self.file = open(self.file_path, 'a+')
@@ -164,7 +164,7 @@ class Raw_Data_Validation:
             else:
                 self.logger_object.log(self.file, "Missing value are not present in dataset")
                 self.file.close()
-                return False  # return False if missing values are not present
+                return self.not_missing_dataCol  # return those columns where missing values are not present
 
 
         except Exception as e:
