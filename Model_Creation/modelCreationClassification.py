@@ -16,8 +16,8 @@ class To_Create_Classification_Model:
         Revisions: None
     """
 
-    def __init__(self, file_path="Executions_Logs/Training_Logs/Model_Creation_Logs.txt"):
-        self.file_path = file_path  # this file path help to log the details in this file "Executions_Logs/Training_Logs/Model_Creation_Logs.txt"
+    def __init__(self):
+        self.file_path = "Executions_Logs/Training_Logs/Model_Creation_Logs.txt"  # this file path help to log the details in this file "Executions_Logs/Training_Logs/Model_Creation_Logs.txt"
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
         self.file_operation = File_Operations()
 
