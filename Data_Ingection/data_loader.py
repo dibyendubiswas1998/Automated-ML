@@ -44,7 +44,7 @@ class Data_Collection:
             self.file = open(self.file_path, 'a+')
             self.logger_object.log(self.file, f'Data is not Successfully load: {e}')
             self.file.close()
-            print(e)
+            raise e
 
 
 if __name__ == '__main__':
