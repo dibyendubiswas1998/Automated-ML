@@ -17,7 +17,7 @@ class App_Logger:
 
             Written By: Dibyendu Biswas
             Version: 1.0
-            Revisions: None 
+            Revisions: None
         """
         self.now = datetime.now()
         self.date = self.now.date()
@@ -26,9 +26,6 @@ class App_Logger:
             str(self.date) + "/" + str(self.current_time) + "\t\t" + log_message + '\n')  # log the details with time stamp
 
 if __name__ == '__main__':
-    logger = App_Logger()
+    pass
 
-    file = open("../Executions_Logs/Training_Logs/Genereal_Logs.txt", 'a+')
-    logger.log(file, "Okay It's fine")
-    file.close()
 
