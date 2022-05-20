@@ -203,25 +203,7 @@ class Training_Validation_Insertion:
 
 
 if __name__ == '__main__':
-
-    # classification:
-    data = Data_Collection().get_data("Raw Data/iris4.csv", 'csv', ',')
-    print(data, '\n', data.isnull().sum(), '\n\n')
-
-    validate = Training_Validation_Insertion()
-    data = validate.ValidateTrainingData_Classification(data, 'species')
-    print(data, '\n', data.isnull().sum(), '\n')
-
-
-
-    # Regression
-    data = Data_Collection().get_data("Raw Data/Real estate.csv", 'csv', ',')
-    print(data, '\n', data.isnull().sum(), '\n')
-
-    validate = Training_Validation_Insertion()
-    data = validate.ValidateTrainingData_Regression(data, 'Y house price of unit area', imputeMissing='mean')
-    print(data, '\n\n', data.isnull().sum())
-
+    pass
 
 
 
