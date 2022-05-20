@@ -351,3 +351,11 @@ dtype: object
 2022-05-18/19:02:20		Get the length of data, rows:  1626, columns: 13
 2022-05-18/19:02:21		Missing value are not present in dataset
 2022-05-18/19:02:21		Error: 'CRIME'
+
+===============================================================================================================================================
+
+
+
+
+2022-05-20/12:05:39		Get all Neumeric data type Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-20/12:36:12		Get all Neumeric data type Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')

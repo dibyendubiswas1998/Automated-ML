@@ -1,0 +1,20 @@
+2022-05-19/23:06:20		We use DecisionTree Classifier
+2022-05-19/23:09:42		Get the best parameters after hyperparameter tuning {'criterion': 'gini', 'max_depth': 13, 'min_samples_leaf': 1, 'min_samples_split': 2, 'splitter': 'best'}
+2022-05-19/23:09:42		train the model with best parameters {'criterion': 'gini', 'max_depth': 13, 'min_samples_leaf': 1, 'min_samples_split': 2, 'splitter': 'best'}
+2022-05-19/23:13:46		We use DecisionTree Classifier
+2022-05-19/23:16:57		Get the best parameters after hyperparameter tuning {'criterion': 'gini', 'max_depth': 27, 'min_samples_leaf': 1, 'min_samples_split': 2, 'splitter': 'random'}
+2022-05-19/23:16:57		train the model with best parameters {'criterion': 'gini', 'max_depth': 27, 'min_samples_leaf': 1, 'min_samples_split': 2, 'splitter': 'random'}
+2022-05-19/23:19:51		We use DecisionTree Classifier
+2022-05-19/23:23:06		Get the best parameters after hyperparameter tuning {'criterion': 'entropy', 'max_depth': 40, 'min_samples_leaf': 1, 'min_samples_split': 4, 'splitter': 'random'}
+2022-05-19/23:23:06		train the model with best parameters {'criterion': 'entropy', 'max_depth': 40, 'min_samples_leaf': 1, 'min_samples_split': 4, 'splitter': 'random'}
+2022-05-19/23:25:49		We use RandomForest Classifier
+2022-05-19/23:26:16		We use RandomForest Classifier
+2022-05-19/23:29:13		We use DecisionTree Classifier
+2022-05-19/23:32:31		Get the best parameters after hyperparameter tuning {'criterion': 'gini', 'max_depth': 28, 'min_samples_leaf': 1, 'min_samples_split': 2, 'splitter': 'random'}
+2022-05-19/23:32:31		train the model with best parameters {'criterion': 'gini', 'max_depth': 28, 'min_samples_leaf': 1, 'min_samples_split': 2, 'splitter': 'random'}
+2022-05-19/23:35:16		We use Ensemble approach, where base model is KNN
+2022-05-19/23:35:16		Trained the model using Ensembel approach
+2022-05-19/23:35:16		We use Ensemble approach, where base model is Decision Trees
+2022-05-19/23:38:39		Get the best parameters after hyperparameter tuning {'criterion': 'entropy', 'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 4, 'splitter': 'random'}
+2022-05-19/23:38:39		train the model with best parameters {'criterion': 'entropy', 'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 4, 'splitter': 'random'}
+2022-05-19/23:38:39		Trained the model using Ensembel approach

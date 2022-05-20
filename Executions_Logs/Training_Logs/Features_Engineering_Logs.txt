@@ -70,3 +70,41 @@
 2022-05-18/20:04:32		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
 2022-05-18/20:05:08		Error is: Could not convert versicolorarkodibyenduramsetosavirginicavirginicasetosasetosasetosashyamsetosalolypolysetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosaversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorsetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosaversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorversicolorvirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicavirginicasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosasetosa to numeric
 2022-05-18/20:06:20		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-19/22:47:52		In output column has ['versicolor', 'arko', 'dibyendu', 'ram', 'setosa', 'virginica', 'shyam', 'loly', 'poly'] categories.
+2022-05-19/22:47:52		Mapping operations is done successfully like this: {'versicolor': 0, 'arko': 1, 'dibyendu': 2, 'ram': 3, 'setosa': 4, 'virginica': 5, 'shyam': 6, 'loly': 7, 'poly': 8}
+2022-05-19/22:48:32		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/22:48:32		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/22:50:21		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/22:50:21		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/22:52:47		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/22:52:47		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/22:52:57		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/22:52:57		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/22:55:07		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/22:55:07		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/22:59:37		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/22:59:37		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:01:01		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:01:01		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:01:25		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:01:25		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:02:22		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:02:22		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:02:45		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:02:45		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:05:38		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:05:38		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:06:20		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:06:20		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:13:46		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:13:46		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:19:51		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:19:51		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:25:49		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:25:49		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:26:15		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:26:15		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:29:13		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:29:13		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
+2022-05-19/23:35:16		In output column has ['versicolor', 'setosa', 'virginica'] categories.
+2022-05-19/23:35:16		Mapping operations is done successfully like this: {'versicolor': 0, 'setosa': 1, 'virginica': 2}
