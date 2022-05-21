@@ -1,8 +1,11 @@
 from datetime import datetime
 from Application_Log.logger import App_Logger
-from Predection_Raw_Data_Validation.predectionRawDataValidation import Predection_Raw_Data_Validation as Raw_Data_Validation
-from Predection_Features_Engineering.predectionFeaturesEngineering import Predection_Feature_Engineerings as Feature_Engineerings
-from Predection_Data_Transformation.predectionDataTransformation import Predection_Data_Transformation as Data_Transformation
+from Predection_Raw_Data_Validation.predectionRawDataValidation import \
+    Predection_Raw_Data_Validation as Raw_Data_Validation
+from Predection_Features_Engineering.predectionFeaturesEngineering import \
+    Predection_Feature_Engineerings as Feature_Engineerings
+from Predection_Data_Transformation.predectionDataTransformation import \
+    Predection_Data_Transformation as Data_Transformation
 from Predection_Data_Scaling.predectionDataScaling import Predection_Data_Scaling as Data_Scaling
 from Data_Ingection.data_loader import Data_Collection
 from Data_Preprocessing.preProcessing import Data_Preprocessing
@@ -18,6 +21,7 @@ class Predection_Validation_Insertion:
         Version: 1.0
         Revisions: None
     """
+
     def __init__(self):
         self.file_path = "Executions_Logs/Predection_logs/Predection_Main_Logs.txt"
         self.logger_object = App_Logger()
@@ -27,11 +31,11 @@ class Predection_Validation_Insertion:
         self.data_scl = Data_Scaling()
         self.pre_processing = Data_Preprocessing()
 
-
-    def ValidateDataForPredection(self, data, yCol, outlier_threshold=3, imputeMissing='KNNImputer', dataTransformationType=None):
+    def ValidatePredectionData(self, data, yCol, outlier_threshold=3, handle_outliers=True, mapping_ycol=False,
+                               imputeMissing='KNNImputer', balance_data=False, dataTransformationType=None):
         """
-            Method Name: ValidatePredectionData_Classification
-            Description: This method helps to validate the training data for classification before start predection
+            Method Name: ValidatePredectionData
+            Description: This method helps to validate the data before start predection
 
             Output: good data
             On Failure: Raise Error
@@ -46,7 +50,10 @@ class Predection_Validation_Insertion:
             self.ycol = yCol
             self.xcol = data.drop(axis=1, columns=[self.ycol]).columns
             self.outlier_threshold = outlier_threshold
+            self.handle_outliers = handle_outliers
+            self.mapping_ycol = mapping_ycol
             self.imputeMissing = imputeMissing
+            self.balance_data = balance_data
             self.dataTransformationType = dataTransformationType
             # get the neumeric columns.
             self.neumeric_cols = self.raw_data.GetNeumericalFeatures(data=self.data)
@@ -68,6 +75,16 @@ class Predection_Validation_Insertion:
             self.isbalance = self.raw_data.IsDataImbalanced(data=self.data, y=self.ycol)
 
             # Start the validation:
+            #  Mapping the output column:
+            if not self.mapping_ycol:
+                self.logger_object.log(self.file, "No need to map the output column")
+            else:
+                if self.data[self.ycol].dtypes not in ['int', 'int64', 'int32', 'float', 'float32', 'float64']:
+                    self.data = self.fea_eng.ToMappingOutputCol(data=self.data,
+                                                                ycol=self.ycol)  # use KNN imputer to impute missing values
+                    self.logger_object.log(self.file, "Successfully mapping the output columns using KNN imputer")
+                else:
+                    self.logger_object.log(self.file, "No need to mapped the output columns")
             #  Handle the missing values based on condition:
             if len(self.missing_data_col) > 0:
                 self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
@@ -83,19 +100,36 @@ class Predection_Validation_Insertion:
             #  Remove the duplicated values:
             self.data = self.fea_eng.ToRemoveDuplicateValues(data=self.data)
             self.logger_object.log(self.file, "Successfully remove the duplicate values")
-            self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, after remove the duplicate values")
-            #  Remove the Outliers:
-            self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, before remove the outliers")
-            if len(self.isoutlier_cols) > 0:
-                self.logger_object.log(self.file, f"Get the outliers columns:  {self.isoutlier_cols}")
-                for self.col in self.isoutlier_cols:  # one by one column remove the outliers
-                    self.data = self.fea_eng.ToHandleOutliers(data=self.data, col=self.col,
-                                                              threshold=self.outlier_threshold)
-                self.logger_object.log(self.file, "Successfully remove the outliers")
+            self.logger_object.log(self.file,
+                                   f"Shape of dataset is {str(self.data.shape)}, after remove the duplicate values")
+            #  Remove the Outliers based on condition:
+            if not self.handle_outliers:
+                self.logger_object.log(self.file, "No Need to remove the outliers")
             else:
-                self.logger_object.log(self.file, "Their is no outliers in the data set")
-            self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, after remove the outliers")
-            # No need to balance the data for predection
+                self.logger_object.log(self.file,
+                                       f"Shape of dataset is {str(self.data.shape)}, before remove the outliers")
+                if len(self.isoutlier_cols) > 0:
+                    self.logger_object.log(self.file, f"Get the outliers columns:  {self.isoutlier_cols}")
+                    for self.col in self.isoutlier_cols:  # one by one column remove the outliers
+                        self.data = self.fea_eng.ToHandleOutliers(data=self.data, col=self.col,
+                                                                  threshold=self.outlier_threshold)
+                    self.logger_object.log(self.file, "Successfully remove the outliers")
+                else:
+                    self.logger_object.log(self.file, "Their is no outliers in the data set")
+                self.logger_object.log(self.file,
+                                       f"Shape of dataset is {str(self.data.shape)}, after remove the outliers")
+            #  Balance the data based on condition:
+            if not self.balance_data:
+                self.logger_object.log(self.file, "No need to balance the data")
+            else:
+                if not self.isbalance:
+                    self.logger_object.log(self.file, "Data set is not balanced")
+                    self.data = self.fea_eng.ToHandleImbalancedData(data=self.data, ycol=self.ycol)
+                    self.logger_object.log(self.file, "Successfully balanced the data set")
+                else:
+                    self.logger_object.log(self.file, "Dataset is balanced, no need to balance again")
+                self.logger_object.log(self.file,
+                                       f"Shape of dataset is {str(self.data.shape)}, after balanced the dataset")
             #  Again Handle the missing values based on condition:
             if len(self.missing_data_col) > 0:
                 self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
@@ -118,12 +152,14 @@ class Predection_Validation_Insertion:
                 # return the good and clean data for classification problem
                 return self.data
             # Square Root Transformation:
-            if self.dataTransformationType.lower() in ['sqrt', 'square root transformation', 'squareroottransformation', 'square root']:
+            if self.dataTransformationType.lower() in ['sqrt', 'square root transformation', 'squareroottransformation',
+                                                       'square root']:
                 self.data = self.data_trans.ToSquareRootTransformation(data=self.data, Xcols=self.xcol)
                 # return the good and clean data for classification problem
                 return self.data
             # Box-Cox Transformation:
-            if self.dataTransformationType.lower() in ['boxcox', 'box cox transformation', 'boxcoxtransformation', 'box cox']:
+            if self.dataTransformationType.lower() in ['boxcox', 'box cox transformation', 'boxcoxtransformation',
+                                                       'box cox']:
                 self.data = self.data_trans.ToBoxCoXTransformation(data=self.data, Xcols=self.xcol)
                 # return the good and clean data for classification problem
                 return self.data
@@ -135,9 +171,5 @@ class Predection_Validation_Insertion:
             raise ex
 
 
-
-
 if __name__ == '__main__':
     pass
-
-
