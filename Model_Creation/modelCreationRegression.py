@@ -3,6 +3,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LinearRegression, Ridge, Lasso, RidgeCV, LassoCV, ElasticNet, ElasticNetCV
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
+import numpy as np
+
 # from File_Operations.fileMethods import File_Operations
 
 class To_Create_Regression_Model:
@@ -64,6 +66,8 @@ class To_Create_Regression_Model:
         try:
             self.file = open(self.file_path, 'a+')
             self.logger_object.log(self.file, "Use Ridge Regression to create the model")
+            self.x_train = x_train
+            self.y_train = y_train
             # finding the best parameters using RidgeCV
             self.alpha = np.random.uniform(low=0, high=10, size=(50,))
             self.ridgecv = RidgeCV(alphas=self.alpha, cv=10, normalize=True)
@@ -103,6 +107,7 @@ class To_Create_Regression_Model:
             self.y_train = y_train
             # finding the best parameters using LassoCV
             self.lassocv = LassoCV(alphas=None, cv=10, max_iter=100000, normalize=True)  # tune the hyperparameter.
+            self.lassocv.fit(self.x_train, self.y_train)
             self.alpha_ = self.lassocv.alpha_  # get the alpha value
             self.logger_object.log(self.file, f"get the alpha value using LassoCv {self.alpha_}")
             self.reg = Lasso(alpha=self.alpha_)
@@ -138,7 +143,9 @@ class To_Create_Regression_Model:
             self.y_train = y_train
             # finding the best parameters using ElasticNetCV
             self.elasticCV = ElasticNetCV(alphas=None, cv=20)
-            self.alpha, self.l1_ratio = self.elasticCV.alpha_, self.elasticCV.l1_ratio  # get the alpha & l1_ratio
+            self.elasticCV.fit(self.x_train, self.y_train)
+            self.alpha = self.elasticCV.alpha_
+            self.l1_ratio = self.elasticCV.l1_ratio  # get the alpha & l1_ratio
             self.logger_object.log(self.file, f"Get the alpha {self.alpha} and l1_ration {self.l1_ratio}")
             self.reg = ElasticNet(alpha=self.alpha, l1_ratio=self.l1_ratio)  # train the model with best hyperparameter
             self.reg.fit(self.x_train, self.y_train)
