@@ -106,6 +106,18 @@ class Training_Validation_Insertion:
             else:
                 self.logger_object.log(self.file, "Dataset is balanced, no need to balance again")
             self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, after balanced the dataset")
+            #  Again Handle the missing values based on condition:
+            if len(self.missing_data_col) > 0:
+                self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
+                if self.imputeMissing.lower() == 'knnimputer':  # impute missing values with KNNImputer
+                    self.data = self.pre_processing.ToImputeMissingValues(data=self.data)
+                    self.logger_object.log(self.file, "Successfully handle the missing values by KNNImputer")
+                else:  # impute missing values with mean value
+                    self.data = self.fea_eng.ToHandleMissingValues(data=self.data, Xcols=self.xcol)
+                    self.logger_object.log(self.file,
+                                           "Successfully handle the missing values by mean value of that column respectively")
+            else:
+                self.logger_object.log(self.file, "Missing values are not present")
             """  Perform Data Transformation Steps based on conditions  """
             if self.dataTransformationType is None:
                 # return the good and clean data for classification problem
@@ -199,6 +211,18 @@ class Training_Validation_Insertion:
             else:
                 self.logger_object.log(self.file, "Their is no outliers in the data set")
             self.logger_object.log(self.file, f"Shape of dataset is {str(self.data.shape)}, after remove the outliers")
+            #  Again Handle the missing values based on condition:
+            if len(self.missing_data_col) > 0:
+                self.logger_object.log(self.file, f"Missing values are present at {self.missing_data_col}")
+                if self.imputeMissing.lower() == 'knnimputer':  # impute missing values with KNNImputer
+                    self.data = self.pre_processing.ToImputeMissingValues(data=self.data)
+                    self.logger_object.log(self.file, "Successfully handle the missing values by KNNImputer")
+                else:  # impute missing values with mean value
+                    self.data = self.fea_eng.ToHandleMissingValues(data=self.data, Xcols=self.xcol)
+                    self.logger_object.log(self.file,
+                                           "Successfully handle the missing values by mean value of that column respectively")
+            else:
+                self.logger_object.log(self.file, "Missing values are not present")
             """  Perform Data Transformation Steps based on conditions  """
             # Log Transformation:
             if self.dataTransformationType is None:
