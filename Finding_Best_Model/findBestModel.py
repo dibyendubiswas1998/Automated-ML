@@ -490,6 +490,45 @@ class Find_Best_Model:
             self.file.close()
             raise ex
 
+    def ForOnlySVR(self, x_train, x_test, y_train, y_test):
+        """
+            Method Name: ForOnlySVR
+            Description: This method helps to get SVR regression model after training.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "It's help to get the SVR model by applying SVR Regression")
+            self.x_train, self.x_test, self.y_train, self.y_test = x_train, x_test, y_train, y_test
+            self.reg = Reg()  # call the regression model
+            # create or load the model
+            self.SVR = self.reg.CreateSVR(self.x_train, self.y_train)
+            self.SVR.fit(self.x_train, self.y_train)
+            # predection using train data:--
+            self.SVR_ypred_train = self.SVR.predict(self.x_train)
+            # predection using test data:--
+            self.SVR_ypred_test = self.SVR.predict(self.x_test)
+            # get the r2-score based on test data:
+            self.SVR_score_test = r2_score(self.y_test, self.SVR_ypred_test)
+            self.logger_object.log(self.file, f"Rsquare value for test data is {self.SVR_score_test}")
+            # get the r2-score based on train data:
+            self.SVR_score_train = r2_score(self.y_train, self.SVR_ypred_train)
+            self.logger_object.log(self.file, f"Rsquare value for train data is {self.SVR_score_train}")
+            # return the lasso model and r2-score:
+            return self.SVR, self.SVR_score_test
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
 
 
     def ForRegressionALL(self, x_train, x_test, y_train, y_test):
@@ -516,9 +555,15 @@ class Find_Best_Model:
             self.las, self.las_score = self.ForOnlyLasso(x_train=self.x_train, x_test=self.x_test, y_train=self.y_train, y_test=self.y_test)
             # ElasticNet Regression:
             self.ela, self.ela_score = self.ForOnlyElasticNet(x_train=self.x_train, x_test=self.x_test, y_train=self.y_train, y_test=self.y_test)
+            # SVR Regression:
+            self.svr, self.svr_score = self.ForOnlySVR(x_train=self.x_train, x_test=self.x_test, y_train=self.y_train, y_test=self.y_test)
+
             # comparing the between the models using score:
             if self.ela_score > self.las_score:
-                return "ElasticNet", self.ela, self.ela_score
+                if self.ela_score > self.svr_score:
+                    return "ElasticNet", self.ela, self.ela_score
+                else:
+                    return "SVR", self.svr, self.svr_score
             else:
                 return "Lasso", self.las, self.las_score
 
