@@ -31,14 +31,17 @@ class Data_Collection:
             self.path = path
             self.format = format
             self.separator = separator
-            if format.lower() in 'csv':  # check the data format is csv or not.
+            if self.format is None:
+                self.data = pd.read_csv(self.path, sep=self.separator)  # read the csv data
+                self.logger_object.log(self.file, 'Data is Successfully load')
+                self.file.close()
+
+            if self.format.lower() in 'csv':  # check the data format is csv or not.
                 self.data = pd.read_csv(self.path, sep=self.separator)  # read the csv data
                 self.logger_object.log(self.file, 'Data is Successfully load')
                 self.file.close()
                 return self.data  # return the data
-            else:
-                self.logger_object.log(self.file_object, 'Data is not load Successfully')
-                self.file.close()
+
 
         except Exception as e:
             self.file = open(self.file_path, 'a+')
