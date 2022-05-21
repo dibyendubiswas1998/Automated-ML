@@ -1,0 +1,52 @@
+2022-05-21/22:34:20		Error is: argument of type 'method' is not iterable
+2022-05-21/22:35:09		Error is: argument of type 'method' is not iterable
+2022-05-21/22:35:30		Error is: argument of type 'method' is not iterable
+2022-05-21/22:37:35		Error is: argument of type 'method' is not iterable
+2022-05-21/22:45:14		No need to drop the column or columns
+2022-05-21/22:45:14		Successfully separate the labels: xCol Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object'), yCol: species
+2022-05-21/22:45:14		Get the zero standard deviation columns:  []
+2022-05-21/22:45:17		Get the number of cluster using Elbow Method  2
+2022-05-21/22:45:17		Create the 2 clusters
+2022-05-21/22:45:17		get the [1 0] list of clusters
+2022-05-21/22:45:17		Successfully train and saved the model ensemble_knn algorithm
+2022-05-21/22:47:44		Error is: Unknown label type: 'continuous'
+2022-05-21/22:48:18		No need to drop the column or columns
+2022-05-21/22:48:18		Successfully separate the labels: xCol Index(['No', 'X1 transaction date', 'X2 house age',
+       'X3 distance to the nearest MRT station',
+       'X4 number of convenience stores', 'X5 latitude', 'X6 longitude'],
+      dtype='object'), yCol: Y house price of unit area
+2022-05-21/22:48:18		Get the zero standard deviation columns:  []
+2022-05-21/22:48:21		Get the number of cluster using Elbow Method  3
+2022-05-21/22:48:21		Create the 3 clusters
+2022-05-21/22:48:21		get the [1 0 2] list of clusters
+2022-05-21/22:48:28		Successfully train and save the best model
+2022-05-21/22:49:50		No need to drop the column or columns
+2022-05-21/22:49:50		Successfully separate the labels: xCol Index(['No', 'X1 transaction date', 'X2 house age',
+       'X3 distance to the nearest MRT station',
+       'X4 number of convenience stores', 'X5 latitude', 'X6 longitude'],
+      dtype='object'), yCol: Y house price of unit area
+2022-05-21/22:49:50		Get the zero standard deviation columns:  []
+2022-05-21/22:49:53		Get the number of cluster using Elbow Method  3
+2022-05-21/22:49:53		Create the 3 clusters
+2022-05-21/22:49:53		get the [1 0 2] list of clusters
+2022-05-21/22:49:53		Successfully train and save the best model
+2022-05-22/00:49:49		No need to drop the column or columns
+2022-05-22/00:49:49		Successfully separate the labels: xCol Index(['No', 'X1 transaction date', 'X2 house age',
+       'X3 distance to the nearest MRT station',
+       'X4 number of convenience stores', 'X5 latitude', 'X6 longitude'],
+      dtype='object'), yCol: Y house price of unit area
+2022-05-22/00:49:49		Get the zero standard deviation columns:  []
+2022-05-22/00:49:52		Get the number of cluster using Elbow Method  3
+2022-05-22/00:49:52		Create the 3 clusters
+2022-05-22/00:49:52		get the [1 0 2] list of clusters
+2022-05-22/00:49:59		Successfully train and save the best model
+2022-05-22/00:51:59		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-22/00:52:49		No need to drop the column or columns
+2022-05-22/00:52:49		Successfully separate the labels: xCol Index(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age'],
+      dtype='object'), yCol: Outcome
+2022-05-22/00:52:49		Get the zero standard deviation columns:  []
+2022-05-22/00:52:53		Get the number of cluster using Elbow Method  3
+2022-05-22/00:52:53		Create the 3 clusters
+2022-05-22/00:52:53		get the [0 1 2] list of clusters
+2022-05-22/00:57:10		Successfully train and saved the model using dt algorithm

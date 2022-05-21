@@ -199,3 +199,144 @@
 2022-05-20/18:55:54		After drop the duplicates values, the shape of data is (312, 5)
 2022-05-20/18:55:54		Successfully drop the duplicates values
 2022-05-20/18:55:54		Handle the imbalanced data using Borderline-SMOTE
+2022-05-21/20:43:56		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-21/20:43:56		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-21/20:43:56		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-21/20:43:56		After drop the duplicates values, the shape of data is (312, 5)
+2022-05-21/20:43:56		Successfully drop the duplicates values
+2022-05-21/20:43:56		Handle the imbalanced data using Borderline-SMOTE
+2022-05-21/20:44:31		Before drop the duplicates values, the shape of data is (500, 9)
+2022-05-21/20:44:31		After drop the duplicates values, the shape of data is (500, 9)
+2022-05-21/20:44:31		Successfully drop the duplicates values
+2022-05-21/20:44:31		Error is: Unknown label type: 'continuous'
+2022-05-21/20:47:35		Before drop the duplicates values, the shape of data is (500, 9)
+2022-05-21/20:47:35		After drop the duplicates values, the shape of data is (500, 9)
+2022-05-21/20:47:35		Successfully drop the duplicates values
+2022-05-21/20:48:48		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/20:48:48		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/20:48:48		Successfully drop the duplicates values
+2022-05-21/20:48:48		Successfully remove the outliers from data Pregnancies
+2022-05-21/20:48:48		Successfully remove the outliers from data Glucose
+2022-05-21/20:48:48		Successfully remove the outliers from data BloodPressure
+2022-05-21/20:48:48		Successfully remove the outliers from data SkinThickness
+2022-05-21/20:48:48		Successfully remove the outliers from data Insulin
+2022-05-21/20:48:48		Successfully remove the outliers from data BMI
+2022-05-21/20:48:48		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-21/20:48:48		Successfully remove the outliers from data Age
+2022-05-21/20:48:48		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/20:52:05		Replace the missing value with mean value of Index(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age'],
+      dtype='object') columns
+2022-05-21/20:52:05		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/20:52:05		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/20:52:05		Successfully drop the duplicates values
+2022-05-21/20:52:05		Successfully remove the outliers from data Pregnancies
+2022-05-21/20:52:05		Successfully remove the outliers from data Glucose
+2022-05-21/20:52:05		Successfully remove the outliers from data BloodPressure
+2022-05-21/20:52:05		Successfully remove the outliers from data SkinThickness
+2022-05-21/20:52:05		Successfully remove the outliers from data Insulin
+2022-05-21/20:52:05		Successfully remove the outliers from data BMI
+2022-05-21/20:52:05		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-21/20:52:05		Successfully remove the outliers from data Age
+2022-05-21/20:52:05		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/21:01:02		Replace the missing value with mean value of Index(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age'],
+      dtype='object') columns
+2022-05-21/21:01:02		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:01:02		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:01:02		Successfully drop the duplicates values
+2022-05-21/21:01:02		Successfully remove the outliers from data Pregnancies
+2022-05-21/21:01:02		Successfully remove the outliers from data Glucose
+2022-05-21/21:01:02		Successfully remove the outliers from data BloodPressure
+2022-05-21/21:01:02		Successfully remove the outliers from data SkinThickness
+2022-05-21/21:01:02		Successfully remove the outliers from data Insulin
+2022-05-21/21:01:02		Successfully remove the outliers from data BMI
+2022-05-21/21:01:02		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-21/21:01:02		Successfully remove the outliers from data Age
+2022-05-21/21:01:02		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/21:01:39		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-21/21:01:39		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-21/21:01:39		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-21/21:01:39		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-21/21:01:39		After drop the duplicates values, the shape of data is (321, 5)
+2022-05-21/21:01:39		Successfully drop the duplicates values
+2022-05-21/21:01:39		Handle the imbalanced data using Borderline-SMOTE
+2022-05-21/21:01:39		Replace the missing value with mean value of Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object') columns
+2022-05-21/21:02:15		Replace the missing value with mean value of Index(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age'],
+      dtype='object') columns
+2022-05-21/21:02:15		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:02:15		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:02:15		Successfully drop the duplicates values
+2022-05-21/21:02:15		Successfully remove the outliers from data Pregnancies
+2022-05-21/21:02:15		Successfully remove the outliers from data Glucose
+2022-05-21/21:02:15		Successfully remove the outliers from data BloodPressure
+2022-05-21/21:02:15		Successfully remove the outliers from data SkinThickness
+2022-05-21/21:02:15		Successfully remove the outliers from data Insulin
+2022-05-21/21:02:15		Successfully remove the outliers from data BMI
+2022-05-21/21:02:15		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-21/21:02:15		Successfully remove the outliers from data Age
+2022-05-21/21:02:15		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/21:02:58		Replace the missing value with mean value of Index(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age'],
+      dtype='object') columns
+2022-05-21/21:02:58		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:02:58		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:02:58		Successfully drop the duplicates values
+2022-05-21/21:02:58		Successfully remove the outliers from data Pregnancies
+2022-05-21/21:02:58		Successfully remove the outliers from data Glucose
+2022-05-21/21:02:58		Successfully remove the outliers from data BloodPressure
+2022-05-21/21:02:58		Successfully remove the outliers from data SkinThickness
+2022-05-21/21:02:58		Successfully remove the outliers from data Insulin
+2022-05-21/21:02:58		Successfully remove the outliers from data BMI
+2022-05-21/21:02:58		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-21/21:02:58		Successfully remove the outliers from data Age
+2022-05-21/21:02:58		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/21:39:37		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:39:37		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:39:37		Successfully drop the duplicates values
+2022-05-21/21:39:37		Successfully remove the outliers from data Pregnancies
+2022-05-21/21:39:37		Successfully remove the outliers from data Glucose
+2022-05-21/21:39:37		Successfully remove the outliers from data BloodPressure
+2022-05-21/21:39:37		Successfully remove the outliers from data SkinThickness
+2022-05-21/21:39:37		Successfully remove the outliers from data Insulin
+2022-05-21/21:39:37		Successfully remove the outliers from data BMI
+2022-05-21/21:39:37		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-21/21:39:37		Successfully remove the outliers from data Age
+2022-05-21/21:41:39		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:41:39		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:41:39		Successfully drop the duplicates values
+2022-05-21/21:41:39		Successfully remove the outliers from data Pregnancies
+2022-05-21/21:41:39		Successfully remove the outliers from data Glucose
+2022-05-21/21:41:39		Successfully remove the outliers from data BloodPressure
+2022-05-21/21:41:39		Successfully remove the outliers from data SkinThickness
+2022-05-21/21:41:39		Successfully remove the outliers from data Insulin
+2022-05-21/21:41:39		Successfully remove the outliers from data BMI
+2022-05-21/21:41:39		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-21/21:41:39		Successfully remove the outliers from data Age
+2022-05-21/21:43:01		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:43:01		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-21/21:43:01		Successfully drop the duplicates values
+2022-05-21/21:43:01		Successfully remove the outliers from data Pregnancies
+2022-05-21/21:43:01		Successfully remove the outliers from data Glucose
+2022-05-21/21:43:01		Successfully remove the outliers from data BloodPressure
+2022-05-21/21:43:01		Successfully remove the outliers from data SkinThickness
+2022-05-21/21:43:01		Successfully remove the outliers from data Insulin
+2022-05-21/21:43:01		Successfully remove the outliers from data BMI
+2022-05-21/21:43:01		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-21/21:43:01		Successfully remove the outliers from data Age
+2022-05-22/00:40:52		Before drop the duplicates values, the shape of data is (887, 8)
+2022-05-22/00:40:52		After drop the duplicates values, the shape of data is (478, 8)
+2022-05-22/00:40:52		Successfully drop the duplicates values
+2022-05-22/00:43:59		Before drop the duplicates values, the shape of data is (887, 8)
+2022-05-22/00:43:59		After drop the duplicates values, the shape of data is (478, 8)
+2022-05-22/00:43:59		Successfully drop the duplicates values
+2022-05-22/00:45:49		Before drop the duplicates values, the shape of data is (887, 8)
+2022-05-22/00:45:49		After drop the duplicates values, the shape of data is (478, 8)
+2022-05-22/00:45:49		Successfully drop the duplicates values
+2022-05-22/00:49:59		Before drop the duplicates values, the shape of data is (887, 8)
+2022-05-22/00:49:59		After drop the duplicates values, the shape of data is (478, 8)
+2022-05-22/00:49:59		Successfully drop the duplicates values
+2022-05-22/00:57:10		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-22/00:57:10		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-22/00:57:10		Successfully drop the duplicates values

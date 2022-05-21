@@ -1,0 +1,84 @@
+2022-05-21/20:43:56		Impute the missing values with KNNImputer
+2022-05-21/20:43:56		Impute the missing values with KNNImputer
+2022-05-21/20:44:31		Impute the missing values with KNNImputer
+2022-05-21/20:47:35		Impute the missing values with KNNImputer
+2022-05-21/20:47:35		Impute the missing values with KNNImputer
+2022-05-21/20:48:48		Impute the missing values with KNNImputer
+2022-05-21/21:39:37		Impute the missing values with KNNImputer
+2022-05-21/21:39:37		Impute the missing values with KNNImputer
+2022-05-21/21:41:39		Impute the missing values with KNNImputer
+2022-05-21/21:41:39		Impute the missing values with KNNImputer
+2022-05-21/21:43:01		Impute the missing values with KNNImputer
+2022-05-21/21:43:02		Impute the missing values with KNNImputer
+2022-05-21/21:59:47		Impute the missing values with KNNImputer
+2022-05-21/21:59:47		Impute the missing values with KNNImputer
+2022-05-21/22:00:27		Impute the missing values with KNNImputer
+2022-05-21/22:00:27		Impute the missing values with KNNImputer
+2022-05-21/22:02:03		Impute the missing values with KNNImputer
+2022-05-21/22:02:03		Impute the missing values with KNNImputer
+2022-05-21/22:03:57		Impute the missing values with KNNImputer
+2022-05-21/22:03:57		Impute the missing values with KNNImputer
+2022-05-21/22:04:36		Impute the missing values with KNNImputer
+2022-05-21/22:04:36		Impute the missing values with KNNImputer
+2022-05-21/22:39:56		Impute the missing values with KNNImputer
+2022-05-21/22:39:56		Impute the missing values with KNNImputer
+2022-05-21/22:39:56		Successfully drop the column species
+2022-05-21/22:39:56		Not get the Zero-Standard deviation columns []
+2022-05-21/22:39:59		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-21/22:39:59		Get the Number of clusters using KMeans Clustering, i.e. 2
+2022-05-21/22:39:59		Successfully create the clusters & labeled the cluster
+2022-05-21/22:44:01		Impute the missing values with KNNImputer
+2022-05-21/22:44:01		Impute the missing values with KNNImputer
+2022-05-21/22:44:01		Successfully drop the column species
+2022-05-21/22:44:01		Not get the Zero-Standard deviation columns []
+2022-05-21/22:44:03		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-21/22:44:03		Get the Number of clusters using KMeans Clustering, i.e. 2
+2022-05-21/22:44:03		Successfully create the clusters & labeled the cluster
+2022-05-21/22:45:14		Impute the missing values with KNNImputer
+2022-05-21/22:45:14		Impute the missing values with KNNImputer
+2022-05-21/22:45:14		Successfully drop the column species
+2022-05-21/22:45:14		Not get the Zero-Standard deviation columns []
+2022-05-21/22:45:17		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-21/22:45:17		Get the Number of clusters using KMeans Clustering, i.e. 2
+2022-05-21/22:45:17		Successfully create the clusters & labeled the cluster
+2022-05-21/22:47:44		Impute the missing values with KNNImputer
+2022-05-21/22:48:18		Impute the missing values with KNNImputer
+2022-05-21/22:48:18		Impute the missing values with KNNImputer
+2022-05-21/22:48:18		Successfully drop the column Y house price of unit area
+2022-05-21/22:48:18		Not get the Zero-Standard deviation columns []
+2022-05-21/22:48:21		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-21/22:48:21		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-21/22:48:21		Successfully create the clusters & labeled the cluster
+2022-05-21/22:49:50		Impute the missing values with KNNImputer
+2022-05-21/22:49:50		Impute the missing values with KNNImputer
+2022-05-21/22:49:50		Successfully drop the column Y house price of unit area
+2022-05-21/22:49:50		Not get the Zero-Standard deviation columns []
+2022-05-21/22:49:53		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-21/22:49:53		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-21/22:49:53		Successfully create the clusters & labeled the cluster
+2022-05-22/00:29:39		Successfully drop the columns: Y house price of unit area
+2022-05-22/00:40:52		Impute the missing values with KNNImputer
+2022-05-22/00:40:52		Impute the missing values with KNNImputer
+2022-05-22/00:43:59		Impute the missing values with KNNImputer
+2022-05-22/00:43:59		Impute the missing values with KNNImputer
+2022-05-22/00:45:49		Impute the missing values with KNNImputer
+2022-05-22/00:45:49		Impute the missing values with KNNImputer
+2022-05-22/00:49:49		Impute the missing values with KNNImputer
+2022-05-22/00:49:49		Impute the missing values with KNNImputer
+2022-05-22/00:49:49		Successfully drop the column Y house price of unit area
+2022-05-22/00:49:49		Not get the Zero-Standard deviation columns []
+2022-05-22/00:49:52		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-22/00:49:52		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-22/00:49:52		Successfully create the clusters & labeled the cluster
+2022-05-22/00:49:59		Impute the missing values with KNNImputer
+2022-05-22/00:49:59		Impute the missing values with KNNImputer
+2022-05-22/00:51:59		Impute the missing values with KNNImputer
+2022-05-22/00:52:49		Impute the missing values with KNNImputer
+2022-05-22/00:52:49		Impute the missing values with KNNImputer
+2022-05-22/00:52:49		Successfully drop the column Outcome
+2022-05-22/00:52:49		Not get the Zero-Standard deviation columns []
+2022-05-22/00:52:53		Save the KMeans_Elbow graph in Preprocessing_Data directory
+2022-05-22/00:52:53		Get the Number of clusters using KMeans Clustering, i.e. 3
+2022-05-22/00:52:53		Successfully create the clusters & labeled the cluster
+2022-05-22/00:57:10		Impute the missing values with KNNImputer
+2022-05-22/00:57:10		Impute the missing values with KNNImputer

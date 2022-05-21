@@ -145,23 +145,30 @@ class Predection_Validation_Insertion:
             """  Perform Data Transformation Steps based on conditions  """
             if self.dataTransformationType is None:
                 # return the good and clean data for classification problem
+                self.file.close()
                 return self.data
             # Log Transformation:
             if self.dataTransformationType.lower() in ['log', 'log transformation', 'logtransformation', 'logtrans']:
                 self.data = self.data_trans.ToLogTransformation(data=self.data, Xcols=self.xcol)
+                self.logger_object.log(self.file, f"Data transformation done by {self.dataTransformationType}")
                 # return the good and clean data for classification problem
+                self.file.close()
                 return self.data
             # Square Root Transformation:
             if self.dataTransformationType.lower() in ['sqrt', 'square root transformation', 'squareroottransformation',
                                                        'square root']:
                 self.data = self.data_trans.ToSquareRootTransformation(data=self.data, Xcols=self.xcol)
+                self.logger_object.log(self.file, f"Data transformation done by {self.dataTransformationType}")
                 # return the good and clean data for classification problem
+                self.file.close()
                 return self.data
             # Box-Cox Transformation:
             if self.dataTransformationType.lower() in ['boxcox', 'box cox transformation', 'boxcoxtransformation',
                                                        'box cox']:
                 self.data = self.data_trans.ToBoxCoXTransformation(data=self.data, Xcols=self.xcol)
+                self.logger_object.log(self.file, f"Data transformation done by {self.dataTransformationType}")
                 # return the good and clean data for classification problem
+                self.file.close()
                 return self.data
 
         except Exception as ex:

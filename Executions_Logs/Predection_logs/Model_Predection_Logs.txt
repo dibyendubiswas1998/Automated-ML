@@ -1,0 +1,10 @@
+2022-05-22/00:19:58		Error is: DataFrame constructor not properly called!
+2022-05-22/00:20:56		Error is: 'str' object has no attribute 'drop'
+2022-05-22/00:23:28		Error is: 'str' object has no attribute 'drop'
+2022-05-22/00:24:34		Error is: "[('Y house price of unit area',)] not found in axis"
+2022-05-22/00:26:00		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:28:08		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:29:39		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:32:14		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:38:19		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:40:52		Error is: This KMeans instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.

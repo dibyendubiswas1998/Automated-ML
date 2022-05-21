@@ -1,0 +1,72 @@
+2022-05-21/21:59:47		Before drop the duplicates values, the shape of data is (2558, 13)
+2022-05-21/21:59:47		After drop the duplicates values, the shape of data is (526, 13)
+2022-05-21/21:59:47		Successfully drop the duplicates values
+2022-05-21/22:00:27		Before drop the duplicates values, the shape of data is (2558, 13)
+2022-05-21/22:00:27		After drop the duplicates values, the shape of data is (526, 13)
+2022-05-21/22:00:27		Successfully drop the duplicates values
+2022-05-21/22:02:03		Before drop the duplicates values, the shape of data is (2558, 13)
+2022-05-21/22:02:03		After drop the duplicates values, the shape of data is (526, 13)
+2022-05-21/22:02:03		Successfully drop the duplicates values
+2022-05-21/22:03:57		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-21/22:03:57		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-21/22:03:57		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-21/22:03:57		After drop the duplicates values, the shape of data is (311, 5)
+2022-05-21/22:03:57		Successfully drop the duplicates values
+2022-05-21/22:03:57		Handle the imbalanced data using Borderline-SMOTE
+2022-05-21/22:04:36		Before drop the duplicates values, the shape of data is (2558, 13)
+2022-05-21/22:04:36		After drop the duplicates values, the shape of data is (526, 13)
+2022-05-21/22:04:36		Successfully drop the duplicates values
+2022-05-21/22:39:56		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-21/22:39:56		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-21/22:39:56		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-21/22:39:56		After drop the duplicates values, the shape of data is (311, 5)
+2022-05-21/22:39:56		Successfully drop the duplicates values
+2022-05-21/22:39:56		Handle the imbalanced data using Borderline-SMOTE
+2022-05-21/22:44:01		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-21/22:44:01		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-21/22:44:01		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-21/22:44:01		After drop the duplicates values, the shape of data is (311, 5)
+2022-05-21/22:44:01		Successfully drop the duplicates values
+2022-05-21/22:44:01		Handle the imbalanced data using Borderline-SMOTE
+2022-05-21/22:45:14		In output column has ['versicolor', 'virginica', 'setosa'] categories.
+2022-05-21/22:45:14		Mapping operations is done successfully like this: {'versicolor': 0, 'virginica': 1, 'setosa': 2}
+2022-05-21/22:45:14		Before drop the duplicates values, the shape of data is (735, 5)
+2022-05-21/22:45:14		After drop the duplicates values, the shape of data is (312, 5)
+2022-05-21/22:45:14		Successfully drop the duplicates values
+2022-05-21/22:45:14		Handle the imbalanced data using Borderline-SMOTE
+2022-05-21/22:47:44		Before drop the duplicates values, the shape of data is (887, 8)
+2022-05-21/22:47:44		After drop the duplicates values, the shape of data is (478, 8)
+2022-05-21/22:47:44		Successfully drop the duplicates values
+2022-05-21/22:47:44		Error is: Unknown label type: 'continuous'
+2022-05-21/22:48:18		Before drop the duplicates values, the shape of data is (887, 8)
+2022-05-21/22:48:18		After drop the duplicates values, the shape of data is (478, 8)
+2022-05-21/22:48:18		Successfully drop the duplicates values
+2022-05-21/22:49:50		Before drop the duplicates values, the shape of data is (887, 8)
+2022-05-21/22:49:50		After drop the duplicates values, the shape of data is (478, 8)
+2022-05-21/22:49:50		Successfully drop the duplicates values
+2022-05-22/00:49:49		Before drop the duplicates values, the shape of data is (887, 8)
+2022-05-22/00:49:49		After drop the duplicates values, the shape of data is (478, 8)
+2022-05-22/00:49:49		Successfully drop the duplicates values
+2022-05-22/00:51:59		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-22/00:51:59		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-22/00:51:59		Successfully drop the duplicates values
+2022-05-22/00:51:59		Successfully remove the outliers from data Pregnancies
+2022-05-22/00:51:59		Successfully remove the outliers from data Glucose
+2022-05-22/00:51:59		Successfully remove the outliers from data BloodPressure
+2022-05-22/00:51:59		Successfully remove the outliers from data SkinThickness
+2022-05-22/00:51:59		Successfully remove the outliers from data Insulin
+2022-05-22/00:51:59		Successfully remove the outliers from data BMI
+2022-05-22/00:51:59		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-22/00:51:59		Successfully remove the outliers from data Age
+2022-05-22/00:51:59		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-22/00:52:49		Before drop the duplicates values, the shape of data is (768, 9)
+2022-05-22/00:52:49		After drop the duplicates values, the shape of data is (768, 9)
+2022-05-22/00:52:49		Successfully drop the duplicates values
+2022-05-22/00:52:49		Successfully remove the outliers from data Pregnancies
+2022-05-22/00:52:49		Successfully remove the outliers from data Glucose
+2022-05-22/00:52:49		Successfully remove the outliers from data BloodPressure
+2022-05-22/00:52:49		Successfully remove the outliers from data SkinThickness
+2022-05-22/00:52:49		Successfully remove the outliers from data Insulin
+2022-05-22/00:52:49		Successfully remove the outliers from data BMI
+2022-05-22/00:52:49		Successfully remove the outliers from data DiabetesPedigreeFunction
+2022-05-22/00:52:49		Successfully remove the outliers from data Age

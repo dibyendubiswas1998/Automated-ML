@@ -1,0 +1,107 @@
+2022-05-21/22:39:59		We use DecisionTree Classifier
+2022-05-21/22:41:24		Get the best parameters after hyperparameter tuning {'criterion': 'gini', 'max_depth': 36, 'min_samples_leaf': 9, 'min_samples_split': 7, 'splitter': 'random'}
+2022-05-21/22:41:24		train the model with best parameters {'criterion': 'gini', 'max_depth': 36, 'min_samples_leaf': 9, 'min_samples_split': 7, 'splitter': 'random'}
+2022-05-21/22:41:24		We use DecisionTree Classifier
+2022-05-21/22:42:39		Get the best parameters after hyperparameter tuning {'criterion': 'entropy', 'max_depth': 38, 'min_samples_leaf': 8, 'min_samples_split': 2, 'splitter': 'random'}
+2022-05-21/22:42:39		train the model with best parameters {'criterion': 'entropy', 'max_depth': 38, 'min_samples_leaf': 8, 'min_samples_split': 2, 'splitter': 'random'}
+2022-05-21/22:44:03		We use Ensemble approach, where base model is KNN
+2022-05-21/22:44:03		Trained the model using Ensembel approach
+2022-05-21/22:44:03		We use Ensemble approach, where base model is KNN
+2022-05-21/22:44:03		Trained the model using Ensembel approach
+2022-05-21/22:45:17		We use Ensemble approach, where base model is KNN
+2022-05-21/22:45:17		Trained the model using Ensembel approach
+2022-05-21/22:45:17		We use Ensemble approach, where base model is KNN
+2022-05-21/22:45:17		Trained the model using Ensembel approach
+2022-05-21/22:48:21		Use Linear Regression to create the model
+2022-05-21/22:48:21		Trained the model using LinearRegression algorithm
+2022-05-21/22:48:21		Use Ridge Regression to create the model
+2022-05-21/22:48:22		Get the alpha value using RidgeCV 0.5073304844659421
+2022-05-21/22:48:22		Successfully trained the model
+2022-05-21/22:48:23		Use Lasso Regression to create the model
+2022-05-21/22:48:23		get the alpha value using LassoCv 0.03176554451517061
+2022-05-21/22:48:23		Successfully trained the model using Lasso Regression
+2022-05-21/22:48:23		Use ElasticNet to create the model
+2022-05-21/22:48:23		Get the alpha 0.009884185693201441 and l1_ration 0.5
+2022-05-21/22:48:23		Successfully trained the model using ElasticNet
+2022-05-21/22:48:23		Use SVR to create the model
+2022-05-21/22:48:23		Successfully trained the model using SVR
+2022-05-21/22:48:23		Use Linear Regression to create the model
+2022-05-21/22:48:23		Trained the model using LinearRegression algorithm
+2022-05-21/22:48:23		Use Ridge Regression to create the model
+2022-05-21/22:48:25		Get the alpha value using RidgeCV 0.2527887369411097
+2022-05-21/22:48:25		Successfully trained the model
+2022-05-21/22:48:25		Use Lasso Regression to create the model
+2022-05-21/22:48:25		get the alpha value using LassoCv 0.0401852937193905
+2022-05-21/22:48:25		Successfully trained the model using Lasso Regression
+2022-05-21/22:48:25		Use ElasticNet to create the model
+2022-05-21/22:48:25		Get the alpha 0.021175977193665756 and l1_ration 0.5
+2022-05-21/22:48:25		Successfully trained the model using ElasticNet
+2022-05-21/22:48:25		Use SVR to create the model
+2022-05-21/22:48:25		Successfully trained the model using SVR
+2022-05-21/22:48:25		Use Linear Regression to create the model
+2022-05-21/22:48:25		Trained the model using LinearRegression algorithm
+2022-05-21/22:48:25		Use Ridge Regression to create the model
+2022-05-21/22:48:27		Get the alpha value using RidgeCV 0.5133647747366499
+2022-05-21/22:48:27		Successfully trained the model
+2022-05-21/22:48:27		Use Lasso Regression to create the model
+2022-05-21/22:48:27		get the alpha value using LassoCv 0.12765364509035135
+2022-05-21/22:48:27		Successfully trained the model using Lasso Regression
+2022-05-21/22:48:27		Use ElasticNet to create the model
+2022-05-21/22:48:28		Get the alpha 0.005548377170364417 and l1_ration 0.5
+2022-05-21/22:48:28		Successfully trained the model using ElasticNet
+2022-05-21/22:48:28		Use SVR to create the model
+2022-05-21/22:48:28		Successfully trained the model using SVR
+2022-05-21/22:49:53		Use Linear Regression to create the model
+2022-05-21/22:49:53		Trained the model using LinearRegression algorithm
+2022-05-21/22:49:53		Use Linear Regression to create the model
+2022-05-21/22:49:53		Trained the model using LinearRegression algorithm
+2022-05-21/22:49:53		Use Linear Regression to create the model
+2022-05-21/22:49:53		Trained the model using LinearRegression algorithm
+2022-05-22/00:49:52		Use Linear Regression to create the model
+2022-05-22/00:49:52		Trained the model using LinearRegression algorithm
+2022-05-22/00:49:52		Use Ridge Regression to create the model
+2022-05-22/00:49:53		Get the alpha value using RidgeCV 0.2205553846029873
+2022-05-22/00:49:53		Successfully trained the model
+2022-05-22/00:49:54		Use Lasso Regression to create the model
+2022-05-22/00:49:54		get the alpha value using LassoCv 0.03176554451517061
+2022-05-22/00:49:54		Successfully trained the model using Lasso Regression
+2022-05-22/00:49:54		Use ElasticNet to create the model
+2022-05-22/00:49:54		Get the alpha 0.009884185693201441 and l1_ration 0.5
+2022-05-22/00:49:54		Successfully trained the model using ElasticNet
+2022-05-22/00:49:54		Use SVR to create the model
+2022-05-22/00:49:54		Successfully trained the model using SVR
+2022-05-22/00:49:54		Use Linear Regression to create the model
+2022-05-22/00:49:54		Trained the model using LinearRegression algorithm
+2022-05-22/00:49:54		Use Ridge Regression to create the model
+2022-05-22/00:49:56		Get the alpha value using RidgeCV 0.37708692123881393
+2022-05-22/00:49:56		Successfully trained the model
+2022-05-22/00:49:56		Use Lasso Regression to create the model
+2022-05-22/00:49:56		get the alpha value using LassoCv 0.0401852937193905
+2022-05-22/00:49:56		Successfully trained the model using Lasso Regression
+2022-05-22/00:49:56		Use ElasticNet to create the model
+2022-05-22/00:49:56		Get the alpha 0.021175977193665756 and l1_ration 0.5
+2022-05-22/00:49:56		Successfully trained the model using ElasticNet
+2022-05-22/00:49:56		Use SVR to create the model
+2022-05-22/00:49:56		Successfully trained the model using SVR
+2022-05-22/00:49:56		Use Linear Regression to create the model
+2022-05-22/00:49:56		Trained the model using LinearRegression algorithm
+2022-05-22/00:49:56		Use Ridge Regression to create the model
+2022-05-22/00:49:58		Get the alpha value using RidgeCV 0.6286671731126992
+2022-05-22/00:49:58		Successfully trained the model
+2022-05-22/00:49:58		Use Lasso Regression to create the model
+2022-05-22/00:49:58		get the alpha value using LassoCv 0.12765364509035135
+2022-05-22/00:49:58		Successfully trained the model using Lasso Regression
+2022-05-22/00:49:58		Use ElasticNet to create the model
+2022-05-22/00:49:59		Get the alpha 0.005548377170364417 and l1_ration 0.5
+2022-05-22/00:49:59		Successfully trained the model using ElasticNet
+2022-05-22/00:49:59		Use SVR to create the model
+2022-05-22/00:49:59		Successfully trained the model using SVR
+2022-05-22/00:52:53		We use DecisionTree Classifier
+2022-05-22/00:54:31		Get the best parameters after hyperparameter tuning {'criterion': 'gini', 'max_depth': 30, 'min_samples_leaf': 8, 'min_samples_split': 8, 'splitter': 'random'}
+2022-05-22/00:54:31		train the model with best parameters {'criterion': 'gini', 'max_depth': 30, 'min_samples_leaf': 8, 'min_samples_split': 8, 'splitter': 'random'}
+2022-05-22/00:54:31		We use DecisionTree Classifier
+2022-05-22/00:55:54		Get the best parameters after hyperparameter tuning {'criterion': 'entropy', 'max_depth': 37, 'min_samples_leaf': 7, 'min_samples_split': 5, 'splitter': 'random'}
+2022-05-22/00:55:54		train the model with best parameters {'criterion': 'entropy', 'max_depth': 37, 'min_samples_leaf': 7, 'min_samples_split': 5, 'splitter': 'random'}
+2022-05-22/00:55:55		We use DecisionTree Classifier
+2022-05-22/00:57:10		Get the best parameters after hyperparameter tuning {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 5, 'min_samples_split': 3, 'splitter': 'random'}
+2022-05-22/00:57:10		train the model with best parameters {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 5, 'min_samples_split': 3, 'splitter': 'random'}

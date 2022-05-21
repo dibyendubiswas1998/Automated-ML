@@ -1,0 +1,257 @@
+2022-05-21/20:43:56		Neumeric columns are:  fIndex(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-21/20:43:56		Categorical columns are:   fIndex(['species'], dtype='object')
+2022-05-21/20:43:56		Length of data is 735 5
+2022-05-21/20:43:56		Successfully mapping the output columns using KNN imputer
+2022-05-21/20:43:56		Missing values are present at ['sepal_length', 'sepal_width', 'petal_length']
+2022-05-21/20:43:56		Successfully handle the missing values by KNNImputer
+2022-05-21/20:43:56		Successfully remove the duplicate values
+2022-05-21/20:43:56		Shape of dataset is (312, 5), after remove the duplicate values
+2022-05-21/20:43:56		Shape of dataset is (312, 5), before remove the outliers
+2022-05-21/20:43:56		Their is no outliers in the data set
+2022-05-21/20:43:56		Shape of dataset is (312, 5), after remove the outliers
+2022-05-21/20:43:56		Data set is not balanced
+2022-05-21/20:43:56		Successfully balanced the data set
+2022-05-21/20:43:56		Shape of dataset is (414, 5), after balanced the dataset
+2022-05-21/20:43:56		Missing values are present at ['sepal_length', 'sepal_width', 'petal_length']
+2022-05-21/20:43:56		Successfully handle the missing values by KNNImputer
+2022-05-21/20:44:31		Neumeric columns are:  fIndex(['Serial No.', 'GRE Score', 'TOEFL Score', 'University Rating', 'SOP',
+       'LOR', 'CGPA', 'Research', 'Chance of Admit'],
+      dtype='object')
+2022-05-21/20:44:31		Length of data is 500 9
+2022-05-21/20:44:31		No need to mapped the output columns
+2022-05-21/20:44:31		Missing values are present at ['GRE Score', 'TOEFL Score', 'University Rating']
+2022-05-21/20:44:31		Successfully handle the missing values by KNNImputer
+2022-05-21/20:44:31		Successfully remove the duplicate values
+2022-05-21/20:44:31		Shape of dataset is (500, 9), after remove the duplicate values
+2022-05-21/20:44:31		Shape of dataset is (500, 9), before remove the outliers
+2022-05-21/20:44:31		Their is no outliers in the data set
+2022-05-21/20:44:31		Shape of dataset is (500, 9), after remove the outliers
+2022-05-21/20:44:31		Data set is not balanced
+2022-05-21/20:44:31		Error is: Unknown label type: 'continuous'
+2022-05-21/20:47:35		Neumeric columns are:  fIndex(['Serial No.', 'GRE Score', 'TOEFL Score', 'University Rating', 'SOP',
+       'LOR', 'CGPA', 'Research', 'Chance of Admit'],
+      dtype='object')
+2022-05-21/20:47:35		Length of data is 500 9
+2022-05-21/20:47:35		Missing values are present at ['GRE Score', 'TOEFL Score', 'University Rating']
+2022-05-21/20:47:35		Successfully handle the missing values by KNNImputer
+2022-05-21/20:47:35		Successfully remove the duplicate values
+2022-05-21/20:47:35		Shape of dataset is (500, 9), after remove the duplicate values
+2022-05-21/20:47:35		Shape of dataset is (500, 9), before remove the outliers
+2022-05-21/20:47:35		Their is no outliers in the data set
+2022-05-21/20:47:35		Shape of dataset is (500, 9), after remove the outliers
+2022-05-21/20:47:35		Missing values are present at ['GRE Score', 'TOEFL Score', 'University Rating']
+2022-05-21/20:47:35		Successfully handle the missing values by KNNImputer
+2022-05-21/20:48:48		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-21/20:48:48		Length of data is 768 9
+2022-05-21/20:48:48		No need to mapped the output columns
+2022-05-21/20:48:48		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/20:48:48		Successfully handle the missing values by KNNImputer
+2022-05-21/20:48:48		Successfully remove the duplicate values
+2022-05-21/20:48:48		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-21/20:48:48		Shape of dataset is (768, 9), before remove the outliers
+2022-05-21/20:48:48		Get the outliers columns:  ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+2022-05-21/20:48:48		Successfully remove the outliers
+2022-05-21/20:48:48		Shape of dataset is (768, 9), after remove the outliers
+2022-05-21/20:48:48		Data set is not balanced
+2022-05-21/20:48:48		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/20:52:05		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-21/20:52:05		Length of data is 768 9
+2022-05-21/20:52:05		No need to mapped the output columns
+2022-05-21/20:52:05		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/20:52:05		Successfully handle the missing values by mean value of that column respectively
+2022-05-21/20:52:05		Successfully remove the duplicate values
+2022-05-21/20:52:05		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-21/20:52:05		Shape of dataset is (768, 9), before remove the outliers
+2022-05-21/20:52:05		Get the outliers columns:  ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+2022-05-21/20:52:05		Successfully remove the outliers
+2022-05-21/20:52:05		Shape of dataset is (768, 9), after remove the outliers
+2022-05-21/20:52:05		Data set is not balanced
+2022-05-21/20:52:05		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/21:01:02		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-21/21:01:02		Length of data is 768 9
+2022-05-21/21:01:02		No need to mapped the output columns
+2022-05-21/21:01:02		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:01:02		Successfully handle the missing values by mean value of that column respectively
+2022-05-21/21:01:02		Successfully remove the duplicate values
+2022-05-21/21:01:02		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-21/21:01:02		Shape of dataset is (768, 9), before remove the outliers
+2022-05-21/21:01:02		Get the outliers columns:  ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+2022-05-21/21:01:02		Successfully remove the outliers
+2022-05-21/21:01:02		Shape of dataset is (768, 9), after remove the outliers
+2022-05-21/21:01:02		Data set is not balanced
+2022-05-21/21:01:02		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/21:01:32		Error is: "['Outcome'] not found in axis"
+2022-05-21/21:01:39		Neumeric columns are:  fIndex(['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], dtype='object')
+2022-05-21/21:01:39		Categorical columns are:   fIndex(['species'], dtype='object')
+2022-05-21/21:01:39		Length of data is 735 5
+2022-05-21/21:01:39		Successfully mapping the output columns using KNN imputer
+2022-05-21/21:01:39		Missing values are present at ['sepal_length', 'sepal_width', 'petal_length']
+2022-05-21/21:01:39		Successfully handle the missing values by mean value of that column respectively
+2022-05-21/21:01:39		Successfully remove the duplicate values
+2022-05-21/21:01:39		Shape of dataset is (321, 5), after remove the duplicate values
+2022-05-21/21:01:39		Shape of dataset is (321, 5), before remove the outliers
+2022-05-21/21:01:39		Their is no outliers in the data set
+2022-05-21/21:01:39		Shape of dataset is (321, 5), after remove the outliers
+2022-05-21/21:01:39		Data set is not balanced
+2022-05-21/21:01:39		Successfully balanced the data set
+2022-05-21/21:01:39		Shape of dataset is (423, 5), after balanced the dataset
+2022-05-21/21:01:39		Missing values are present at ['sepal_length', 'sepal_width', 'petal_length']
+2022-05-21/21:01:39		Successfully handle the missing values by mean value of that column respectively
+2022-05-21/21:01:58		Error is: "['species'] not found in axis"
+2022-05-21/21:02:15		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-21/21:02:15		Length of data is 768 9
+2022-05-21/21:02:15		No need to mapped the output columns
+2022-05-21/21:02:15		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:02:15		Successfully handle the missing values by mean value of that column respectively
+2022-05-21/21:02:15		Successfully remove the duplicate values
+2022-05-21/21:02:15		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-21/21:02:15		Shape of dataset is (768, 9), before remove the outliers
+2022-05-21/21:02:15		Get the outliers columns:  ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+2022-05-21/21:02:15		Successfully remove the outliers
+2022-05-21/21:02:15		Shape of dataset is (768, 9), after remove the outliers
+2022-05-21/21:02:15		Data set is not balanced
+2022-05-21/21:02:15		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/21:02:57		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-21/21:02:57		Length of data is 768 9
+2022-05-21/21:02:57		No need to mapped the output columns
+2022-05-21/21:02:57		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:02:58		Successfully handle the missing values by mean value of that column respectively
+2022-05-21/21:02:58		Successfully remove the duplicate values
+2022-05-21/21:02:58		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-21/21:02:58		Shape of dataset is (768, 9), before remove the outliers
+2022-05-21/21:02:58		Get the outliers columns:  ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+2022-05-21/21:02:58		Successfully remove the outliers
+2022-05-21/21:02:58		Shape of dataset is (768, 9), after remove the outliers
+2022-05-21/21:02:58		Data set is not balanced
+2022-05-21/21:02:58		Error is: Input contains NaN, infinity or a value too large for dtype('float64').
+2022-05-21/21:39:11		Error is: "['outcome'] not found in axis"
+2022-05-21/21:39:37		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-21/21:39:37		Length of data is 768 9
+2022-05-21/21:39:37		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:39:37		Successfully handle the missing values by KNNImputer
+2022-05-21/21:39:37		Successfully remove the duplicate values
+2022-05-21/21:39:37		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-21/21:39:37		Shape of dataset is (768, 9), before remove the outliers
+2022-05-21/21:39:37		Get the outliers columns:  ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+2022-05-21/21:39:37		Successfully remove the outliers
+2022-05-21/21:39:37		Shape of dataset is (768, 9), after remove the outliers
+2022-05-21/21:39:37		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:39:37		Successfully handle the missing values by KNNImputer
+2022-05-21/21:41:39		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-21/21:41:39		Length of data is 768 9
+2022-05-21/21:41:39		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:41:39		Successfully handle the missing values by KNNImputer
+2022-05-21/21:41:39		Successfully remove the duplicate values
+2022-05-21/21:41:39		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-21/21:41:39		Shape of dataset is (768, 9), before remove the outliers
+2022-05-21/21:41:39		Get the outliers columns:  ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+2022-05-21/21:41:39		Successfully remove the outliers
+2022-05-21/21:41:39		Shape of dataset is (768, 9), after remove the outliers
+2022-05-21/21:41:39		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:41:39		Successfully handle the missing values by KNNImputer
+2022-05-21/21:43:01		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-21/21:43:01		Length of data is 768 9
+2022-05-21/21:43:01		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:43:01		Successfully handle the missing values by KNNImputer
+2022-05-21/21:43:01		Successfully remove the duplicate values
+2022-05-21/21:43:01		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-21/21:43:01		Shape of dataset is (768, 9), before remove the outliers
+2022-05-21/21:43:01		Get the outliers columns:  ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+2022-05-21/21:43:01		Successfully remove the outliers
+2022-05-21/21:43:01		Shape of dataset is (768, 9), after remove the outliers
+2022-05-21/21:43:01		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-21/21:43:02		Successfully handle the missing values by KNNImputer
+2022-05-22/00:26:00		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:28:08		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:29:39		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:32:14		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:38:19		Error is: "['Y house price of unit area'] not found in axis"
+2022-05-22/00:40:52		Neumeric columns are:  fIndex(['No', 'X1 transaction date', 'X2 house age',
+       'X3 distance to the nearest MRT station',
+       'X4 number of convenience stores', 'X5 latitude', 'X6 longitude',
+       'Y house price of unit area'],
+      dtype='object')
+2022-05-22/00:40:52		Length of data is 887 8
+2022-05-22/00:40:52		No need to map the output column
+2022-05-22/00:40:52		Missing values are present at ['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station', 'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']
+2022-05-22/00:40:52		Successfully handle the missing values by KNNImputer
+2022-05-22/00:40:52		Successfully remove the duplicate values
+2022-05-22/00:40:52		Shape of dataset is (478, 8), after remove the duplicate values
+2022-05-22/00:40:52		No Need to remove the outliers
+2022-05-22/00:40:52		No need to balance the data
+2022-05-22/00:40:52		Missing values are present at ['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station', 'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']
+2022-05-22/00:40:52		Successfully handle the missing values by KNNImputer
+2022-05-22/00:43:59		Neumeric columns are:  fIndex(['No', 'X1 transaction date', 'X2 house age',
+       'X3 distance to the nearest MRT station',
+       'X4 number of convenience stores', 'X5 latitude', 'X6 longitude',
+       'Y house price of unit area'],
+      dtype='object')
+2022-05-22/00:43:59		Length of data is 887 8
+2022-05-22/00:43:59		No need to map the output column
+2022-05-22/00:43:59		Missing values are present at ['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station', 'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']
+2022-05-22/00:43:59		Successfully handle the missing values by KNNImputer
+2022-05-22/00:43:59		Successfully remove the duplicate values
+2022-05-22/00:43:59		Shape of dataset is (478, 8), after remove the duplicate values
+2022-05-22/00:43:59		No Need to remove the outliers
+2022-05-22/00:43:59		No need to balance the data
+2022-05-22/00:43:59		Missing values are present at ['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station', 'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']
+2022-05-22/00:43:59		Successfully handle the missing values by KNNImputer
+2022-05-22/00:45:49		Neumeric columns are:  fIndex(['No', 'X1 transaction date', 'X2 house age',
+       'X3 distance to the nearest MRT station',
+       'X4 number of convenience stores', 'X5 latitude', 'X6 longitude',
+       'Y house price of unit area'],
+      dtype='object')
+2022-05-22/00:45:49		Length of data is 887 8
+2022-05-22/00:45:49		No need to map the output column
+2022-05-22/00:45:49		Missing values are present at ['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station', 'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']
+2022-05-22/00:45:49		Successfully handle the missing values by KNNImputer
+2022-05-22/00:45:49		Successfully remove the duplicate values
+2022-05-22/00:45:49		Shape of dataset is (478, 8), after remove the duplicate values
+2022-05-22/00:45:49		No Need to remove the outliers
+2022-05-22/00:45:49		No need to balance the data
+2022-05-22/00:45:49		Missing values are present at ['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station', 'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']
+2022-05-22/00:45:49		Successfully handle the missing values by KNNImputer
+2022-05-22/00:49:59		Neumeric columns are:  fIndex(['No', 'X1 transaction date', 'X2 house age',
+       'X3 distance to the nearest MRT station',
+       'X4 number of convenience stores', 'X5 latitude', 'X6 longitude',
+       'Y house price of unit area'],
+      dtype='object')
+2022-05-22/00:49:59		Length of data is 887 8
+2022-05-22/00:49:59		No need to map the output column
+2022-05-22/00:49:59		Missing values are present at ['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station', 'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']
+2022-05-22/00:49:59		Successfully handle the missing values by KNNImputer
+2022-05-22/00:49:59		Successfully remove the duplicate values
+2022-05-22/00:49:59		Shape of dataset is (478, 8), after remove the duplicate values
+2022-05-22/00:49:59		No Need to remove the outliers
+2022-05-22/00:49:59		No need to balance the data
+2022-05-22/00:49:59		Missing values are present at ['X1 transaction date', 'X2 house age', 'X3 distance to the nearest MRT station', 'X4 number of convenience stores', 'X5 latitude', 'X6 longitude']
+2022-05-22/00:49:59		Successfully handle the missing values by KNNImputer
+2022-05-22/00:57:10		Neumeric columns are:  fIndex(['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+       'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'],
+      dtype='object')
+2022-05-22/00:57:10		Length of data is 768 9
+2022-05-22/00:57:10		No need to map the output column
+2022-05-22/00:57:10		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-22/00:57:10		Successfully handle the missing values by KNNImputer
+2022-05-22/00:57:10		Successfully remove the duplicate values
+2022-05-22/00:57:10		Shape of dataset is (768, 9), after remove the duplicate values
+2022-05-22/00:57:10		No Need to remove the outliers
+2022-05-22/00:57:10		No need to balance the data
+2022-05-22/00:57:10		Missing values are present at ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
+2022-05-22/00:57:10		Successfully handle the missing values by KNNImputer

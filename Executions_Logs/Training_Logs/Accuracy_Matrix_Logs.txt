@@ -1,0 +1,124 @@
+2022-05-21/22:45:17		It's help to get the KNN model by applying Ensemble Technique
+2022-05-21/22:45:17		Using Ensemble Technique (where base_model: KNN) the Accuracy Score for test data of the model is: 0.44
+2022-05-21/22:45:17		Using Ensemble Technique (where base_model: KNN) the Accuracy Score for train data of the model is: 0.53
+2022-05-21/22:45:17		It's help to get the KNN model by applying Ensemble Technique
+2022-05-21/22:45:17		Using Ensemble Technique (where base_model: KNN) the Accuracy Score for test data of the model is: 0.42045454545454547
+2022-05-21/22:45:17		Using Ensemble Technique (where base_model: KNN) the Accuracy Score for train data of the model is: 0.5852272727272727
+
+
+
+2022-05-21/22:48:21		It's help to get the best model
+2022-05-21/22:48:21		It's help to get the Linear model by applying Linear Regression
+2022-05-21/22:48:21		Rsquare value for test data is 0.10108375736566788
+2022-05-21/22:48:21		Rsquare value for train data is 0.1999318929017413
+2022-05-21/22:48:21		It's help to get the Linear model by applying Ridge Regression
+2022-05-21/22:48:22		Rsquare value for test data is 0.10355066089631004
+2022-05-21/22:48:22		Rsquare value for train data is 0.19935282049759917
+2022-05-21/22:48:23		It's help to get the Linear model by applying Lasso Regression
+2022-05-21/22:48:23		Rsquare value for test data is 0.11169074536878976
+2022-05-21/22:48:23		Rsquare value for train data is 0.19891329978114347
+2022-05-21/22:48:23		It's help to get the Linear model by applying ElasticNet Regression
+2022-05-21/22:48:23		Rsquare value for test data is 0.1064315679382295
+2022-05-21/22:48:23		Rsquare value for train data is 0.19754448521668067
+2022-05-21/22:48:23		It's help to get the SVR model by applying SVR Regression
+2022-05-21/22:48:23		Rsquare value for test data is 0.10814962080854318
+2022-05-21/22:48:23		Rsquare value for train data is 0.18266610799118665
+
+2022-05-21/22:48:23		It's help to get the best model
+2022-05-21/22:48:23		It's help to get the Linear model by applying Linear Regression
+2022-05-21/22:48:23		Rsquare value for test data is 0.2667062403855911
+2022-05-21/22:48:23		Rsquare value for train data is 0.30400218702439696
+2022-05-21/22:48:23		It's help to get the Linear model by applying Ridge Regression
+2022-05-21/22:48:25		Rsquare value for test data is 0.27625604529349623
+2022-05-21/22:48:25		Rsquare value for train data is 0.3023688658261702
+2022-05-21/22:48:25		It's help to get the Linear model by applying Lasso Regression
+2022-05-21/22:48:25		Rsquare value for test data is 0.30705356178945886
+2022-05-21/22:48:25		Rsquare value for train data is 0.2992101360584497
+2022-05-21/22:48:25		It's help to get the Linear model by applying ElasticNet Regression
+2022-05-21/22:48:25		Rsquare value for test data is 0.2866428979359533
+2022-05-21/22:48:25		Rsquare value for train data is 0.2913936584054071
+2022-05-21/22:48:25		It's help to get the SVR model by applying SVR Regression
+2022-05-21/22:48:25		Rsquare value for test data is 0.13285925893444095
+2022-05-21/22:48:25		Rsquare value for train data is 0.14916417376090518
+2022-05-21/22:48:25		It's help to get the best model
+2022-05-21/22:48:25		It's help to get the Linear model by applying Linear Regression
+2022-05-21/22:48:25		Rsquare value for test data is -0.4808497034009944
+2022-05-21/22:48:25		Rsquare value for train data is 0.246600669321274
+2022-05-21/22:48:25		It's help to get the Linear model by applying Ridge Regression
+2022-05-21/22:48:27		Rsquare value for test data is -0.268816353534014
+2022-05-21/22:48:27		Rsquare value for train data is 0.21552312452728628
+2022-05-21/22:48:27		It's help to get the Linear model by applying Lasso Regression
+2022-05-21/22:48:27		Rsquare value for test data is -0.35930973730528204
+2022-05-21/22:48:27		Rsquare value for train data is 0.22210368350321352
+2022-05-21/22:48:27		It's help to get the Linear model by applying ElasticNet Regression
+2022-05-21/22:48:28		Rsquare value for test data is -0.44064624437017663
+2022-05-21/22:48:28		Rsquare value for train data is 0.2431781251524776
+2022-05-21/22:48:28		It's help to get the SVR model by applying SVR Regression
+2022-05-21/22:48:28		Rsquare value for test data is 0.002263941062827568
+2022-05-21/22:48:28		Rsquare value for train data is -0.027152280131112816
+2022-05-21/22:49:53		It's help to get the Linear model by applying Linear Regression
+2022-05-21/22:49:53		Rsquare value for test data is 0.10108375736566788
+2022-05-21/22:49:53		Rsquare value for train data is 0.1999318929017413
+2022-05-21/22:49:53		It's help to get the Linear model by applying Linear Regression
+2022-05-21/22:49:53		Rsquare value for test data is 0.2667062403855911
+2022-05-21/22:49:53		Rsquare value for train data is 0.30400218702439696
+2022-05-21/22:49:53		It's help to get the Linear model by applying Linear Regression
+2022-05-21/22:49:53		Rsquare value for test data is -0.4808497034009944
+2022-05-21/22:49:53		Rsquare value for train data is 0.246600669321274
+2022-05-22/00:49:52		It's help to get the best model
+2022-05-22/00:49:52		It's help to get the Linear model by applying Linear Regression
+2022-05-22/00:49:52		Rsquare value for test data is 0.10108375736566788
+2022-05-22/00:49:52		Rsquare value for train data is 0.1999318929017413
+2022-05-22/00:49:52		It's help to get the Linear model by applying Ridge Regression
+2022-05-22/00:49:53		Rsquare value for test data is 0.10232875317551338
+2022-05-22/00:49:53		Rsquare value for train data is 0.19981018924178218
+2022-05-22/00:49:54		It's help to get the Linear model by applying Lasso Regression
+2022-05-22/00:49:54		Rsquare value for test data is 0.11169074536878976
+2022-05-22/00:49:54		Rsquare value for train data is 0.19891329978114347
+2022-05-22/00:49:54		It's help to get the Linear model by applying ElasticNet Regression
+2022-05-22/00:49:54		Rsquare value for test data is 0.1064315679382295
+2022-05-22/00:49:54		Rsquare value for train data is 0.19754448521668067
+2022-05-22/00:49:54		It's help to get the SVR model by applying SVR Regression
+2022-05-22/00:49:54		Rsquare value for test data is 0.10814962080854318
+2022-05-22/00:49:54		Rsquare value for train data is 0.18266610799118665
+2022-05-22/00:49:54		It's help to get the best model
+2022-05-22/00:49:54		It's help to get the Linear model by applying Linear Regression
+2022-05-22/00:49:54		Rsquare value for test data is 0.2667062403855911
+2022-05-22/00:49:54		Rsquare value for train data is 0.30400218702439696
+2022-05-22/00:49:54		It's help to get the Linear model by applying Ridge Regression
+2022-05-22/00:49:56		Rsquare value for test data is 0.2786908674232478
+2022-05-22/00:49:56		Rsquare value for train data is 0.30067171311013674
+2022-05-22/00:49:56		It's help to get the Linear model by applying Lasso Regression
+2022-05-22/00:49:56		Rsquare value for test data is 0.30705356178945886
+2022-05-22/00:49:56		Rsquare value for train data is 0.2992101360584497
+2022-05-22/00:49:56		It's help to get the Linear model by applying ElasticNet Regression
+2022-05-22/00:49:56		Rsquare value for test data is 0.2866428979359533
+2022-05-22/00:49:56		Rsquare value for train data is 0.2913936584054071
+2022-05-22/00:49:56		It's help to get the SVR model by applying SVR Regression
+2022-05-22/00:49:56		Rsquare value for test data is 0.13285925893444095
+2022-05-22/00:49:56		Rsquare value for train data is 0.14916417376090518
+2022-05-22/00:49:56		It's help to get the best model
+2022-05-22/00:49:56		It's help to get the Linear model by applying Linear Regression
+2022-05-22/00:49:56		Rsquare value for test data is -0.4808497034009944
+2022-05-22/00:49:56		Rsquare value for train data is 0.246600669321274
+2022-05-22/00:49:56		It's help to get the Linear model by applying Ridge Regression
+2022-05-22/00:49:58		Rsquare value for test data is -0.24222273592971
+2022-05-22/00:49:58		Rsquare value for train data is 0.2086534376345932
+2022-05-22/00:49:58		It's help to get the Linear model by applying Lasso Regression
+2022-05-22/00:49:58		Rsquare value for test data is -0.35930973730528204
+2022-05-22/00:49:58		Rsquare value for train data is 0.22210368350321352
+2022-05-22/00:49:58		It's help to get the Linear model by applying ElasticNet Regression
+2022-05-22/00:49:59		Rsquare value for test data is -0.44064624437017663
+2022-05-22/00:49:59		Rsquare value for train data is 0.2431781251524776
+2022-05-22/00:49:59		It's help to get the SVR model by applying SVR Regression
+2022-05-22/00:49:59		Rsquare value for test data is 0.002263941062827568
+2022-05-22/00:49:59		Rsquare value for train data is -0.027152280131112816
+2022-05-22/00:52:53		It's help to get the DecisionTree model
+2022-05-22/00:54:31		Using DecisionTree the Accuracy Score for test data of the model is: 0.7074829931972789
+2022-05-22/00:54:31		Using DecisionTree the Accuracy Score for train data of the model is: 0.8209459459459459
+2022-05-22/00:54:31		It's help to get the DecisionTree model
+2022-05-22/00:55:54		Using DecisionTree the Accuracy Score for test data of the model is: 0.759493670886076
+2022-05-22/00:55:54		Using DecisionTree the Accuracy Score for train data of the model is: 0.7974683544303798
+2022-05-22/00:55:54		It's help to get the DecisionTree model
+2022-05-22/00:57:10		Using DecisionTree the Accuracy Score for test data of the model is: 0.7
+2022-05-22/00:57:10		Using DecisionTree the Accuracy Score for train data of the model is: 0.7068965517241379

@@ -1,0 +1,13 @@
+2022-05-21/22:34:20		Data is not Successfully load: argument of type 'method' is not iterable
+2022-05-21/22:35:09		Data is not Successfully load: argument of type 'method' is not iterable
+2022-05-21/22:35:30		Data is not Successfully load: argument of type 'method' is not iterable
+2022-05-21/22:37:35		Data is not Successfully load: argument of type 'method' is not iterable
+2022-05-21/22:39:56		Data is Successfully load
+2022-05-21/22:44:00		Data is Successfully load
+2022-05-21/22:45:14		Data is Successfully load
+2022-05-21/22:47:44		Data is Successfully load
+2022-05-21/22:48:18		Data is Successfully load
+2022-05-21/22:49:50		Data is Successfully load
+2022-05-22/00:49:49		Data is Successfully load
+2022-05-22/00:51:59		Data is Successfully load
+2022-05-22/00:52:49		Data is Successfully load

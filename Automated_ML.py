@@ -5,8 +5,11 @@ from Data_Preprocessing.preProcessing import Data_Preprocessing
 from Training_Data_Scaling.dataScaling import Data_Scaling
 from Data_Preprocessing.clustering import KMeans_Clustering
 from training_validation_insertion import Training_Validation_Insertion
+from predection_validation_insertion import Predection_Validation_Insertion
 from Finding_Best_Model.findBestModel import Find_Best_Model
 from sklearn.model_selection import train_test_split
+import pandas as pd
+import numpy as np
 
 
 class Automated_ML:
@@ -26,10 +29,12 @@ class Automated_ML:
         self.scaling = Data_Scaling()
         self.clustering = KMeans_Clustering()
         self.validation = Training_Validation_Insertion()
+        self.validationP = Predection_Validation_Insertion()
         self.model1 = Find_Best_Model()
 
-    def training(self, data_path, yCol, format='csv', separator=',', problemType='classification', outlier_threshold=3,
+    def training(self, data_path, yCol, format='csv', separator=',', problemType='classification',
                  imputeMissing='KNNImputer',
+                 outlier_threshold=3, handle_outliers=True, mapping_ycol=False, balance_data=False,
                  dropCols=None, scalingType=None, dataTransformationType=None, chooseAlgorithm='dt'):
         """
             Method Name: training
@@ -38,34 +43,36 @@ class Automated_ML:
             Output: best model
             On Failure: Raise Error
 
-            Parameter Descriptions:{
-                data_path: 'E/User1/my_folder/data.csv' (mention only path where data is present),\n
-                yCol: 'output_col' (mention output column or output feature),\n
-                format: 'csv' (mention data format like csv, excel, etc.),\n
-                separator: ',' (comma separator, tab separator, etc.),\n
-                problemType: 'classification' (classification or regression, bydefault classification),\n
-                outlier_threshold: 3 (set the thereshold value to delete the outliers),\n
-                imputeMissing: KNNImputer (to handle the outliers by KNNImputer or mean),\n
-                dropCols: None (mention columns name for dropping, bydefault no columns drop),\n
-                scalingType: None (for data scaling you can use normalized or standarized or quantil transformation, bydefault None),\n
-                dataTransformationType: None (for data transformation using log or sqrt or boxcox, bydefault None),\n
-                chooseAlgorithm: dt (dt: Decision Tree, select)
-                                 for classification: (
-                                            dt --> Decision Tree,\n
-                                            rf --> Random Forest,\n
-                                            xg --> XGBoost,\n
-                                            ensemble_dt --> Ensemble Tequnique, base model Decision Tree,\n
-                                            ensemble_knn --> Ensemble Tequnique, base model KNN,\n
-                                            best_model --> get the best model by comparing all model,
-                                 )\n
-                                 for regression: (
-                                            linear --> Liner Regression,\n
-                                            lasso  --> Lasso Regression,\n
-                                            ridge  --> Ridge Regression,\n
-                                            elasticnet --> ElasticNet,\n
-                                            best_model --> get best model by comparing all model
-                                 )
-            }
+
+            :param    data_path: 'E/User1/my_folder/data.csv' (mention only path where data is present),\n
+            :param    yCol: 'output_col' (mention output column or output feature),\n
+            :param     format: 'csv' (mention data format like csv, excel, etc.),\n
+            :param     separator: ',' (comma separator, tab separator, etc.),\n
+            :param     problemType: 'classification' (classification or regression, bydefault classification),\n
+            :param     imputeMissing: KNNImputer (to handle the outliers by KNNImputer or mean),\n
+            :param     outlier_threshold: 3 (set the thereshold value to delete the outliers),\n
+            :param     handle_outliers: True (True or False --> True: remove the outliers, False: not to remove outliers),\n
+            :param    mapping_ycol: False (True or False --> True: mapping the output column, False: not to map output column),\n
+            :param     balance_data: False (True or False --> True: balanced the data, False: not to balance the data0,\n
+            :param     dropCols: None (mention columns name for dropping, bydefault no columns drop),\n
+            :param     scalingType: None (for data scaling you can use normalized or standarized or quantil transformation, bydefault None),\n
+            :param     dataTransformationType: None (for data transformation using log or sqrt or boxcox, bydefault None),\n
+            :param     chooseAlgorithm: dt (dt: Decision Tree, select)\n\n
+
+            :param for classification:
+            :param dt --> Decision Tree,\n
+            :param rf --> Random Forest,\n
+            :param xg --> XGBoost,\n
+            :param ensemble_dt --> Ensemble Tequnique, base model Decision Tree,\n
+            :param ensemble_knn --> Ensemble Tequnique, base model KNN,\n
+            :param best_model --> get the best model by comparing all model,
+
+            :param for regression:
+            :param linear --> Liner Regression,\n
+            :param lasso  --> Lasso Regression,\n
+            :param ridge  --> Ridge Regression,\n
+            :param elasticnet --> ElasticNet,\n
+            :param best_model --> get best model by comparing all model
 
             Written By: Dibyendu Biswas
             Version: 1.0
@@ -77,28 +84,34 @@ class Automated_ML:
             self.ycol = yCol
             self.format = format
             self.separator = separator
-            self.outlier_threshold = outlier_threshold
             self.imputeMissing = imputeMissing
+            self.outlier_threshold = outlier_threshold
+            self.handle_outliers = handle_outliers
+            self.mapping_ycol = mapping_ycol
+            self.balance_data = balance_data
             self.dropCols = dropCols
             self.scalingType = scalingType
             self.dataTransformationType = dataTransformationType
             self.chooseAlgorithm = chooseAlgorithm
             self.problemType = problemType
             self.data = self.data_load.get_data(path=self.data_path, format=self.format, separator=self.separator)
+            # validate the data before training for classification and regression:
+            self.data = self.validation.ValidateTrainingData(data=self.data, yCol=self.ycol,
+                                                             imputeMissing=self.imputeMissing,
+                                                             outlier_threshold=self.outlier_threshold,
+                                                             handle_outliers=self.handle_outliers,
+                                                             mapping_ycol=self.mapping_ycol,
+                                                             balance_data=self.balance_data,
+                                                             dataTransformationType=self.dataTransformationType)
 
+            # Drop the column or columns based on given condition:
+            if self.dropCols is None:
+                self.logger_object.log(self.file, "No need to drop the column or columns")
+            else:
+                self.data = self.pre_processing.ToDroColumns(data=self.data, Xcols=self.dropCols)
+                self.logger_object.log(self.file, f"Successfully drop the columns: {self.dropCols}")
             # if the problem statemet is classification:
             if self.problemType.lower() == 'classification':
-                # validate the data before training for classification:
-                self.data = self.validation.ValidateTrainingData_Classification(data=self.data, yCol=self.ycol,
-                                                                                outlier_threshold=self.outlier_threshold,
-                                                                                imputeMissing=self.imputeMissing,
-                                                                                dataTransformationType=self.dataTransformationType)
-                # Drop the column or columns based on given condition:
-                if self.dropCols is None:
-                    self.logger_object.log(self.file, "No need to drop the column or columns")
-                else:
-                    self.data = self.pre_processing.ToDroColumns(data=self.data, Xcols=self.dropCols)
-                    self.logger_object.log(self.file, f"Successfully drop the columns: {self.dropCols}")
                 """ Perform the data pre-processing """
                 # Separate the features columns and label columns (Xcols & Ycols):
                 self.X, self.Y = self.pre_processing.ToSeparateTheLabelFeature(data=self.data, Ycol=self.ycol)
@@ -162,6 +175,7 @@ class Automated_ML:
                                                                         filename=f"DecisionTree_{str(i)}")
                     self.logger_object.log(self.file,
                                            f"Successfully train and saved the model using {self.chooseAlgorithm} algorithm")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select the RandomForest Classifier:
@@ -201,6 +215,7 @@ class Automated_ML:
                                                                         filename=f"RandomForest_{str(i)}")
                     self.logger_object.log(self.file,
                                            f"Successfully train and saved the model {self.chooseAlgorithm} algorithm")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select XGBoost:
@@ -240,6 +255,7 @@ class Automated_ML:
                                                                         filename=f"XGBoost_{str(i)}")
                     self.logger_object.log(self.file,
                                            f"Successfully train and saved the model {self.chooseAlgorithm} algorithm")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select the Ensemble approach where base is DecisionTree Classifier:
@@ -279,6 +295,7 @@ class Automated_ML:
                                                                         filename=f"Ensemble_DT{str(i)}")
                     self.logger_object.log(self.file,
                                            f"Successfully train and saved the model {self.chooseAlgorithm} algorithm")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select the Ensemble approach where base is KNN:
@@ -317,6 +334,7 @@ class Automated_ML:
                                                                         filename=f"Ensemble_KNN{str(i)}")
                     self.logger_object.log(self.file,
                                            f"Successfully train and saved the model {self.chooseAlgorithm} algorithm")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select the best_model:
@@ -354,21 +372,11 @@ class Automated_ML:
                         self.save_model = File_Operations().ToSaveModel(model=self.best_model,
                                                                         filename=f"{self.model_name}_{str(i)}")
                     self.logger_object.log(self.file, f"Successfully train and save the best model")
+                    self.file.close()
                     return self.model, self.score
 
             # if the problem statemet is Regression:
             if self.problemType.lower() == 'regression':
-                # validate the data before training for regression:
-                self.data = self.validation.ValidateTrainingData_Regression(data=self.data, yCol=self.ycol,
-                                                                            outlier_threshold=self.outlier_threshold,
-                                                                            imputeMissing=self.imputeMissing,
-                                                                            dataTransformationType=self.dataTransformationType)
-                # Drop the column or columns based on given condition:
-                if self.dropCols is None:
-                    self.logger_object.log(self.file, "No need to drop the column or columns")
-                else:
-                    self.data = self.pre_processing.ToDroColumns(data=self.data, Xcols=self.dropCols)
-                    self.logger_object.log(self.file, f"Successfully drop the columns: {self.dropCols}")
                 """ Perform the data pre-processing """
                 # Separate the features columns and label columns (Xcols & Ycols):
                 self.X, self.Y = self.pre_processing.ToSeparateTheLabelFeature(data=self.data, Ycol=self.ycol)
@@ -429,6 +437,7 @@ class Automated_ML:
                         self.save_model = File_Operations().ToSaveModel(model=self.model,
                                                                         filename=f"LinearRegression_{str(i)}")
                     self.logger_object.log(self.file, f"Successfully train and save the best model")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select Lasso Regression:
@@ -465,6 +474,7 @@ class Automated_ML:
                         self.save_model = File_Operations().ToSaveModel(model=self.model,
                                                                         filename=f"LassoRegression_{str(i)}")
                     self.logger_object.log(self.file, f"Successfully train and save the best model")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select Ridge Regression:
@@ -501,6 +511,7 @@ class Automated_ML:
                         self.save_model = File_Operations().ToSaveModel(model=self.model,
                                                                         filename=f"RidgeRegression_{str(i)}")
                     self.logger_object.log(self.file, f"Successfully train and save the best model")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select ElasticNet Regression:
@@ -538,6 +549,7 @@ class Automated_ML:
                         self.save_model = File_Operations().ToSaveModel(model=self.model,
                                                                         filename=f"ElasticNetRegression_{str(i)}")
                     self.logger_object.log(self.file, f"Successfully train and save the best model")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select SVR regression (Support Vector Regression):
@@ -575,6 +587,7 @@ class Automated_ML:
                         self.save_model = File_Operations().ToSaveModel(model=self.model,
                                                                         filename=f"SVRRegression_{str(i)}")
                     self.logger_object.log(self.file, f"Successfully train and save the best model")
+                    self.file.close()
                     return self.model, self.score
 
                 # if select the best model:
@@ -612,6 +625,7 @@ class Automated_ML:
                         self.save_model = File_Operations().ToSaveModel(model=self.model,
                                                                         filename=f"{self.model_name}_{str(i)}")
                     self.logger_object.log(self.file, f"Successfully train and save the best model")
+                    self.file.close()
                     return self.model, self.score
 
         except Exception as ex:
@@ -620,8 +634,88 @@ class Automated_ML:
             self.file.close()
             raise ex
 
+    def prediction(self, data, yCol=None, outlier_threshold=3, handle_outliers=False, mapping_ycol=False,
+                   imputeMissing='KNNImputer', balance_data=False, scaling=None, dataTransformationType=None):
+        """
+            Method Name: prediction
+            Description: This method helps to predict the outcome based on given data
+
+            :param data: pass the data
+            :param yCol: mention the ycol name
+            :param outlier_threshold: 3 (bydefault)
+            :param handle_outliers: False (True or False: True --> remove the outliers, False --> not remove outliers)
+            :param mapping_ycol: False
+            :param imputeMissing: KNNImputer (KNNImputer or mean)
+            :param balance_data: False (True or False: True --> balance the data, False --> not balance the data)
+            :param scaling: None (normalized or standarized or quantil transformation, bydefault None)
+            :param dataTransformationType: None (log or sqrt or boxcox)
+
+            Output: predect outcome
+            On Failure: Raise Error
+
+            Written By: Dibyendu Biswas
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file_path = "Executions_Logs/Predection_logs/Model_Predection_Logs.txt"
+            self.file = open(self.file_path, 'a+')
+            self.data = data
+            self.ycol = yCol
+            self.outlier_threshold = outlier_threshold
+            self.handle_outliers = handle_outliers
+            self.mapping_ycol = mapping_ycol
+            self.imputeMissing = imputeMissing
+            self.balance_data = balance_data
+            self.scaling = scaling
+            self.dataTransformationType = dataTransformationType
+
+            # Validate the data before start predection:
+            self.data = self.validationP.ValidatePredectionData(data=self.data, yCol=self.ycol,
+                                                                outlier_threshold=self.outlier_threshold,
+                                                                handle_outliers=self.handle_outliers,
+                                                                mapping_ycol=self.mapping_ycol,
+                                                                imputeMissing=self.imputeMissing,
+                                                                balance_data=self.balance_data,
+                                                                dataTransformationType=self.dataTransformationType)
+            if self.ycol is None:
+                pass
+            else:
+                self.data = self.data.drop(axis=1, columns=[self.ycol])
+            self.file_loader = File_Operations()
+            """ Applying the Clustering Approach """
+            # to find the cluster, which cluster the data set is belong:
+            self.KMeans = self.file_loader.ToLoadModel("KMeans")
+            self.cluster_label = self.KMeans.fit_predict(self.data)
+            self.data['cluster_label'] = self.cluster_label
+            self.no_cluster = self.data['cluster_label'].unique()
+
+            for i in self.no_cluster:
+                self.cluster_data = self.data[self.data['cluster_label'] == i]
+                self.cluster_data = self.cluster_data.drop(axis=1, columns=['cluster_label'])
+                self.model_name = self.file_loader.ToFindCorrectModel(cluster_number=i)
+                self.model = self.file_loader.ToLoadModel(filename=self.model_name)
+                self.result = list(self.model.predict(self.cluster_data))
+                print(self.result)
+
+
+
+        except Exception as ex:
+            self.file_path = "Executions_Logs/Predection_logs/Model_Predection_Logs.txt"
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
 
 if __name__ == '__main__':
-    pass
+    data = pd.read_csv("Raw Data/diabetes.csv")
+    # print(data)
+    auto = Automated_ML()
+    auto.training(data_path="Raw Data/diabetes.csv",yCol='Outcome',
+                  chooseAlgorithm='dt', scalingType='normalized', balance_data=False
+                  )
+    auto.prediction(data=data, yCol='Outcome', scaling='normalized')
+
 
 

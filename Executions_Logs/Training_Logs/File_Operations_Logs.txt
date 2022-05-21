@@ -1,0 +1,59 @@
+2022-05-21/22:39:59		KMeans Successfully drop the model to Models/
+2022-05-21/22:41:24		DecisionTree_0 Successfully drop the model to Models/
+2022-05-21/22:42:39		DecisionTree_1 Successfully drop the model to Models/
+2022-05-21/22:44:03		KMeans Successfully drop the model to Models/
+2022-05-21/22:44:03		Ensemble_KNN0 Successfully drop the model to Models/
+2022-05-21/22:44:04		Ensemble_KNN1 Successfully drop the model to Models/
+2022-05-21/22:45:17		KMeans Successfully drop the model to Models/
+2022-05-21/22:45:17		Ensemble_KNN1 Successfully drop the model to Models/
+2022-05-21/22:45:17		Ensemble_KNN0 Successfully drop the model to Models/
+2022-05-21/22:48:21		KMeans Successfully drop the model to Models/
+2022-05-21/22:48:23		Lasso_1 Successfully drop the model to Models/
+2022-05-21/22:48:25		Lasso_0 Successfully drop the model to Models/
+2022-05-21/22:48:28		Lasso_2 Successfully drop the model to Models/
+2022-05-21/22:49:53		KMeans Successfully drop the model to Models/
+2022-05-21/22:49:53		LinearRegression_1 Successfully drop the model to Models/
+2022-05-21/22:49:53		LinearRegression_0 Successfully drop the model to Models/
+2022-05-21/22:49:53		LinearRegression_2 Successfully drop the model to Models/
+2022-05-22/00:01:33		Error is: [Errno 2] No such file or directory: 'Models//KMeans.sav'
+2022-05-22/00:01:33		Model is not load
+2022-05-22/00:02:19		Error is: [Errno 2] No such file or directory: 'Models/KMeans.sav'
+2022-05-22/00:02:19		Model is not load
+2022-05-22/00:03:41		Model is successfully loaded
+2022-05-22/00:40:52		Model is successfully loaded
+2022-05-22/00:43:59		Model is successfully loaded
+2022-05-22/00:43:59		Successfully find the correct Model
+2022-05-22/00:43:59		Model is successfully loaded
+2022-05-22/00:43:59		Successfully find the correct Model
+2022-05-22/00:43:59		Model is successfully loaded
+2022-05-22/00:43:59		Successfully find the correct Model
+2022-05-22/00:43:59		Model is successfully loaded
+2022-05-22/00:45:49		Model is successfully loaded
+2022-05-22/00:45:49		Successfully find the correct Model
+2022-05-22/00:45:49		Model is successfully loaded
+2022-05-22/00:45:49		Successfully find the correct Model
+2022-05-22/00:45:49		Model is successfully loaded
+2022-05-22/00:45:49		Successfully find the correct Model
+2022-05-22/00:45:49		Model is successfully loaded
+2022-05-22/00:49:52		KMeans Successfully drop the model to Models/
+2022-05-22/00:49:54		Lasso_1 Successfully drop the model to Models/
+2022-05-22/00:49:56		Lasso_0 Successfully drop the model to Models/
+2022-05-22/00:49:59		Lasso_2 Successfully drop the model to Models/
+2022-05-22/00:49:59		Model is successfully loaded
+2022-05-22/00:49:59		Successfully find the correct Model
+2022-05-22/00:49:59		Model is successfully loaded
+2022-05-22/00:49:59		Successfully find the correct Model
+2022-05-22/00:49:59		Model is successfully loaded
+2022-05-22/00:49:59		Successfully find the correct Model
+2022-05-22/00:49:59		Model is successfully loaded
+2022-05-22/00:52:53		KMeans Successfully drop the model to Models/
+2022-05-22/00:54:31		DecisionTree_0 Successfully drop the model to Models/
+2022-05-22/00:55:54		DecisionTree_1 Successfully drop the model to Models/
+2022-05-22/00:57:10		DecisionTree_2 Successfully drop the model to Models/
+2022-05-22/00:57:10		Model is successfully loaded
+2022-05-22/00:57:10		Successfully find the correct Model
+2022-05-22/00:57:10		Model is successfully loaded
+2022-05-22/00:57:10		Successfully find the correct Model
+2022-05-22/00:57:10		Model is successfully loaded
+2022-05-22/00:57:10		Successfully find the correct Model
+2022-05-22/00:57:10		Model is successfully loaded
