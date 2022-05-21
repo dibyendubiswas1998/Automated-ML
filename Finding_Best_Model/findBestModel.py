@@ -331,12 +331,202 @@ class Find_Best_Model:
             self.file.close()
             raise ex
 
+
+    def ForOnlyLinear(self, x_train, x_test, y_train, y_test):
+        """
+            Method Name: ForOnlyLinear
+            Description: This method helps to get linear regression model after training.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "It's help to get the Linear model by applying Linear Regression")
+            self.x_train, self.x_test, self.y_train, self.y_test = x_train, x_test, y_train, y_test
+            self.reg = Reg()  # call the regression model
+            # create or load the model
+            self.Linear_reg = self.reg.CreateLinearRegression(self.x_train, self.y_train)
+            self.Linear_reg.fit(self.x_train, self.y_train)
+            # predection using train data:--
+            self.Linear_reg_ypred_train = self.Linear_reg.predict(self.x_train)
+            # predection using test data:--
+            self.Linear_reg_ypred_test = self.Linear_reg.predict(self.x_test)
+            # get the r2-score based on test data:
+            self.Linear_r2_score_test = r2_score(self.y_test, self.Linear_reg_ypred_test)
+            self.logger_object.log(self.file, f"Rsquare value for test data is {self.Linear_r2_score_test}")
+            # get the r2-score based on train data:
+            self.Linear_r2_score_train = r2_score(self.y_train, self.Linear_reg_ypred_train)
+            self.logger_object.log(self.file, f"Rsquare value for train data is {self.Linear_r2_score_train}")
+            # return the linear model and r2-score:
+            return self.Linear_reg, self.Linear_r2_score_test
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
+    def ForOnlyRidge(self, x_train, x_test, y_train, y_test):
+        """
+            Method Name: ForOnlyRidge
+            Description: This method helps to get ridge regression model after training.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "It's help to get the Linear model by applying Ridge Regression")
+            self.x_train, self.x_test, self.y_train, self.y_test = x_train, x_test, y_train, y_test
+            self.reg = Reg()  # call the regression model
+            # create or load the model
+            self.Ridge_reg = self.reg.CreateRidgeRegression(self.x_train, self.y_train)
+            self.Ridge_reg.fit(self.x_train, self.y_train)
+            # predection using train data:--
+            self.Ridge_reg_ypred_train = self.Ridge_reg.predict(self.x_train)
+            # predection using test data:--
+            self.Ridge_reg_ypred_test = self.Ridge_reg.predict(self.x_test)
+            # get the r2-score based on test data:
+            self.Ridge_reg_score_test = r2_score(self.y_test, self.Ridge_reg_ypred_test)
+            self.logger_object.log(self.file, f"Rsquare value for test data is {self.Ridge_reg_score_test}")
+            # get the r2-score based on train data:
+            self.Ridge_reg_score_train = r2_score(self.y_train, self.Ridge_reg_ypred_train)
+            self.logger_object.log(self.file, f"Rsquare value for train data is {self.Ridge_reg_score_train}")
+            # return the ridge model and r2-score:
+            return self.Ridge_reg, self.Ridge_reg_score_test
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
+
+    def ForOnlyLasso(self, x_train, x_test, y_train, y_test):
+        """
+            Method Name: ForOnlyLasso
+            Description: This method helps to get lasso regression model after training.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "It's help to get the Linear model by applying Lasso Regression")
+            self.x_train, self.x_test, self.y_train, self.y_test = x_train, x_test, y_train, y_test
+            self.reg = Reg()  # call the regression model
+            # create or load the model
+            self.Lasso_reg = self.reg.CreateLassoRegression(self.x_train, self.y_train)
+            self.Lasso_reg.fit(self.x_train, self.y_train)
+            # predection using train data:--
+            self.Lasso_reg_ypred_train = self.Lasso_reg.predict(self.x_train)
+            # predection using test data:--
+            self.Lasso_reg_ypred_test = self.Lasso_reg.predict(self.x_test)
+            # get the r2-score based on test data:
+            self.Lasso_reg_score_test = r2_score(self.y_test, self.Lasso_reg_ypred_test)
+            self.logger_object.log(self.file, f"Rsquare value for test data is {self.Lasso_reg_score_test}")
+            # get the r2-score based on train data:
+            self.Lasso_reg_score_train = r2_score(self.y_train, self.Lasso_reg_ypred_train)
+            self.logger_object.log(self.file, f"Rsquare value for train data is {self.Lasso_reg_score_train}")
+            # return the lasso model and r2-score:
+            return self.Lasso_reg, self.Lasso_reg_score_test
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
+
+    def ForOnlyElasticNet(self, x_train, x_test, y_train, y_test):
+        """
+            Method Name: ForOnlyElasticNet
+            Description: This method helps to get elastic regression model after training.
+
+            Output: model.
+            On Failure: Raise Error.
+
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
+        """
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "It's help to get the Linear model by applying ElasticNet Regression")
+            self.x_train, self.x_test, self.y_train, self.y_test = x_train, x_test, y_train, y_test
+            self.reg = Reg()  # call the regression model
+            # create or load the model
+            self.ElasticNet_reg = self.reg.CreateElasticNet(self.x_train, self.y_train)
+            self.ElasticNet_reg.fit(self.x_train, self.y_train)
+            # predection using train data:--
+            self.ElasticNet_reg_ypred_train = self.ElasticNet_reg.predict(self.x_train)
+            # predection using test data:--
+            self.ElasticNet_reg_ypred_test = self.ElasticNet_reg.predict(self.x_test)
+            # get the r2-score based on test data:
+            self.ElasticNet_reg_score_test = r2_score(self.y_test, self.ElasticNet_reg_ypred_test)
+            self.logger_object.log(self.file, f"Rsquare value for test data is {self.ElasticNet_reg_score_test}")
+            # get the r2-score based on train data:
+            self.ElasticNet_reg_score_train = r2_score(self.y_train, self.ElasticNet_reg_ypred_train)
+            self.logger_object.log(self.file, f"Rsquare value for train data is {self.ElasticNet_reg_score_train}")
+            # return the lasso model and r2-score:
+            return self.ElasticNet_reg, self.ElasticNet_reg_score_test
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
+
+
+
     def ForRegressionALL(self, x_train, x_test, y_train, y_test):
         """
+            Method Name: ForRegressionALL
+            Description: This method helps to get best regression model after training.
 
+            Output: best model.
+            On Failure: Raise Error.
 
+            Written By: Dibyendu Biswas.
+            Version: 1.0
+            Revisions: None
         """
-        pass
+        try:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, "It's help to get the best model")
+            self.x_train, self.x_test, self.y_train, self.y_test = x_train, x_test, y_train, y_test
+            # Linear Regression:
+            self.li, self.li_score = self.ForOnlyLinear(x_train=self.x_train, x_test=self.x_test, y_train=self.y_train, y_test=self.y_test)
+            # Ridge Regression:
+            self.rid, self.rid_score = self.ForOnlyRidge(x_train=self.x_train, x_test=self.x_test, y_train=self.y_train, y_test=self.y_test)
+            # Lasso Regression:
+            self.las, self.las_score = self.ForOnlyLasso(x_train=self.x_train, x_test=self.x_test, y_train=self.y_train, y_test=self.y_test)
+            # ElasticNet Regression:
+            self.ela, self.ela_score = self.ForOnlyElasticNet(x_train=self.x_train, x_test=self.x_test, y_train=self.y_train, y_test=self.y_test)
+            # comparing the between the models using score:
+            if self.ela_score > self.las_score:
+                return "ElasticNet", self.ela, self.ela_score
+            else:
+                return "Lasso", self.las, self.las_score
+
+        except Exception as ex:
+            self.file = open(self.file_path, 'a+')
+            self.logger_object.log(self.file, f"Error is: {ex}")
+            self.file.close()
+            raise ex
 
 
 if __name__ == '__main__':
