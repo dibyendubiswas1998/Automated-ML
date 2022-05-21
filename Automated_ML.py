@@ -13,12 +13,6 @@ class Automated_ML:
     """
         This class shall be used for train the model.
 
-        :param x_train:
-        :param x_test:
-        :param y_train:
-        :param y_test:
-        :return:
-
         Written By: Dibyendu Biswas.
         Version: 1.0
         Revisions: None
@@ -43,6 +37,35 @@ class Automated_ML:
 
             Output: best model
             On Failure: Raise Error
+
+            Parameter Descriptions:{
+                data_path: 'E/User1/my_folder/data.csv' (mention only path where data is present),\n
+                yCol: 'output_col' (mention output column or output feature),\n
+                format: 'csv' (mention data format like csv, excel, etc.),\n
+                separator: ',' (comma separator, tab separator, etc.),\n
+                problemType: 'classification' (classification or regression, bydefault classification),\n
+                outlier_threshold: 3 (set the thereshold value to delete the outliers),\n
+                imputeMissing: KNNImputer (to handle the outliers by KNNImputer or mean),\n
+                dropCols: None (mention columns name for dropping, bydefault no columns drop),\n
+                scalingType: None (for data scaling you can use normalized or standarized or quantil transformation, bydefault None),\n
+                dataTransformationType: None (for data transformation using log or sqrt or boxcox, bydefault None),\n
+                chooseAlgorithm: dt (dt: Decision Tree, select)
+                                 for classification: (
+                                            dt --> Decision Tree,\n
+                                            rf --> Random Forest,\n
+                                            xg --> XGBoost,\n
+                                            ensemble_dt --> Ensemble Tequnique, base model Decision Tree,\n
+                                            ensemble_knn --> Ensemble Tequnique, base model KNN,\n
+                                            best_model --> get the best model by comparing all model,
+                                 )\n
+                                 for regression: (
+                                            linear --> Liner Regression,\n
+                                            lasso  --> Lasso Regression,\n
+                                            ridge  --> Ridge Regression,\n
+                                            elasticnet --> ElasticNet,\n
+                                            best_model --> get best model by comparing all model
+                                 )
+            }
 
             Written By: Dibyendu Biswas
             Version: 1.0
@@ -142,7 +165,7 @@ class Automated_ML:
                     return self.model, self.score
 
                 # if select the RandomForest Classifier:
-                if self.chooseAlgorithm.lower() in ['random forest', 'randomforest', 'rd']:
+                if self.chooseAlgorithm.lower() in ['random forest', 'randomforest', 'rf']:
                     for i in self.list_of_cluster:  # filter the data for one by one cluster
                         self.cluster_data = self.X[self.X['cluster_label'] == i]
                         self.cluster_features = self.cluster_data.drop(axis=1, columns=['Labels',
@@ -590,9 +613,6 @@ class Automated_ML:
                                                                         filename=f"{self.model_name}_{str(i)}")
                     self.logger_object.log(self.file, f"Successfully train and save the best model")
                     return self.model, self.score
-
-
-
 
         except Exception as ex:
             self.file = open(self.file_path, 'a+')
