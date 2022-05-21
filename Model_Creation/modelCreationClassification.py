@@ -1,10 +1,11 @@
+from Application_Log.logger import App_Logger
 from sklearn.ensemble import RandomForestClassifier, BaggingClassifier
 from sklearn.model_selection import GridSearchCV
 from xgboost import XGBClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from Application_Log.logger import App_Logger
-from File_Operations.fileMethods import File_Operations
+# from File_Operations.fileMethods import File_Operations
 
 
 class To_Create_Classification_Model:
@@ -19,7 +20,7 @@ class To_Create_Classification_Model:
     def __init__(self):
         self.file_path = "Executions_Logs/Training_Logs/Model_Creation_Logs.txt"  # this file path help to log the details in this file "Executions_Logs/Training_Logs/Model_Creation_Logs.txt"
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
-        self.file_operation = File_Operations()
+        # self.file_operation = File_Operations()
 
     def CreateDecisionTreeClassifier(self, x_train, y_train):
         """
@@ -64,7 +65,7 @@ class To_Create_Classification_Model:
                                               min_samples_split=self.min_samples_split,
                                               min_samples_leaf=self.min_samples_leaf)
             self.logger_object.log(self.file, f"train the model with best parameters {self.grid_search.best_params_}")
-            self.file_operation.ToSaveModel(self.clf, "DecisionTree Classifier")  # Save the model in a directory
+            # self.file_operation.ToSaveModel(self.clf, "DecisionTree Classifier")  # Save the model in a directory
             self.file.close()
             return self.clf  # return the model
 
@@ -111,7 +112,7 @@ class To_Create_Classification_Model:
                                               max_depth=self.max_depth,
                                               max_features=self.max_features)
             self.logger_object.log(self.file, f"Trained the model with best parameter {self.grid_search.best_params_}")
-            self.file_operation.ToSaveModel(self.clf, "RandomForest Classifier")  # Save the model in a directory
+            # self.file_operation.ToSaveModel(self.clf, "RandomForest Classifier")  # Save the model in a directory
             self.file.close()
             return self.clf  # return model
 
@@ -157,7 +158,7 @@ class To_Create_Classification_Model:
             # train the model with the best parameters:
             self.clf = XGBClassifier(self.learning_rate, self.max_depth, self.n_estimators)
             self.logger_object.log(self.file, f"Trained the model with best parameters {self.grid_search.best_params_}")
-            self.file_operation.ToSaveModel(self.clf, "XGBoost Classifier")  # Save the model in a directory
+            # self.file_operation.ToSaveModel(self.clf, "XGBoost Classifier")  # Save the model in a directory
             self.file.close()
             return self.clf
 
@@ -214,7 +215,7 @@ class To_Create_Classification_Model:
             self.clf = BaggingClassifier(base_estimator=self.clf, n_estimators=10, max_samples=0.5,
                                          bootstrap=True, random_state=101, oob_score=True)
             self.logger_object.log(self.file, f"Trained the model using Ensembel approach")
-            self.file_operation.ToSaveModel(self.clf, "Ensemble_DecisionTree Classifier")  # Save the model in a directory
+            # self.file_operation.ToSaveModel(self.clf, "Ensemble_DecisionTree Classifier")  # Save the model in a directory
             self.file.close()
             return self.clf  # return the model
 
@@ -248,7 +249,7 @@ class To_Create_Classification_Model:
             self.clf = BaggingClassifier(base_estimator=self.clf, n_estimators=17, max_samples=0.5,
                                          bootstrap=True, random_state=101, oob_score=True)
             self.logger_object.log(self.file, f"Trained the model using Ensembel approach")
-            self.file_operation.ToSaveModel(self.clf, "Ensemble_KNN Classifier")  # Save the model in a directory
+            # self.file_operation.ToSaveModel(self.clf, "Ensemble_KNN Classifier")  # Save the model in a directory
             self.file.close()
             return self.clf
 
