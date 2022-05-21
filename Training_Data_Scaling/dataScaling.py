@@ -23,7 +23,7 @@ class Data_Scaling:
         self.logger_object = App_Logger()  # call the App_Logger() to log the details
 
 
-    def ToNormalized(self, data, Xcols):
+    def ToNormalized(self, data):
         """
             Method Name: ToNormalized
             Description: This method helps to scale the data using MinMaxScaler() technique.
@@ -38,13 +38,11 @@ class Data_Scaling:
         try:
             self.file = open(self.file_path, 'a+')
             self.data = data
-            self.Xcols = Xcols
             self.minmax = MinMaxScaler()
-            self.scaled_data = self.minmax.fit_transform(self.data[self.Xcols])
-            self.scaled_data = pd.DataFrame(self.scaled_data, columns=self.Xcols)
-            self.logger_object.log(self.file, f"Normalize the data using MinMaxScaler() technique, columns: {self.Xcols}")
+            self.scaled_data = self.minmax.fit_transform(self.data)
+            self.logger_object.log(self.file, f"Normalize the data using MinMaxScaler() technique")
             self.file.close()
-            return self.scaled_data, self.minmax
+            return self.scaled_data
 
         except Exception as ex:
             self.file = open(self.file_path, 'a+')
@@ -53,7 +51,7 @@ class Data_Scaling:
             raise ex
 
 
-    def ToStandarized(self, data, Xcols):
+    def ToStandarized(self, data):
         """
             Method Name: ToStandarized
             Description: This method helps to scale the data using StandardScaler() technique.
@@ -68,13 +66,11 @@ class Data_Scaling:
         try:
             self.file = open(self.file_path, 'a+')
             self.data = data
-            self.Xcols = Xcols
             self.stadarize = StandardScaler()
-            self.scaled_data = self.stadarize.fit_transform(self.data[self.Xcols])
-            self.scaled_data = pd.DataFrame(self.scaled_data, columns=self.Xcols)
-            self.logger_object.log(self.file, f"Standarized the data using StandardScaler() technique, columns: {self.Xcols}")
+            self.scaled_data = self.stadarize.fit_transform(self.data)
+            self.logger_object.log(self.file, f"Standarized the data using StandardScaler() technique")
             self.file.close()
-            return self.scaled_data, self.stadarize
+            return self.scaled_data
 
         except Exception as ex:
             self.file = open(self.file_path, 'a+')
@@ -83,7 +79,7 @@ class Data_Scaling:
             raise ex
 
 
-    def ToQuantilTransformerScaler(self, data, Xcols):
+    def ToQuantilTransformerScaler(self, data):
         """
             Method Name: ToStandarized
             Description: This method helps to scale the data using QuantilTransformerScaler() technique.
@@ -98,13 +94,11 @@ class Data_Scaling:
         try:
             self.file = open(self.file_path, 'a+')
             self.data = data
-            self.Xcols = Xcols
             self.quantile = QuantileTransformer()
-            self.scaled_data = self.quantile.fit_transform(self.data[self.Xcols])
-            self.scaled_data = pd.DataFrame(self.scaled_data, columns=self.Xcols)
-            self.logger_object.log(self.file, f"Scaling the data using QuantileTransformer() technique, columns: {self.Xcols}")
+            self.scaled_data = self.quantile.fit_transform(self.data)
+            self.logger_object.log(self.file, f"Scaling the data using QuantileTransformer() technique")
             self.file.close()
-            return self.scaled_data, self.quantile
+            return self.scaled_data
 
         except Exception as ex:
             self.file = open(self.file_path, 'a+')
