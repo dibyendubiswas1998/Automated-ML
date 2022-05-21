@@ -78,7 +78,7 @@ class KMeans_Clustering:
             self.data = data
             self.no_cluster = no_cluster
             self.kmeans = KMeans(n_clusters=self.no_cluster, init='k-means++', random_state=101)  # create a cluster using KMeans Clustering
-            self.fileOperation.ToSaveModel(model=self.kmeans, filename="KMeans Clustering")
+            self.fileOperation.ToSaveModel(model=self.kmeans, filename="KMeans")
             self.y_kmeans = self.kmeans.fit_predict(self.data)  # predict the cluster labels
             self.data['cluster_label'] = self.y_kmeans  # attach the cluster labels with the given data
             self.logger_object.log(self.file, "Successfully create the clusters & labeled the cluster")
